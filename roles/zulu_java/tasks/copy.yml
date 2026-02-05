@@ -1,0 +1,15 @@
+---
+- name: Copy Java components from network share
+  ansible.windows.win_copy:
+    src: "{{ item.src }}"
+    dest: "{{ java_root }}"
+    remote_src: true
+  become: true
+  become_method: runas
+  become_user: SYSTEM
+  loop:
+    - { src: "{{ jdk_source }}" }
+    - { src: "{{ jre_source }}" }
+
+- name: Set Java environment variables
+  ansible.builtin.import_tasks: env.yml

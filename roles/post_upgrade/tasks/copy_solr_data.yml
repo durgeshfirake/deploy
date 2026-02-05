@@ -1,0 +1,13 @@
+- name: Copy Solr data directories from backup to target
+  community.windows.win_robocopy:
+    src: "{{ solr_backup_src }}\\"
+    dest: "{{ solr_target_dest }}\\"
+    recurse: true
+    remote_src: true
+  become: true
+  become_method: runas
+  become_user: SYSTEM
+- name: Restart Active Workspace Indexing Service
+  ansible.windows.win_service:
+    name: "Active Workspace Indexing Service"
+    state: restarted

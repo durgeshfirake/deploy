@@ -1,0 +1,18 @@
+---
+- name: Update ServerDir in upgrade_config.properties
+  community.windows.win_lineinfile:
+    path: "{{ tc_kit_path }}\\install\\DeploymentCenter\\deployment_center\\upgrade_config.properties"
+    regexp: '^serverDir='
+    line: "serverDir={{ server_dir }}"
+    create: true
+
+- name: Run DC Upgrade
+  ansible.windows.win_shell: |
+        cmd /C "cd /D {{ tc_kit_path }}\\install\\DeploymentCenter\\deployment_center && deployment_center.bat -upgrade -inputFile=upgrade_config.properties"
+  register: upgrade_output
+  
+- name: Display current directory
+  ansible.builtin.debug:
+    msg: "{{ upgrade_output.stdout }}"
+
+# dc service 

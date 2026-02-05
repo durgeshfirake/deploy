@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<quickDeployConfig configName="perflab" configId="Performance_Lab" siteId="-1934426589" version="1.0">
+    <archType types="J2EE"/>
+    <envType types="singleEnvironment"/>
+    <quickDeploySoftware>
+        <software id="Foundation" version="{{ foundation_version }}" defaultSelection="true"/>
+        <software id="dmp9docmgtperformance" version="{{ dmp_version }}" defaultSelection="true"/>
+        <software id="docmgtsample" version="{{ docmgt_version }}" defaultSelection="true"/>
+        <software id="pse" version="{{ pse_version }}" defaultSelection="true"/>
+        <software id="wf4cucumbertemplate" version="{{ wf_version }}" defaultSelection="true"/>
+    </quickDeploySoftware>
+    <quickDeployApplications>
+        <package id="Cm1cmaws"/>
+        <package id="TcIF"/>
+        <package id="aa1activearchitectcore"/>
+        <package id="abr0advancedbomrollup"/>
+        <package id="abr1advancedbomrollup"/>
+        <package id="ac0activecollaboration"/>
+        <package id="activeworkspacebom"/>
+        <package id="adm1admconsolecore"/>
+        <package id="am0accessmanageraw"/>
+        <package id="apb0attrparmbase"/>
+        <package id="appmodel"/>
+        <package id="aps0apscore"/>
+        <package id="aps1apscore"/>
+        <package id="arcommonclient"/>
+        <package id="arm0activeworkspacereqmgmt"/>
+        <package id="arm1awreqmgmtse"/>
+        <package id="asbuilt"/>
+        <package id="ase0activeworkspacesyseng"/>
+        <package id="ase1systemsmodeling"/>
+        <package id="asm1assemblybom"/>
+        <package id="asmaintained"/>
+        <package id="att0attrtargetmgmt"/>
+        <package id="att1attrtargetmgmtaw"/>
+        <package id="aud0auditaw"/>
+        <package id="aut0authorizationaws"/>
+        <package id="aw_dispatcher_internal"/>
+        <package id="awn0nx"/>
+        <package id="aws2_client"/>
+        <package id="awv0activeworkspacevis"/>
+        <package id="awv0visualization2dviewer"/>
+        <package id="bcs0buildconditions"/>
+        <package id="bdo0branchdataorganization"/>
+        <package id="behaviormodeling"/>
+        <package id="bhm1behaviormodelingaw"/>
+        <package id="bhv0branchfoundation"/>
+        <package id="bhv1branchingandversioning"/>
+        <package id="bom0bommanagement"/>
+        <package id="brm1brndmgmtaw"/>
+        <package id="brndmgmt"/>
+        <package id="cae"/>
+        <package id="cae1caeaws"/>
+        <package id="calendarmanagement_client"/>
+        <package id="capturetool"/>
+        <package id="cdm0contractmanagement"/>
+        <package id="cdm1awcontractmanagement"/>
+        <package id="cfg0configurator"/>
+        <package id="cfg0configuratorApp"/>
+        <package id="cfg0configuratorServices"/>
+        <package id="cfi0cfihosstandard"/>
+        <package id="chx0characteristics"/>
+        <package id="cif0integrationframework"/>
+        <package id="cla0classification"/>
+        <package id="classification"/>
+        <package id="classificationaiserving"/>
+        <package id="classificationaitrainingapp"/>
+        <package id="clr0colorappearance"/>
+        <package id="cls1classificationaw"/>
+        <package id="cm"/>
+        <package id="cmb0cm4gbom"/>
+        <package id="cmc0cfgcm"/>
+        <package id="col1colorappearanceaw"/>
+        <package id="contmgmtbase"/>
+        <package id="contmgmtdita"/>
+        <package id="contmgmts1000d"/>
+        <package id="contmgmts1000d40"/>
+        <package id="cpd"/>
+        <package id="cpdcm"/>
+        <package id="cpdim"/>
+        <package id="cpgmaterials"/>
+        <package id="crf0cprfoundation"/>
+        <package id="crt0validationcontract"/>
+        <package id="crt1validationcontractaw"/>
+        <package id="csi"/>
+        <package id="csi1cmsmawinterface"/>
+        <package id="ctm1contmgmtaw"/>
+        <package id="darsi"/>
+        <package id="dbdamreadexprmgrservice"/>
+        <package id="dds0datadiscovery"/>
+        <package id="dia0diagramming"/>
+        <package id="dispatcher"/>
+        <package id="dispatcher_client"/>
+        <package id="dispatcher_internal"/>
+        <package id="dispatcherconsole"/>
+        <package id="dma1docmgmtaw"/>
+        <package id="dmp9docmgtperformance"/>
+        <package id="docmgtsample"/>
+        <package id="ebm0enterprisebom"/>
+        <package id="ebm1awebom"/>
+        <package id="eda1edaserveraw"/>
+        <package id="edalibrary"/>
+        <package id="edaserver"/>
+        <package id="eml0entarchmodeling"/>
+        <package id="emps"/>
+        <package id="eureka_server"/>
+        <package id="evm0viewmgmt"/>
+        <package id="evm1viewmgmtaw"/>
+        <package id="fgb0aw4gbom"/>
+        <package id="fgc0cm4g"/>
+        <package id="fgd0aw4gdesign"/>
+        <package id="fgf0aw4gfoundation"/>
+        <package id="fha0fhanalysis"/>
+        <package id="file_repo"/>
+        <package id="fnd0_foundation"/>
+        <package id="fpmgmt"/>
+        <package id="fpmgmt2cpgmaterialsbridge"/>
+        <package id="fs0functionalsafety"/>
+        <package id="ftsIndexer"/>
+        <package id="ganttinterface_client"/>
+        <package id="geometrictool"/>
+        <package id="hmc0marineint"/>
+        <package id="hostedvis"/>
+        <package id="hrn"/>
+        <package id="iae1verificationmanagement"/>
+        <package id="iav0verificationmanagement"/>
+        <package id="iav1verificationmanagement"/>
+        <package id="icc0awincontextchange"/>
+        <package id="icd0ippecdmext"/>
+        <package id="icp0campaignmgmt"/>
+        <package id="ics1icsaw"/>
+        <package id="iim0ideamgmt"/>
+        <package id="im0industrymachinery"/>
+        <package id="im1industrymachineryaw"/>
+        <package id="imd0medicaldevice"/>
+        <package id="imd1medicaldeviceaw"/>
+        <package id="imodelviewersvc"/>
+        <package id="imp0tc4labelmgmt"/>
+        <package id="inm0initiativemgmt"/>
+        <package id="inm1initiativemgmtaw"/>
+        <package id="ipc0cpgipmcatalyst"/>
+        <package id="ipc1ppcpginterfaceaw"/>
+        <package id="ipm0integprogmgmt"/>
+        <package id="ipm1progplanningadvaw"/>
+        <package id="ipp0ippecore"/>
+        <package id="ips0scipmoverlay"/>
+        <package id="ips1scipmoverlayaw"/>
+        <package id="ipt0tc4ipmgmt"/>
+        <package id="ipt1tc4ipmgmtaw"/>
+        <package id="isi0ipmanagement"/>
+        <package id="isi1ipmanagementaw"/>
+        <package id="issuemgmt"/>
+        <package id="kanbaninterface_client"/>
+        <package id="lbr1librarymgmtaw"/>
+        <package id="librarymgmt"/>
+        <package id="mad0madeint"/>
+        <package id="mar1marineint"/>
+        <package id="markupaw"/>
+        <package id="materialmgmt"/>
+        <package id="matlabint"/>
+        <package id="mbseservices"/>
+        <package id="mdc0mdconnectivity"/>
+        <package id="mdo"/>
+        <package id="mds0meddevfoundation"/>
+        <package id="mds1meddevaw"/>
+        <package id="mdw0magicdraw"/>
+        <package id="mea0fpam"/>
+        <package id="microproxy"/>
+        <package id="microserviceFramework"/>
+        <package id="microserviceparameterstore"/>
+        <package id="mq0hara"/>
+        <package id="mrocore"/>
+        <package id="mrs0modelrepositorysystem"/>
+        <package id="mtw0materialmgmtaw"/>
+        <package id="multisite"/>
+        <package id="multisite_client"/>
+        <package id="nfc0nonfunctionalchange"/>
+        <package id="nx0tcin"/>
+        <package id="nx1tcincm"/>
+        <package id="nxc0tcincpd"/>
+        <package id="nxl0logical"/>
+        <package id="nxl1logical"/>
+        <package id="nxp0pid"/>
+        <package id="nxp1pidaws"/>
+        <package id="nxug"/>
+        <package id="obs0orgbreakdown"/>
+        <package id="obs1aworgbreakdown"/>
+        <package id="ods0objectdataservices"/>
+        <package id="openintool_client"/>
+        <package id="ord0ordermanagement"/>
+        <package id="ord1ordermanagementaw"/>
+        <package id="partition"/>
+        <package id="pca0awconfigurator"/>
+        <package id="pch0pchinterface"/>
+        <package id="pdg0ptndesigngdlines"/>
+        <package id="pdi0polarionint"/>
+        <package id="pdm0plantdatamgmt"/>
+        <package id="pdm1plantdatamgmtaw"/>
+        <package id="pec0ppeventchange"/>
+        <package id="pgp0awprgplanning"/>
+        <package id="pie_client"/>
+        <package id="pka1pkgartaw"/>
+        <package id="pkgart"/>
+        <package id="pkgart2fpmgmtbridge"/>
+        <package id="plantdataviewer"/>
+        <package id="plp0prodlineplan"/>
+        <package id="pm0partmanufacturing"/>
+        <package id="pm1partmanufacturingaw"/>
+        <package id="pma0automation"/>
+        <package id="pma1awautomation"/>
+        <package id="pmg0cpmgmt"/>
+        <package id="pmg1cpmgmtaw"/>
+        <package id="pmitool"/>
+        <package id="prf1prefmgmt"/>
+        <package id="prg0programinfra"/>
+        <package id="prm1parammgmtaw"/>
+        <package id="projmgmt"/>
+        <package id="ps"/>
+        <package id="pse"/>
+        <package id="psi0ppsminterface"/>
+        <package id="ptn0awpartitionforstructure"/>
+        <package id="ram0ramsmodeling"/>
+        <package id="ram1ramsmodelingaw"/>
+        <package id="rb0reportingaw"/>
+        <package id="rea0reliabilityanalysis"/>
+        <package id="realization"/>
+        <package id="relations"/>
+        <package id="relationshipviewer"/>
+        <package id="req_compare_service"/>
+        <package id="req_export_service"/>
+        <package id="req_import_service"/>
+        <package id="ret1retailaw"/>
+        <package id="retail"/>
+        <package id="richtexteditor"/>
+        <package id="rzc0rlzcm"/>
+        <package id="s2clsocial"/>
+        <package id="sab1asbuiltaw"/>
+        <package id="sam1asmaintainedaw"/>
+        <package id="saw1projectmanagementaw"/>
+        <package id="sc0suppliercollaboration"/>
+        <package id="sc1suppliercollaborationaw"/>
+        <package id="scd0scip"/>
+        <package id="sci0imdsintegration"/>
+        <package id="sci1imdsintegrationaw"/>
+        <package id="scw0subscmplaw"/>
+        <package id="searchaw"/>
+        <package id="security_client"/>
+        <package id="service_dispatcher"/>
+        <package id="sfd0semiconductorfoundation"/>
+        <package id="sfd1semiconductorfoundationaw"/>
+        <package id="sharedsamauth"/>
+        <package id="smc0psmcfgsupport"/>
+        <package id="smc1OccmgmtConfigurator"/>
+        <package id="smc1activeworkspacebom"/>
+        <package id="smd0systemmodeling"/>
+        <package id="smr1mrocoreaw"/>
+        <package id="specmgr"/>
+        <package id="spm1specmgraw"/>
+        <package id="srh0apsconfiguredsearch"/>
+        <package id="ssm0systemsynthesismodeling"/>
+        <package id="ssm1systemsynthesismodelingaw"/>
+        <package id="structureviewer"/>
+        <package id="sub0subscription"/>
+        <package id="subscmpl"/>
+        <package id="svm0siemensvisualmaterial"/>
+        <package id="sym0systemmodelingint"/>
+        <package id="sys1systemmodelingintaw"/>
+        <package id="sysmlv2_service"/>
+        <package id="systemsengineering"/>
+        <package id="tcgql"/>
+        <package id="tcvismicroservice"/>
+        <package id="tie0aw"/>
+        <package id="translationservice"/>
+        <package id="um0usermanagement"/>
+        <package id="uml0umlsysml"/>
+        <package id="uml1umlsysmlaw"/>
+        <package id="usg0awusageocc"/>
+        <package id="uso0supportal"/>
+        <package id="usp0supportal"/>
+        <package id="usp1supportalaw"/>
+        <package id="uss0supportal"/>
+        <package id="vendormanagement"/>
+        <package id="vieweradmin"/>
+        <package id="vieweradministration"/>
+        <package id="viewersnapshot"/>
+        <package id="viewertool"/>
+        <package id="visualization3d"/>
+        <package id="vm1vendormanagementaw"/>
+        <package id="wbs0workbreakdownstructure"/>
+        <package id="wf4cucumbertemplate"/>
+        <package id="wnb0weightandbalance"/>
+        <package id="wnb1weightandbalanceaw"/>
+        <package id="workflowaw"/>
+        <package id="xc0sharecollaboration"/>
+        <package id="xc1sharecollaborationaw"/>
+        <package id="xccshareservice"/>
+        <package id="xrteditor"/>
+    </quickDeployApplications>
+    <quickDeployClients>
+        <client id="fnd0_4tierrichclient" machineName="{{ tc_machine }}" massDeploy="false" platform="wntx64" createTemplateClient="false" useTemplateClient="false">
+            <property id="fnd0_4tierrichclient.appSupportedList" value="selectedApps"/>
+            <property id="fnd0_4tierrichclient.imported" value="false"/>
+            <property id="fnd0_4tierrichclient.infrastructureType" value="Local"/>
+            <property id="fnd0_4tierrichclient.installNewTCCS" value="true"/>
+            <property id="fnd0_4tierrichclient.massDeployCheck" value="false"/>
+            <property id="fnd0_4tierrichclientInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_4tierrichclientPortalViewerLicenseLevel" value="Base"/>
+            <property id="fnd0_compressWebResponse" value="true"/>
+            <property id="fnd0_racRuntimeTempFolder" value=""/>
+            <package id="asbuilt"/>
+            <package id="asmaintained"/>
+            <package id="bom0bommanagement"/>
+            <package id="cdm0contractmanagement"/>
+            <package id="cfg0configurator"/>
+            <package id="clr0colorappearance"/>
+            <package id="contmgmtbase"/>
+            <package id="contmgmtdita"/>
+            <package id="contmgmts1000d40"/>
+            <package id="cpd"/>
+            <package id="materialmgmt"/>
+            <package id="mdo"/>
+            <package id="smc0psmcfgsupport"/>
+            <package id="subscmpl"/>
+            <package id="vendormanagement"/>
+        </client>
+        <client id="fnd0_tccs" machineName="{{ tc_machine }}" massDeploy="false" platform="wntx64" createTemplateClient="false" useTemplateClient="false">
+            <property id="fnd0_forwardProxyExceptions" value=""/>
+            <property id="fnd0_forwardproxyserver.AllHost" value=""/>
+            <property id="fnd0_forwardproxyserver.AllPort" value=""/>
+            <property id="fnd0_forwardproxyserver.HTTPHost" value=""/>
+            <property id="fnd0_forwardproxyserver.HTTPPort" value=""/>
+            <property id="fnd0_forwardproxyserver.HTTPSHost" value=""/>
+            <property id="fnd0_forwardproxyserver.HTTPSPort" value=""/>
+            <property id="fnd0_forwardproxyserver.ProtocolsType" value="AllProtocols"/>
+            <property id="fnd0_reverseProxyCriteriaList" value=""/>
+            <property id="fnd0_tccs.massDeployCheck" value="false"/>
+            <property id="fnd0_tccsAuthenticationOption" value="false"/>
+            <property id="fnd0_tccsConfigSelectionOptions" value="private"/>
+            <property id="fnd0_tccsConfigureSSLTrustStore" value="useTrustStore"/>
+            <property id="fnd0_tccsEnableClientCommunicationConfig" value="false"/>
+            <property id="fnd0_tccsFccOptions" value="installFCC"/>
+            <property id="fnd0_tccsForwardProxyOptions" value="noForwardProxy"/>
+            <property id="fnd0_tccsForwardProxyWindowsOptions" value="noForwardProxy"/>
+            <property id="fnd0_tccsFscAssignmentMode" value="clientmap"/>
+            <property id="fnd0_tccsInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_tccsKerberosAuthenticationOptions" value="useDefaultSettings"/>
+            <property id="fnd0_tccsKeyStoreFilePath" value=""/>
+            <property id="fnd0_tccsKeyStoreTypeList" value="JKS"/>
+            <property id="fnd0_tccsKrb5FilePath" value=""/>
+            <property id="fnd0_tccsMergeFromFMSHome" value="false"/>
+            <property id="fnd0_tccsProxyURL" value=""/>
+            <property id="fnd0_tccsReverseProxyOptions" value=""/>
+            <property id="fnd0_tccsSSLOptions" value="useIECertificateStore"/>
+            <property id="fnd0_tccsSupportKerberosAuthentication" value=""/>
+            <property id="fnd0_tccsTrustStoreFilePath" value=""/>
+            <property id="fnd0_tccsimported" value="false"/>
+            <property id="fnd0_tccsinfrastructureType" value="Local"/>
+        </client>
+    </quickDeployClients>
+    <quickDeployComponents>
+        <component id="aws2_client_builder" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_clientBuilderInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="aws2_client_builder_locales" value="en_US"/>
+            <property id="aws2_client_builder_performComponentBuild" value="true"/>
+            <property id="aws2_client_builder_publish" value="false"/>
+        </component>
+        <component id="aws2_client_gateway_webtier" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_Tc4TierConOptions" value="directConnectionToWebtier"/>
+            <property id="aws2_client_gateway_HostAlias" value="{{ tc_machine }}"/>
+            <property id="aws2_client_gateway_app_url" value="http://{{ tc_machine }}:3000/"/>
+            <property id="aws2_client_gateway_digitalProductExperience" value="true"/>
+            <property id="aws2_client_gateway_enable_csp" value="true"/>
+            <property id="aws2_client_gateway_ingress_url" value=""/>
+            <property id="aws2_client_gateway_productExcellenceProgram" value="true"/>
+            <property id="aws2_client_gateway_samAuthClientID" value="12345"/>
+            <property id="aws2_client_gateway_samAuthClientSecretID" value="12345" encrypted="false"/>
+            <property id="aws2_client_gateway_samAuthEndpoint" value="https://samauth.us-east-1.sws.siemens.com"/>
+            <property id="aws2_client_gateway_url_prefix" value="/"/>
+            <property id="aws2_client_gateway_webtier_bootstrapClientIP" value="146.122.82.105"/>
+            <property id="aws2_client_gateway_webtier_gatewayPort" value="3000"/>
+            <property id="aws2_client_gateway_webtier_installationPath" value="{{ paths.tc_root}}"/>
+            <property id="aws2_client_gateway_webtier_maxAge" value="6"/>
+            <property id="aws2_client_gateway_webtier_unit" value="Months"/>
+            <property id="aws2_client_gateway_webtier_url" value="http://{{ tc_machine }}:3000/"/>
+            <property id="aws2_client_gateway_webtier_useSSL" value="http"/>
+            <property id="aws2_client_gateway_webtier_volumeConnectionOptions" value="useAsBootstrapUrlsOption"/>
+            <property id="aws2_client_gateway_xccShareURL" value="http://{{ tc_machine }}:3000"/>
+            <property id="aws2_client_has_additional_customRoutes" value=""/>
+            <property id="aws2_forceSecureAttributeOnCookies" value="false"/>
+            <property id="aws2_lb_4tier_deployableFileName" value="tc"/>
+            <property id="xc1sharecollaborationaw_install" value="1"/>
+        </component>
+        <component id="aws2_ftsIndexer" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="autostart_discovery_autoindex_service" value=""/>
+            <property id="autostart_discovery_mmvsync_service" value=""/>
+            <property id="autostart_discovery_sync_service" value=""/>
+            <property id="autostart_partition_sync_service" value=""/>
+            <property id="aws2_autoStartObjdataService" value=""/>
+            <property id="aws2_autoStartSuggBuilderService" value=""/>
+            <property id="aws2_exportBatchSize" value="1000"/>
+            <property id="aws2_extractionEndTime" value=""/>
+            <property id="aws2_extractionStartTime" value="2011-01-01 00:01"/>
+            <property id="aws2_ftsIndexer_Tc4TierConOptions" value="directConnectionToWebtier"/>
+            <property id="aws2_ftsIndexer_lb_4tier_deployableFileName" value="tc"/>
+            <property id="aws2_indexerInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="aws2_indexerMachinePassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="aws2_indexerMachineUser" value="PLM\yytcawpt"/>
+            <property id="aws2_indexerStagingDirPath" value="{{ paths.tc_root}}\TcFTSIndexer\working"/>
+            <property id="aws2_indexingEnvOptions" value="standaloneBasedOption"/>
+            <property id="aws2_installDatabaseTrigger" value="true"/>
+            <property id="aws2_maxQueryTimeSpan" value="20000"/>
+            <property id="aws2_maxTeamcenterConnections" value="3"/>
+            <property id="aws2_objdataServiceName" value="Teamcenter Global Search Indexing Service"/>
+            <property id="aws2_objdataTimeInterval" value="60"/>
+            <property id="aws2_runAsIndexerService" value="true"/>
+            <property id="aws2_setIndexingUserInfo" value="false"/>
+            <property id="aws2_suggBuilderInterval" value="300"/>
+            <property id="aws2_suggBuilderServiceName" value="Teamcenter Suggestion Builder Service"/>
+            <property id="aws2_tcAdminPassword" value="REPLACEME" encrypted="false"/>
+            <property id="aws2_tcAdminUser" value=""/>
+            <property id="aws2_teamcenterRetryCount" value="5"/>
+            <property id="cfg0_indexer_analyze_user_pattern_interval" value="21600"/>
+            <property id="cfg0_indexer_optimization_interval" value="3600"/>
+            <property id="discovery_autoindex_as_service" value="false"/>
+            <property id="discovery_autoindex_is_MMV" value=""/>
+            <property id="discovery_autoindex_service_name" value="Teamcenter Discovery Auto-Index Service"/>
+            <property id="discovery_autoindex_time_interval" value="600"/>
+            <property id="discovery_mmvsync_as_service" value="false"/>
+            <property id="discovery_mmvsync_service_name" value="Teamcenter Discovery MMV Sync Service"/>
+            <property id="discovery_mmvsync_time_interval" value="1200"/>
+            <property id="discovery_sync_as_service" value="false"/>
+            <property id="discovery_sync_service_name" value="Teamcenter Discovery Sync Service"/>
+            <property id="discovery_sync_time_interval" value="120"/>
+            <property id="partition_sync_as_service" value="false"/>
+            <property id="partition_sync_service_name" value="Teamcenter Partition Sync Service"/>
+            <property id="partition_sync_time_interval" value="120"/>
+        </component>
+        <component id="aws2_indexingengine" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_Select_additionalSearchEngineURL" value="false"/>
+            <property id="aws2_indexingEngineURL" value="http://{{ tc_machine }}:8983/solr"/>
+            <property id="aws2_indexingEngineUser" value="solr_admin"/>
+            <property id="aws2_indexingEngineUserPassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="aws2_machinePassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="aws2_machineUser" value="PLM\yytcawpt"/>
+            <property id="aws2_runAsService" value="runAsService"/>
+            <property id="aws2_solrServiceName" value="Active Workspace Indexing Service"/>
+            <property id="aws2_solr_serverProtocol" value="http"/>
+            <property id="aws2_tcIndexingEngineInstallationPath" value="{{ paths.tc_root}}"/>
+        </component>
+        <component id="aws2_vispoolassigner" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_addServerPeerAssigner" value="addServerPeerAssigner"/>
+            <property id="aws2_tcVisPoolAssignerInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="aws2_visPoolAssignerHostAlias" value="{{ tc_machine }}"/>
+            <property id="aws2_visServerPeerAssignerHost" value=""/>
+            <property id="aws2_visServerPeerAssignerPort" value="30066"/>
+            <property id="aws2_visServerPoolAssignerClientFacingPort" value="8089"/>
+            <property id="aws2_visServerPoolAssignerPort" value="30066"/>
+            <property id="aws2_visServerPoolAssignerURL" value="https://{{ tc_machine }}:8089/VisProxyServlet"/>
+            <property id="aws2_vispoolassigner.UseSSL" value="https"/>
+            <property id="aws2_vispoolassigner_Tc4TierConOptions" value="directConnectionToWebtier"/>
+        </component>
+        <component id="aws2_visservermanager" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_enableCacheMode" value="true"/>
+            <property id="aws2_maxServerPoolCount" value="30"/>
+            <property id="aws2_minWarmServerCount" value="8"/>
+            <property id="aws2_serverPoolMgrId" value="VisServerManager871"/>
+            <property id="aws2_serverPoolOverrideLocalHost" value="{{ tc_machine }}"/>
+            <property id="aws2_serverPoolOverrideLocalHostPort" value="30077"/>
+            <property id="aws2_serverPoolOverrideLocalHostSettings" value="overrideLocalNodeSettings"/>
+            <property id="aws2_serverPoolPort" value="8090"/>
+            <property id="aws2_tcVisServerManagerInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="aws2_visServerManagerHostAlias" value="{{ tc_machine }}"/>
+            <property id="aws2_visservermanager.UseSSL" value="https"/>
+        </component>
+        <component id="fnd0_Plantcad2Tc" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="COMOS_BASE_URL" value=""/>
+            <property id="fnd0_Plantcad2Tc.COMOS_OPTION" value="false"/>
+            <property id="fnd0_Plantcad2TcInstallationPath" value="{{ paths.tc_root}}"/>
+        </component>
+        <component id="fnd0_TcIF" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_TcIFInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_TcIFInternalDBUserName" value="PLM\yytcawpt"/>
+            <property id="fnd0_TcIFInternalDBUserPassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="fnd0_TcIFServerProtocol" value="http"/>
+            <property id="fnd0_TcIFUser" value="IFAdmin"/>
+            <property id="fnd0_TcIFUserPassword" value="{{ passwords.if_admin_password }}" encrypted="false"/>
+            <property id="fnd0_activeMQPort" value="61616"/>
+            <property id="fnd0_contextRoot" value="tcif"/>
+            <property id="fnd0_restServicePort" value="8092"/>
+            <property id="fnd0_statusServicePort" value="61716"/>
+            <property id="fnd0_tcifID" value=""/>
+            <property id="fnd0_webServicePort" value="8080"/>
+        </component>
+        <component id="fnd0_corporateserver" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_ReadExprMgrEndTime" value=""/>
+            <property id="fnd0_ReadExprMgrSleepTime" value="10"/>
+            <property id="fnd0_ReadExprMgrStartTime" value=""/>
+            <property id="fnd0_corporateserver_osUserName" value="PLM\yytcawpt"/>
+            <property id="fnd0_corporateserver_osUserPassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="fnd0_corporateserver_tcAdminPasswordChangeOptions" value="Deployment Center"/>
+            <property id="fnd0_enableReadExpMgrService" value="true"/>
+            <property id="fnd0_enableRevCfgAccService" value="true"/>
+            <property id="fnd0_genClientCache" value="true"/>
+            <property id="fnd0_genServerCache" value="true"/>
+            <property id="fnd0_nxgraphicsbuilder_CorpServer_nxInstallationPath" value="C:\\apps\\NX"/>
+            <property id="fnd0_nxgraphicsbuilder_basePorts" value="2300"/>
+            <property id="fnd0_nxgraphicsbuilder_noOfPorts" value="1"/>
+            <property id="fnd0_passwordSecurityDir" value="{{ paths.tc_root}}\security"/>
+            <property id="fnd0_tcAdminPassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_tcAdminUser" value="infodba"/>
+            <property id="fnd0_tcCorporateServerInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_tcDataPath" value="{{ paths.tc_data }}"/>
+            <property id="fnd0_tcVolumeDirPath" value="D:\\Siemens\\Teamcenter12\\TC_VOLUME"/>
+            <property id="fnd0_tcVolumeName" value="volume"/>
+            <property id="fnd0_tcdata_datasetName" value="dc_delta_tc_data_perflab"/>
+            <property id="fnd0_unixClientTransientVolumeDir" value="/tmp/transientVolume_tc115rtm"/>
+            <property id="fnd0_windowsClientTransientVolumeDir" value="C:\Temp\transientVolume_tc115rtm"/>
+            <connectedTo component="fnd0_fsc_keys" machineName="fsc">
+                <property id="fnd0_fsc_keys_instance" value="FSC Keys Instance1"/>
+            </connectedTo>
+        </component>
+        <component id="fnd0_dispatcherModule" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_dispatcherLogDirectory" value="{{ paths.tc_root}}\Dispatcher\Logs"/>
+            <property id="fnd0_dispatcherModule.appSupportedList" value="all"/>
+            <property id="fnd0_dispatcherModule.logging_level" value="INFO"/>
+            <property id="fnd0_dispatcherModuleInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_dispatcherModule_MaximumTasks" value="3"/>
+            <property id="fnd0_dispatcherModule_StagingDirectoryPath" value="{{ paths.tc_root}}\Dispatcher\stage"/>
+            <property id="fnd0_dispatcherModule_machinePassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="fnd0_dispatcherModule_machineUser" value="PLM\yytcawpt"/>
+            <property id="fnd0_dispatcherModule_overrideServiceName" value="false"/>
+            <property id="fnd0_dispatcherModule_port" value="1999"/>
+            <property id="fnd0_dispatcherModule_runDispatcherOptions" value="consoleApplication"/>
+            <property id="fnd0_dispatcherModule_serviceName" value=""/>
+            <property id="fnd0_dispatcherRootDirectory" value="{{ paths.tc_root}}\Dispatcher"/>
+            <property id="fnd0_includeBlServer" value="true"/>
+            <property id="fnd0_startDispatcherModule" value="false"/>
+            <translators/>
+        </component>
+        <component id="fnd0_dispatcherScheduler" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_dispatcherSchedulerInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_dispatcherSchedulerServicesLogDirectory" value="{{ paths.tc_root}}\Dispatcher\Logs"/>
+            <property id="fnd0_dispatcherScheduler_logging_level" value="INFO"/>
+            <property id="fnd0_dispatcherScheduler_machinePassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="fnd0_dispatcherScheduler_machineUser" value="PLM\yytcawpt"/>
+            <property id="fnd0_dispatcherScheduler_overrideServiceName" value="false"/>
+            <property id="fnd0_dispatcherScheduler_port" value="2001"/>
+            <property id="fnd0_dispatcherScheduler_runDispatcherOptions" value="consoleApplication"/>
+            <property id="fnd0_dispatcherScheduler_serviceName" value=""/>
+            <property id="fnd0_installDispatcherAdminClient" value="false"/>
+            <property id="fnd0_installDocumentation" value="false"/>
+            <property id="fnd0_schTemInstallDirectory" value="{{ paths.tc_root}}\Dispatcher"/>
+            <property id="fnd0_startDispatcherScheduler" value="false"/>
+        </component>
+        <component id="fnd0_dispatcherclient" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_deletionThresholdTimeOfUnsuccessTranslation" value="2880"/>
+            <property id="fnd0_deletionThresholdTimeofSuccessTranslation" value="480"/>
+            <property id="fnd0_deletionTimeOfSuccessfulTranslation" value="60"/>
+            <property id="fnd0_deletionTimeOfUnsuccessfulTranslation" value="120"/>
+            <property id="fnd0_dispatcherClient.logging_level" value="INFO"/>
+            <property id="fnd0_dispatcherClientInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_dispatcherClientStagingDir" value="{{ paths.tc_root}}\Dispatcher\stage"/>
+            <property id="fnd0_dispatcherClientTemInstallDir" value="{{ paths.tc_root}}\Dispatcher"/>
+            <property id="fnd0_dispatcherclientLogDir" value="{{ paths.dispatcher_service }}\Logs"/>
+            <property id="fnd0_dispatcherclientPollingInterval" value="60"/>
+            <property id="fnd0_dispatcherclientProxyPassword" value="{{ passwords.dispatcherclient_proxy_password }}" encrypted="false"/>
+            <property id="fnd0_dispatcherclientProxyUserGroup" value="dba"/>
+            <property id="fnd0_dispatcherclientProxyUserName" value="dcproxy"/>
+            <property id="fnd0_dispatcherclientProxyUserRole" value="Designer"/>
+            <property id="fnd0_dispatcherclientStoreJTFiles" value="true"/>
+            <property id="fnd0_dispatcherclient_machinePassword" value="REPLACEME" encrypted="false"/>
+            <property id="fnd0_dispatcherclient_machineUser" value=""/>
+            <property id="fnd0_dispatcherclient_overrideServiceName" value="false"/>
+            <property id="fnd0_dispatcherclient_runDispatcherOptions" value="consoleApplication"/>
+            <property id="fnd0_dispatcherclient_serviceName" value=""/>
+            <property id="fnd0_startDispatcherClient" value="false"/>
+            <property id="fnd0_updateExistingVisData" value="true"/>
+        </component>
+        <component id="fnd0_fsc" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_backUpEncryptionKey" value=""/>
+            <property id="fnd0_cloudVolumeName" value="DefaultCloudVolume"/>
+            <property id="fnd0_cloudserviceID" value="10001"/>
+            <property id="fnd0_dssAccessKeyId" value=""/>
+            <property id="fnd0_dssAccountId" value=""/>
+            <property id="fnd0_dssEndpointURL" value="dss.us-east-1.sws.siemens.com"/>
+            <property id="fnd0_dssKeystorePassword" value="REPLACEME" encrypted="false"/>
+            <property id="fnd0_dssSAMEndpointURL" value="sam.us-east-1.sws.siemens.com"/>
+            <property id="fnd0_dssSamClientId" value=""/>
+            <property id="fnd0_dssSamClientSecret" value=""/>
+            <property id="fnd0_dssSecretAccessKey" value="REPLACEME" encrypted="false"/>
+            <property id="fnd0_dssUserId" value=""/>
+            <property id="fnd0_dssVaultID" value=""/>
+            <property id="fnd0_enableDiffLoginURL" value="false"/>
+            <property id="fnd0_enableEnhancedTicketAuth" value="false"/>
+            <property id="fnd0_fccPartialFileReadCacheMaxSize" value="3000"/>
+            <property id="fnd0_fccReadCacheMaxSize" value="1000"/>
+            <property id="fnd0_fccToTcSSOverrideLoginURL" value=""/>
+            <property id="fnd0_fccUNIXCacheDir" value="/tmp/$USER/FCCCache"/>
+            <property id="fnd0_fccWindowsCacheDir" value="$HOME\FCCCache"/>
+            <property id="fnd0_fccWriteCacheMaxSize" value="1000"/>
+            <property id="fnd0_fscAssignFilestoreGroup" value=""/>
+            <property id="fnd0_fscHostAlias" value="{{ tc_machine }}"/>
+            <property id="fnd0_fscInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_fscReadCacheDir" value="$HOME\FSCCache"/>
+            <property id="fnd0_fscReadCacheMaxSize" value="10"/>
+            <property id="fnd0_fscServerID" value="FSC_Performance_Lab"/>
+            <property id="fnd0_fscServerPort" value="4544"/>
+            <property id="fnd0_fscServerProtocol" value="http"/>
+            <property id="fnd0_fscSingleAuthURL" value="http://{{ tc_machine }}:4545"/>
+            <property id="fnd0_fscToTcSSOverrideLoginURL" value=""/>
+            <property id="fnd0_fscUNIXReadCacheDir" value="$HOME\FSCCache"/>
+            <property id="fnd0_fscUNIXWriteCacheDir" value="$HOME\FSCCache"/>
+            <property id="fnd0_fscURL" value="http://{{ tc_machine }}:4544"/>
+            <property id="fnd0_fscWriteCacheDir" value="$HOME\FSCCache"/>
+            <property id="fnd0_fscWriteCacheMaxSize" value="10"/>
+            <property id="fnd0_fsc_machinePassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="fnd0_fsc_machineUser" value="PLM\yytcawpt"/>
+            <property id="fnd0_fsc_service" value="Teamcenter FSC Service FSC_Performance_Lab"/>
+            <property id="fnd0_isCloudVolumeHost" value="false"/>
+            <property id="fnd0_isCustomKeysEnabledForCloud" value="false"/>
+            <property id="fnd0_isMaster" value="true"/>
+            <property id="fnd0_isSingleAuthFSC" value="false"/>
+            <property id="fnd0_osUserOptions" value="thisAccount"/>
+            <property id="fnd0_primaryEncryptionKey" value=""/>
+            <property id="fnd0_singleAuthFSCPort" value="4545"/>
+            <property id="fnd0_useDSSLite" value="false"/>
+            <connectedTo component="fnd0_fsc_group" machineName="fsc">
+                <property id="fnd0_fsc_group_instance" value="FSC Group Instance1"/>
+            </connectedTo>
+            <connectedTo component="fnd0_fsc_keys" machineName="fsc">
+                <property id="fnd0_fsc_keys_instance" value="FSC Keys Instance1"/>
+            </connectedTo>
+        </component>
+        <component id="fnd0_fsc_group" machineName="fsc" platform="wntx64">
+            <property id="fnd0_fscGroupName" value="mygroup"/>
+            <property id="fnd0_fsc_group_instance" value="FSC Group Instance1"/>
+        </component>
+        <component id="fnd0_fsc_keys" machineName="fsc" platform="wntx64">
+            <property id="fnd0_fsc_keys_existing_keyAlias" value="-1818040643"/>
+            <property id="fnd0_fsc_keys_instance" value="FSC Keys Instance1"/>
+            <property id="fnd0_fsc_keys_keyAlias" value="-1818040643"/>
+            <property id="fnd0_fsc_keys_keyAliasPassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_fsc_keys_keyStorePassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_generateKeyOptions" value="generateKeys"/>
+            <property id="fnd0_keyOptions" value="useSymmetricKeys"/>
+            <property id="fnd0_multiSiteFscKey" value="REPLACEME" encrypted="false"/>
+            <property id="fnd0_syncFscKeyForMultiSite" value="false"/>
+            <property id="fnd0_useKeyAlias" value="true"/>
+            <property id="fnd0_useKeyAliasPassword" value="false"/>
+        </component>
+        <component id="fnd0_httpsconfig" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_httpsconfigInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_httpsconfigOptions" value="HTTPSDefaultConfig"/>
+            <property id="fnd0_httpsconfig_caPathInput" value=""/>
+            <property id="fnd0_httpsconfig_certificatePathInput" value=""/>
+            <property id="fnd0_httpsconfig_domainName" value="net.plm.eds.com"/>
+            <property id="fnd0_httpsconfig_isGenerateCertificate" value="true"/>
+            <property id="fnd0_httpsconfig_javaCacertPassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_httpsconfig_privateKeyPathInput" value=""/>
+            <property id="fnd0_httpsconfig_subjectAltNames" value=""/>
+        </component>
+        <component id="fnd0_j2ee_tcwebtier" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_j2ee_4tierURI" value="http://{{ tc_machine }}:7001/tc"/>
+            <property id="fnd0_j2ee_JMXRMIPort" value="8093"/>
+            <property id="fnd0_j2ee_LogVolumeName" value="LogVol1"/>
+            <property id="fnd0_j2ee_applicationName" value="Teamcenter1"/>
+            <property id="fnd0_j2ee_deployableFileName" value="tc"/>
+            <property id="fnd0_j2ee_serviceName" value="Teamcenter WebTier"/>
+            <property id="fnd0_j2ee_sessionTimeOut" value="1440"/>
+            <property id="fnd0_j2ee_tcwebtier.port" value="7001"/>
+            <property id="fnd0_j2ee_tcwebtier.protocol" value="http"/>
+            <property id="fnd0_j2ee_tcwebtierInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_j2ee_treeCachePeersHost" value="{{ tc_machine }}"/>
+            <property id="fnd0_tcJavaConnectionName" value="TcWeb1"/>
+            <property id="fnd0_tcJavaConnectionTag" value="Tag1"/>
+            <property id="fnd0_webTierCustomBaseLogFileLocation" value=""/>
+            <property id="fnd0_webTierCustomBaseUnixLogFileLocation" value="$HOME/Siemens/logs"/>
+        </component>
+        <component id="fnd0_licensingserver" machineName="pnnxflex3 " platform="wntx64">
+            <property id="fnd0_cloudLicensingEndpoint" value=""/>
+            <property id="fnd0_lcsStateOptions" value="Flexlm"/>
+            <property id="fnd0_tcLincensingPort" value="29000"/>
+        </component>
+        <component id="fnd0_microservice" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_rm_microservicesBootstrapClientIP" value=""/>
+            <property id="fnd0_TcProcessManager_service" value="Teamcenter Process Manager"/>
+            <property id="fnd0_configsvc_port" value="5353"/>
+            <property id="fnd0_display_microservice_url" value="http://{{ tc_machine }}:9090/"/>
+            <property id="fnd0_microservice_InstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_microservice_keyStorePassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_microservice_port" value="9090"/>
+            <property id="fnd0_microservice_protocol" value="http"/>
+            <property id="fnd0_microservice_url" value="http://{{ tc_machine }}:9090/,"/>
+            <property id="fnd0_msType" value="master"/>
+            <property id="fnd0_ms_cfg0configuratorServicesInstance" value="0"/>
+            <property id="fnd0_ms_cfg0configuratorServices_storage_path" value="{{ paths.tc_root}}\cfgservices"/>
+            <property id="fnd0_ms_classificationaiservingInstance" value="1"/>
+            <property id="fnd0_ms_darsiInstance" value="1"/>
+            <property id="fnd0_ms_eureka_serverInstance" value="1"/>
+            <property id="fnd0_ms_file_repoInstance" value="1"/>
+            <property id="fnd0_ms_file_repo_file_storage_path" value="{{ paths.tc_root}}\filerepo"/>
+            <property id="fnd0_ms_file_repo_gid" value="0"/>
+            <property id="fnd0_ms_file_repo_uid" value="0"/>
+            <property id="fnd0_ms_microserviceparameterstoreInstance" value="1"/>
+            <property id="fnd0_ms_plantdataviewerInstance" value="1"/>
+            <property id="fnd0_ms_req_compare_serviceInstance" value="1"/>
+            <property id="fnd0_ms_req_export_serviceInstance" value="1"/>
+            <property id="fnd0_ms_req_import_serviceInstance" value="1"/>
+            <property id="fnd0_ms_service_dispatcherInstance" value="1"/>
+            <property id="fnd0_ms_sysmlv2_serviceInstance" value="1"/>
+            <property id="fnd0_ms_tcgqlInstance" value="1"/>
+            <property id="fnd0_ms_tcvismicroserviceInstance" value="1"/>
+            <property id="fnd0_ms_xccshareserviceInstance" value="1"/>
+            <property id="fnd0_msfMicroServiceManager" value="true"/>
+            <property id="fnd0_msfServiceRegistry_port" value="8787"/>
+            <property id="fnd0_msfServiceRegistry_protocol" value="http"/>
+            <property id="fnd0_msfServiceRegistry_url" value="http://{{ tc_machine }}:8787/eureka/v2/"/>
+            <property id="pdm1_ms_imodelviewersvcInstance" value="1"/>
+            <property id="string_fnd0_msf_clusterNodes" value=","/>
+        </component>
+        <component id="fnd0_serverManager" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_SSLConfigured" value="false"/>
+            <property id="fnd0_TECSAdminPort" value="8084"/>
+            <property id="fnd0_assignmentServicePort" value="8086"/>
+            <property id="fnd0_availableServerAt" value="0700 3, 1700 2"/>
+            <property id="fnd0_config_id" value="Performance_Lab"/>
+            <property id="fnd0_customBaseLogFileLocation" value="%USERPROFILE%\Siemens\logs"/>
+            <property id="fnd0_customBaseUnixLogFileLocation" value="$HOME/Siemens/logs"/>
+            <property id="fnd0_isFirstInstance" value="true"/>
+            <property id="fnd0_jmxAdaptorPort" value="8088"/>
+            <property id="fnd0_loginsPerMinute" value="0"/>
+            <property id="fnd0_maxServersCount" value="30"/>
+            <property id="fnd0_minWarmServersCount" value="1"/>
+            <property id="fnd0_muxPort" value="8087"/>
+            <property id="fnd0_serverHost" value=""/>
+            <property id="fnd0_serverManagerDisplayClusterId" value="TcCluster"/>
+            <property id="fnd0_serverManagerInstallationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_serverManagerMUXUrl" value="http://{{ tc_machine }}:8087"/>
+            <property id="fnd0_serverManagerProtocol" value="http"/>
+            <property id="fnd0_serverManagerTECSHostAlias" value="{{ tc_machine }}"/>
+            <property id="fnd0_serverPoolId" value="PoolA"/>
+            <property id="fnd0_serverPoolManager_service" value="Teamcenter Server Manager Performance_Lab_PoolA"/>
+            <property id="fnd0_startUpMode" value="fnd0_serviceDaemon"/>
+        </component>
+        <component id="fnd0_serverpool_DBConfig" machineName="{{ db_machine }}" platform="wntx64">
+            <property id="fnd0_serverManagerDBGrantPermissionsCheck" value="true"/>
+            <property id="fnd0_serverManagerDBMSSQLSystemUser" value="sa"/>
+            <property id="fnd0_serverManagerDBOracleSystemUser" value="system"/>
+            <property id="fnd0_serverManagerDBPGSQLSystemUser" value="postgres"/>
+            <property id="fnd0_serverManagerDBStateOptions" value="serverManagerDBAlreadyExist"/>
+            <property id="fnd0_serverManagerDBSystemUserPassword" value="{{ passwords.oracle_system_password }}" encrypted="false"/>
+            <property id="fnd0_serverManagerDatabaseServerOptions" value="Oracle"/>
+            <property id="fnd0_serverManagerMSSQLDBUser" value="TcClusterDB"/>
+            <property id="fnd0_serverManagerMSSQLDBUserPassword" value="{{ passwords.server_mgr_db_password }}" encrypted="false"/>
+            <property id="fnd0_serverManagerOracleDBPort" value="1521"/>
+            <property id="fnd0_serverManagerOracleDBService" value="tc"/>
+            <property id="fnd0_serverManagerOracleDBUser" value="TcClusterDB"/>
+            <property id="fnd0_serverManagerOracleDBUserPassword" value="{{ passwords.server_mgr_db_password }}" encrypted="false"/>
+        </component>
+        <component id="fnd0_tcdbserver" machineName="{{ db_machine }}" platform="wntx64">
+            <property id="fnd0_MSSQLDBUser" value=""/>
+            <property id="fnd0_MSSQLDBUserPassword" value="REPLACEME" encrypted="false"/>
+            <property id="fnd0_MSSQLSystemUser" value="sa"/>
+            <property id="fnd0_PGSQLSystemUser" value="postgres"/>
+            <property id="fnd0_characterEncodingType" value="UTF8"/>
+            <property id="fnd0_customTablespacePrefix" value=""/>
+            <property id="fnd0_databaseServerOptions" value="Oracle"/>
+            <property id="fnd0_dbPath" value="D:\apps\oracle19c\oradata\TC"/>
+            <property id="fnd0_dbStateOptions" value="dbAlreadyExist"/>
+            <property id="fnd0_dbType" value="standard"/>
+            <property id="fnd0_grantPermissionsCheck" value="true"/>
+            <property id="fnd0_oracleDBPort" value="1521"/>
+            <property id="fnd0_oracleDBService" value="tc"/>
+            <property id="fnd0_oracleDBUser" value="tc115rtm"/>
+            <property id="fnd0_oracleDBUserPassword" value="{{ passwords.oracle_db_password }}" encrypted="false"/>
+            <property id="fnd0_oracleEnableTCPS" value="false"/>
+            <property id="fnd0_oracleSystemUser" value="system"/>
+            <property id="fnd0_systemUserPassword" value="{{ passwords.oracle_system_password }}" encrypted="false"/>
+            <property id="fnd0_tablespaceType" value="defaultTablespace"/>
+        </component>
+        <component id="fnd0_vault" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="fnd0_enterpriseVaultToken" value="REPLACEME" encrypted="false"/>
+            <property id="fnd0_isPrimaryVault" value="true"/>
+            <property id="fnd0_vault.cluster_port" value="8208"/>
+            <property id="fnd0_vault.installationPath" value="{{ paths.tc_root}}"/>
+            <property id="fnd0_vault.port" value="8200"/>
+            <property id="fnd0_vault.service_name" value="Teamcenter Vault Service"/>
+            <property id="fnd0_vaultSnapshotFileLocation" value="{{ paths.tc_root}}\tc_vault\backup"/>
+            <property id="fnd0_vault_URL" value="https://{{ tc_machine }}:8200"/>
+            <property id="fnd0_vault_adminUser" value="tcadmin"/>
+            <property id="fnd0_vault_adminUserPassword" value="REPLACEME" encrypted="false"/>
+            <!-- <property id="fnd0_vault_authRoleId" value="CcjUZxA9jzYWZnyJJRQVBS+LfXQBkUvG6dHK4xyJAU/F550hIljlzTd+xca8YR+/G7SwXymBtLa1MT1Ugn4h3k73v2YEHwxNzEfSBgPsGvw=" encrypted="true"/>
+            <property id="fnd0_vault_authRoleValue" value="/tR+AFmrMsk28mXBEEVlFuHB7ZHffNNt/iWsMhxrAEPE73itIaWe03yQtL6z/FMhOuDtJL2reN7sr8FXgKopMWKSv0HTeqH56FnD/H9/CxI=" encrypted="true"/> -->
+            <property id="fnd0_vault_authStrategy" value="APP_ROLE_AUTH"/>
+            <property id="fnd0_vault_config" value="Open Source"/>
+            <property id="fnd0_vault_enableAdmin" value="false"/>
+            <property id="fnd0_vault_enterpriseVaultConfigType" value="DC Generated"/>
+            <property id="fnd0_vault_leaseDefaultTTL" value="8h"/>
+            <property id="fnd0_vault_rotateAuthParameters" value="true"/>
+            <property id="fnd0_vault_tokenDefaultTTL" value="8h"/>
+        </component>
+    </quickDeployComponents>
+    <quickDeployProperties>
+        <property id="InstallDirectory" value="{{ paths.tc_root}}"/>
+        <property id="MachineUser" value="PLM\yytcawpt"/>
+        <property id="MachineUserPassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+    </quickDeployProperties>
+</quickDeployConfig>

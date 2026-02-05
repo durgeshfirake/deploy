@@ -1,0 +1,16 @@
+---
+- name: Check if TC Kit path exists
+  ansible.windows.win_stat:
+    path: "{{ tc_kit_path }}"
+  register: tc_kit_path_stat
+  
+- name: Fail if TC Kit path does not exist
+  ansible.builtin.fail:
+    msg: "TC Kit path {{ tc_kit_path }} does not exist. Please extract the TC Kit before upgrading DC."
+  when: not tc_kit_path_stat.stat.exists
+
+- name: Unzip DC Kit
+  community.windows.win_unzip:
+    src: "{{ tc_kit_path }}\\install\\DeploymentCenter\\deployment_center.zip"  #TODO: dynamic
+    dest: "{{ tc_kit_path }}\\install\\DeploymentCenter"
+    overwrite: true

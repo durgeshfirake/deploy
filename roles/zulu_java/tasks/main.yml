@@ -1,0 +1,35 @@
+- name: Check if Java 21 is already installed
+  ansible.windows.win_shell: |
+    if (Get-Command java -ErrorAction SilentlyContinue) {
+        $javaVersionOutput = java --version
+        if ($javaVersionOutput -match '21\.\d+\.\d+') {
+            Write-Output "Java 21 is installed"
+        } else {
+            Write-Output "Java 21 is not installed"
+        }
+    } else {
+        Write-Output "Java is not installed"
+    }
+  register: java_check
+  changed_when: false
+  check_mode: no
+- name: Display Java check output
+  ansible.builtin.debug:
+    var: java_check.stdout_lines
+
+- name: Install Zulu Java 21 if not present
+  ansible.builtin.import_tasks: copy.yml
+  when: "'Java 21 is not installed' in java_check.stdout"
+  
+- name: Check Java installation
+  ansible.windows.win_shell: |
+    java --version
+  register: java_version
+  changed_when: false
+  check_mode: no
+  when: "'Java 21 is not installed' in java_check.stdout"
+
+- name: Display Java version
+  ansible.builtin.debug:
+    var: java_version.stdout_lines
+  when: "'Java 21 is not installed' in java_check.stdout"

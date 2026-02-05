@@ -1,0 +1,17 @@
+---
+dc_qd_path: D:\apps\DeploymentCenter\webserver\additional_tools\internal\dc_quick_deploy
+qd_destination: C:\apps\DC\qd_2026.xml
+dc_url: "http://INPUNC-NQA037.net.plm.eds.com:8080/deploymentcenter"
+dc_username: dcadmin
+dc_password: dcadmin
+dc_environment: perflab
+input_file: C:\apps\DC\qd_2026.xml    
+dc_softwareLocation: D:\apps\DeploymentCenter\repository\software
+qd_src_template: templates/qd2606.xml.j2
+
+known_errors:
+    unprocessed_schema:
+      pattern: 'ERROR: Unprocessed schema and/or non-schema updater transactions exist'
+      description: 'Pending schema updates detected'
+
+# deploy_script_path: D:\apps\DeploymentCenter\repository\deploy_scripts\perflab\install\20260130113849IST

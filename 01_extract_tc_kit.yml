@@ -1,0 +1,8 @@
+---
+- name: Extract TC Kits on Windows Machines
+  hosts: teamcenter
+  gather_facts: false
+  tasks:
+    - name: Import Extract TC Kits Role
+      ansible.builtin.include_role:
+        name: extract_tc_kit

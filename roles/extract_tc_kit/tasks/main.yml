@@ -1,0 +1,17 @@
+---
+- name: Copy TC Kits Zip from network share to local machine
+  ansible.windows.win_copy:
+    src: "{{ tc_kits_source }}\\{{ latest_baseline }}\\{{ file_name }}"
+    dest: "{{ tc_kits_dest }}"
+    remote_src: true
+  become: true
+  become_method: runas
+  become_user: SYSTEM
+  
+- name: Extract TC Kits Zip files
+  community.windows.win_unzip:
+    src: "{{ tc_kits_dest }}\\{{ file_name }}"
+    dest: "{{ tc_kits_dest }}"
+    remote_src: true
+    overwrite: true
+  

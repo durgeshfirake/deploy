@@ -1,0 +1,11 @@
+---
+- name: Deploy Script Execution
+  hosts: teamcenter
+  gather_facts: false
+  vars_files:
+    - roles/deploy_script_execution/vars/qd_vars.yml
+  tasks:
+    - name: Import Deploy Script Execution Role
+      ansible.builtin.include_role:
+        name: deploy_script_execution
+      

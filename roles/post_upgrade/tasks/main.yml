@@ -1,0 +1,9 @@
+---
+- name: Solr Data
+  ansible.builtin.include_tasks: copy_solr_data.yml
+- name: Mock Declarative Artifacts for Active Workspace
+  ansible.builtin.include_tasks: mock_declarative.yml
+- name: DB Stats
+  ansible.builtin.import_tasks: db_stats.yml
+- name: Update tc_profilevars.bat
+  ansible.builtin.include_tasks: profilevars_update.yml

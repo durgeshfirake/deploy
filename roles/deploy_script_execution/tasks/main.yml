@@ -1,0 +1,145 @@
+---
+- name: Generate Delta QD using template
+  ansible.windows.win_template:
+    src: "{{ qd_src_template }}"
+    dest: "{{ qd_destination }}"
+    encoding: utf-8
+
+- name: Execute dc_quick_deploy.bat
+  ansible.windows.win_shell: |
+    cmd /C "cd /D {{ dc_qd_path }} && dc_quick_deploy.bat -dcurl={{ dc_url }} -dcusername={{ dc_username }} -dcpassword={{ dc_password }} -environment={{ dc_environment }} -inputFile={{ input_file }}"
+  register: deploy_script_generation
+
+- name: Display Deploy Script Generation Output=
+  ansible.builtin.debug:
+    var: deploy_script_generation.stdout_lines
+
+- name: Extract deploy script location
+  set_fact:
+    deploy_script_path: >-
+      {{
+        deploy_script_generation.stdout_lines
+        | select('search', '^D:\\apps\\DeploymentCenter\\repository\\deploy_scripts')
+        | list
+        | first
+      }}
+
+- name: Display Deploy Script Path
+  ansible.builtin.debug:
+    var: deploy_script_path
+
+- name: Extract deploy script zip file
+  community.windows.win_unzip:
+    src: "{{ deploy_script_path }}\\deploy_{{ tc_machine }}.zip"
+    dest: "{{ deploy_script_path }}\\deploy_{{ tc_machine }}"
+
+- name: Run deploy.bat with diagnosticCheck
+  ansible.windows.win_shell: |
+    cmd /C "cd /D {{ deploy_script_path }}\\deploy_{{ tc_machine }} && deploy.bat -dcusername={{ dc_username }} -dcpassword={{ dc_password }}  -softwareLocation={{ dc_softwareLocation }} -diagnosticChecks"
+  register: deploy_diagnostic_check
+
+# diagnosticCheck failed handler
+
+- name: Display Deploy Diagnostic Check Output
+  ansible.builtin.debug:
+    var: deploy_diagnostic_check.stdout_lines
+
+# need testing
+- name: Stop Teamcenter services prior Deployment
+  ansible.windows.win_service:
+    name: "{{ item }}"
+    state: stopped
+  loop:
+    - "Teamcenter AM Read Expression Manager"
+    - "Teamcenter FSC Service FSC_Performance_Lab"
+    - "Teamcenter Global Search Indexing Service"
+    - "Teamcenter Process Manager"
+    - "Teamcenter Revision Configuration Accelerator Service"
+    - "Teamcenter Server Manager Performance_Lab_PoolA"
+    - "Teamcenter Suggestion Builder Service"
+    - "Teamcenter WebTier"
+
+- name: Run deploy.bat with parameters
+  ansible.windows.win_shell: |
+    cmd /C "cd /D {{ deploy_script_path }}\\deploy_{{ tc_machine }} && deploy.bat -dcusername={{ dc_username }} -dcpassword={{ dc_password }}  -softwareLocation={{ dc_softwareLocation }}"
+  register: deploy_with_parameters
+  retries: 2
+  delay: 10
+  until: deploy_with_parameters.rc == 0
+  ignore_errors: true
+
+- name: Display Deploy with Parameters Output
+  ansible.builtin.debug:
+    var: deploy_with_parameters.stdout_lines
+
+- name: Extract Deployer Log Path
+  set_fact:
+    deployer_log_path: >-
+      {{
+        deploy_with_parameters.stdout_lines
+        | select('search', '^Deployment Log File Location: ')
+        | map('regex_replace', '^Deployment Log File Location: ', '')
+        | list
+        | first
+      }}
+  when: deploy_with_parameters.rc != 0
+
+- name: Scan deploy log for known errors
+  win_shell: |
+    findstr /C:"{{ item.value.pattern }}" "{{ deployer_log_path }}"
+  loop: "{{ known_errors | dict2items }}"
+  register: log_scan_results
+  failed_when: false
+  changed_when: false
+  when: deploy_with_parameters.rc != 0
+
+- name: Build detected error list
+  set_fact:
+    detected_errors: >-
+        {{
+          log_scan_results.results
+          | selectattr('rc', 'eq', 0)
+          | map(attribute='item.key')
+          | list
+        }}
+  when: deploy_with_parameters.rc != 0
+
+- name: Display Detected Errors
+  ansible.builtin.debug:
+    var: detected_errors
+  when: deploy_with_parameters.rc != 0
+
+- name: Fail if no known errors detected
+  fail:
+    msg: >
+      Deployment failed with unknown error.
+      Check log: {{ deploy_log }}
+  when:
+    - deploy_with_parameters.rc != 0
+    - detected_errors | length == 0
+
+- name: Fix Unprocessed Schema Errors (Delta Related)
+  ansible.builtin.import_tasks: delta_modification.yml
+  when: "'unprocessed_schema' in detected_errors" 
+
+- name: Run deploy.bat again after fixes
+  ansible.windows.win_shell: |
+    cmd /C "cd /D {{ deploy_script_path }}\\deploy_{{ tc_machine }} && deploy.bat -dcusername={{ dc_username }} -dcpassword={{ dc_password }}  -softwareLocation={{ dc_softwareLocation }}"
+  register: deploy_after_fixes
+  when: detected_errors | length > 0
+
+- name: Display Deploy After Fixes Output
+  ansible.builtin.debug:
+    var: deploy_after_fixes.stdout_lines
+  when: detected_errors | length > 0
+
+- name: Fail if deployment still fails after fixes
+  fail:
+    msg: >
+      Deployment failed even after applying fixes.
+      Check log: {{ deploy_log }}
+  when: deploy_after_fixes.rc != 0
+
+- name: Deployment succeeded
+  ansible.builtin.debug:
+    msg: "Deployment completed successfully."

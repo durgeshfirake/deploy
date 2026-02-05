@@ -1,0 +1,1149 @@
+2026-01-27 12:44:39,300 p=3955 u=durgesh n=ansible | ansible-playbook [core 2.17.14]
+  config file = /mnt/d/TC Apps Automation/deploy/ansible.cfg
+  configured module search path = ['/home/durgesh/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/durgesh/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+2026-01-27 12:44:39,301 p=3955 u=durgesh n=ansible | Using /mnt/d/TC Apps Automation/deploy/ansible.cfg as config file
+2026-01-27 12:44:39,483 p=3955 u=durgesh n=ansible | host_list declined parsing /mnt/d/TC Apps Automation/deploy/inventory.yml as it did not pass its verify_file() method
+2026-01-27 12:44:39,513 p=3955 u=durgesh n=ansible | Parsed /mnt/d/TC Apps Automation/deploy/inventory.yml inventory source with yaml plugin
+2026-01-27 12:44:39,708 p=3955 u=durgesh n=ansible | redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+2026-01-27 12:44:39,712 p=3955 u=durgesh n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2026-01-27 12:44:39,713 p=3955 u=durgesh n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2026-01-27 12:44:39,713 p=3955 u=durgesh n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2026-01-27 12:44:39,714 p=3955 u=durgesh n=ansible | PLAYBOOK: 00_install_zulu_java_windows.yml ************************************************************************************************************************
+2026-01-27 12:44:39,715 p=3955 u=durgesh n=ansible | 1 plays in 00_install_zulu_java_windows.yml
+2026-01-27 12:44:39,717 p=3955 u=durgesh n=ansible | PLAY [Install Zulu Java on Windows] *******************************************************************************************************************************
+2026-01-27 12:44:39,776 p=3955 u=durgesh n=ansible | TASK [Import java Role] *******************************************************************************************************************************************
+2026-01-27 12:44:39,777 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:39 +0530 (0:00:00.065)       0:00:00.065 ******* 
+2026-01-27 12:44:39,914 p=3955 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/copy.yml
+2026-01-27 12:44:39,939 p=3955 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml
+2026-01-27 12:44:39,963 p=3955 u=durgesh n=ansible | included: zulu_java for teamcenter
+2026-01-27 12:44:39,974 p=3955 u=durgesh n=ansible | TASK [zulu_java : Check if Java 21 is already installed] **********************************************************************************************************
+2026-01-27 12:44:39,975 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:39 +0530 (0:00:00.198)       0:00:00.263 ******* 
+2026-01-27 12:44:40,007 p=3955 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_shell.ps1
+2026-01-27 12:44:40,008 p=3955 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:44:40,009 p=3955 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:44:41,785 p=3955 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 12:44:44,160 p=3955 u=durgesh n=ansible | ok: [teamcenter] => {
+    "changed": false,
+    "cmd": "if (Get-Command java -ErrorAction SilentlyContinue) {\n    $javaVersionOutput = java --version\n    if ($javaVersionOutput -match '21\\.\\d+\\.\\d+') {\n        Write-Output \"Java 21 is installed\"\n    } else {\n        Write-Output \"Java 21 is not installed\"\n    }\n} else {\n    Write-Output \"Java is not installed\"\n}",
+    "delta": "0:00:00.483988",
+    "end": "2026-01-27 07:14:42.028274",
+    "rc": 0,
+    "start": "2026-01-27 07:14:41.544285",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "Java 21 is installed\r\n",
+    "stdout_lines": [
+        "Java 21 is installed"
+    ]
+}
+2026-01-27 12:44:44,177 p=3955 u=durgesh n=ansible | TASK [zulu_java : Display Java check output] **********************************************************************************************************************
+2026-01-27 12:44:44,178 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:04.203)       0:00:04.467 ******* 
+2026-01-27 12:44:44,204 p=3955 u=durgesh n=ansible | ok: [teamcenter] => {
+    "java_check.stdout_lines": [
+        "Java 21 is installed"
+    ]
+}
+2026-01-27 12:44:44,222 p=3955 u=durgesh n=ansible | TASK [zulu_java : Copy Java components from network share] ********************************************************************************************************
+2026-01-27 12:44:44,222 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.044)       0:00:04.511 ******* 
+2026-01-27 12:44:44,249 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item={'src': '\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Zulu\\Zulu_21\\zulu-21'})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": {
+        "src": "\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Zulu\\Zulu_21\\zulu-21"
+    },
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,251 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item={'src': '\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Zulu\\Zulu_21\\Zulu-21-jre'})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": {
+        "src": "\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Zulu\\Zulu_21\\Zulu-21-jre"
+    },
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,253 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "msg": "All items skipped"
+}
+2026-01-27 12:44:44,265 p=3955 u=durgesh n=ansible | TASK [zulu_java : Set Java environment variables] *****************************************************************************************************************
+2026-01-27 12:44:44,266 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.043)       0:00:04.555 ******* 
+2026-01-27 12:44:44,300 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item={'name': 'JAVA_HOME', 'value': 'C:\\PROGRA~1\\Zulu\\zulu_21\\zulu-21'})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": {
+        "name": "JAVA_HOME",
+        "value": "C:\\PROGRA~1\\Zulu\\zulu_21\\zulu-21"
+    },
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,302 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item={'name': 'JRE_HOME', 'value': 'C:\\PROGRA~1\\Zulu\\Zulu_21\\zulu-21-jre'})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": {
+        "name": "JRE_HOME",
+        "value": "C:\\PROGRA~1\\Zulu\\Zulu_21\\zulu-21-jre"
+    },
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,306 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item={'name': 'JRE64_HOME', 'value': 'C:\\PROGRA~1\\Zulu\\Zulu_21\\zulu-21-jre'})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": {
+        "name": "JRE64_HOME",
+        "value": "C:\\PROGRA~1\\Zulu\\Zulu_21\\zulu-21-jre"
+    },
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,308 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "msg": "All items skipped"
+}
+2026-01-27 12:44:44,320 p=3955 u=durgesh n=ansible | TASK [zulu_java : Get current user PATH entries for Zulu 17] ******************************************************************************************************
+2026-01-27 12:44:44,321 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.054)       0:00:04.610 ******* 
+2026-01-27 12:44:44,341 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,352 p=3955 u=durgesh n=ansible | TASK [zulu_java : Get current machine PATH entries for Zulu 17] ***************************************************************************************************
+2026-01-27 12:44:44,353 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.031)       0:00:04.641 ******* 
+2026-01-27 12:44:44,371 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,384 p=3955 u=durgesh n=ansible | TASK [zulu_java : Combine user and machine Zulu 17 paths] *********************************************************************************************************
+2026-01-27 12:44:44,385 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.032)       0:00:04.674 ******* 
+2026-01-27 12:44:44,403 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,416 p=3955 u=durgesh n=ansible | TASK [zulu_java : Debug Zulu 17 paths to be removed] **************************************************************************************************************
+2026-01-27 12:44:44,417 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.031)       0:00:04.706 ******* 
+2026-01-27 12:44:44,436 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "false_condition": "'Java 21 is not installed' in java_check.stdout"
+}
+2026-01-27 12:44:44,449 p=3955 u=durgesh n=ansible | TASK [zulu_java : Remove existing Zulu 17 paths from user and machine PATH] ***************************************************************************************
+2026-01-27 12:44:44,450 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.032)       0:00:04.739 ******* 
+2026-01-27 12:44:44,476 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item=machine)  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": "machine",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,479 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item=user)  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": "user",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,481 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "msg": "All items skipped"
+}
+2026-01-27 12:44:44,494 p=3955 u=durgesh n=ansible | TASK [zulu_java : Add Java bin directories to PATH] ***************************************************************************************************************
+2026-01-27 12:44:44,494 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.044)       0:00:04.783 ******* 
+2026-01-27 12:44:44,514 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item=machine)  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": "machine",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,516 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => (item=user)  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "item": "user",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,518 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "msg": "All items skipped"
+}
+2026-01-27 12:44:44,532 p=3955 u=durgesh n=ansible | TASK [zulu_java : Check Java installation] ************************************************************************************************************************
+2026-01-27 12:44:44,532 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.037)       0:00:04.821 ******* 
+2026-01-27 12:44:44,551 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "false_condition": "'Java 21 is not installed' in java_check.stdout",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:44:44,563 p=3955 u=durgesh n=ansible | TASK [zulu_java : Display Java version] ***************************************************************************************************************************
+2026-01-27 12:44:44,563 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.031)       0:00:04.852 ******* 
+2026-01-27 12:44:44,585 p=3955 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "false_condition": "'Java 21 is not installed' in java_check.stdout"
+}
+2026-01-27 12:44:44,602 p=3955 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 12:44:44,602 p=3955 u=durgesh n=ansible | teamcenter                 : ok=3    changed=0    unreachable=0    failed=0    skipped=10   rescued=0    ignored=0   
+2026-01-27 12:44:44,603 p=3955 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:44 +0530 (0:00:00.039)       0:00:04.892 ******* 
+2026-01-27 12:44:44,603 p=3955 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 12:44:44,604 p=3955 u=durgesh n=ansible | zulu_java : Check if Java 21 is already installed ---------------------------------------------------------------------------------------------------------- 4.20s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/main.yml:1 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,604 p=3955 u=durgesh n=ansible | Import java Role ------------------------------------------------------------------------------------------------------------------------------------------- 0.20s
+/mnt/d/TC Apps Automation/deploy/00_install_zulu_java_windows.yml:6 ----------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,605 p=3955 u=durgesh n=ansible | zulu_java : Set Java environment variables ----------------------------------------------------------------------------------------------------------------- 0.05s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:2 -------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,605 p=3955 u=durgesh n=ansible | zulu_java : Display Java check output ---------------------------------------------------------------------------------------------------------------------- 0.04s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/main.yml:16 -----------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,605 p=3955 u=durgesh n=ansible | zulu_java : Remove existing Zulu 17 paths from user and machine PATH --------------------------------------------------------------------------------------- 0.04s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:37 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,606 p=3955 u=durgesh n=ansible | zulu_java : Copy Java components from network share -------------------------------------------------------------------------------------------------------- 0.04s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/copy.yml:2 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,606 p=3955 u=durgesh n=ansible | zulu_java : Display Java version --------------------------------------------------------------------------------------------------------------------------- 0.04s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/main.yml:32 -----------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,607 p=3955 u=durgesh n=ansible | zulu_java : Add Java bin directories to PATH --------------------------------------------------------------------------------------------------------------- 0.04s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:47 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,607 p=3955 u=durgesh n=ansible | zulu_java : Debug Zulu 17 paths to be removed -------------------------------------------------------------------------------------------------------------- 0.03s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:33 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,608 p=3955 u=durgesh n=ansible | zulu_java : Get current machine PATH entries for Zulu 17 --------------------------------------------------------------------------------------------------- 0.03s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:21 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,608 p=3955 u=durgesh n=ansible | zulu_java : Combine user and machine Zulu 17 paths --------------------------------------------------------------------------------------------------------- 0.03s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:29 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,609 p=3955 u=durgesh n=ansible | zulu_java : Get current user PATH entries for Zulu 17 ------------------------------------------------------------------------------------------------------ 0.03s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/env.yml:13 ------------------------------------------------------------------------------------------------
+2026-01-27 12:44:44,609 p=3955 u=durgesh n=ansible | zulu_java : Check Java installation ------------------------------------------------------------------------------------------------------------------------ 0.03s
+/mnt/d/TC Apps Automation/deploy/roles/zulu_java/tasks/main.yml:24 -----------------------------------------------------------------------------------------------
+2026-01-27 12:44:45,111 p=3973 u=durgesh n=ansible | ansible-playbook [core 2.17.14]
+  config file = /mnt/d/TC Apps Automation/deploy/ansible.cfg
+  configured module search path = ['/home/durgesh/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/durgesh/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+2026-01-27 12:44:45,112 p=3973 u=durgesh n=ansible | Using /mnt/d/TC Apps Automation/deploy/ansible.cfg as config file
+2026-01-27 12:44:45,299 p=3973 u=durgesh n=ansible | host_list declined parsing /mnt/d/TC Apps Automation/deploy/inventory.yml as it did not pass its verify_file() method
+2026-01-27 12:44:45,329 p=3973 u=durgesh n=ansible | Parsed /mnt/d/TC Apps Automation/deploy/inventory.yml inventory source with yaml plugin
+2026-01-27 12:44:45,534 p=3973 u=durgesh n=ansible | redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+2026-01-27 12:44:45,537 p=3973 u=durgesh n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2026-01-27 12:44:45,538 p=3973 u=durgesh n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2026-01-27 12:44:45,538 p=3973 u=durgesh n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2026-01-27 12:44:45,539 p=3973 u=durgesh n=ansible | PLAYBOOK: 01_extract_tc_kit.yml ***********************************************************************************************************************************
+2026-01-27 12:44:45,540 p=3973 u=durgesh n=ansible | 1 plays in 01_extract_tc_kit.yml
+2026-01-27 12:44:45,542 p=3973 u=durgesh n=ansible | PLAY [Extract TC Kits on Windows Machines] ************************************************************************************************************************
+2026-01-27 12:44:45,599 p=3973 u=durgesh n=ansible | TASK [Import Extract TC Kits Role] ********************************************************************************************************************************
+2026-01-27 12:44:45,599 p=3973 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:45 +0530 (0:00:00.063)       0:00:00.063 ******* 
+2026-01-27 12:44:45,731 p=3973 u=durgesh n=ansible | included: extract_tc_kit for teamcenter
+2026-01-27 12:44:45,743 p=3973 u=durgesh n=ansible | TASK [extract_tc_kit : Copy TC Kits Zip from network share to local machine] **************************************************************************************
+2026-01-27 12:44:45,743 p=3973 u=durgesh n=ansible | Tuesday 27 January 2026  12:44:45 +0530 (0:00:00.143)       0:00:00.207 ******* 
+2026-01-27 12:44:45,813 p=3973 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_copy.ps1
+2026-01-27 12:44:45,814 p=3973 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:44:45,816 p=3973 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:44:47,753 p=3973 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 12:47:49,249 p=3973 u=durgesh n=ansible | changed: [teamcenter] => {
+    "changed": true,
+    "checksum": "62486560feb9429b8852565c0902b0825efb97ca",
+    "dest": "D:\\TC_kits\\tc2606\\tc2606_wntx64.zip",
+    "operation": "file_copy",
+    "original_basename": "tc2606_wntx64.zip",
+    "size": 17005946551,
+    "src": "\\\\plm\\pnnas\\kits\\tc\\tc2606\\tc2606.2026012600\\tc2606_wntx64.zip"
+}
+2026-01-27 12:47:49,261 p=3973 u=durgesh n=ansible | TASK [extract_tc_kit : Extract TC Kits Zip files] *****************************************************************************************************************
+2026-01-27 12:47:49,262 p=3973 u=durgesh n=ansible | Tuesday 27 January 2026  12:47:49 +0530 (0:03:03.518)       0:03:03.725 ******* 
+2026-01-27 12:47:49,318 p=3973 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/community/windows/plugins/modules/win_unzip.ps1
+2026-01-27 12:47:49,319 p=3973 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:47:49,320 p=3973 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:47:51,176 p=3973 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 12:58:17,663 p=3973 u=durgesh n=ansible | changed: [teamcenter] => {
+    "changed": true,
+    "dest": "D:\\TC_kits\\tc2606\\",
+    "removed": false,
+    "src": "D:\\TC_kits\\tc2606\\\\tc2606_wntx64.zip"
+}
+2026-01-27 12:58:17,680 p=3973 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 12:58:17,680 p=3973 u=durgesh n=ansible | teamcenter                 : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-01-27 12:58:17,681 p=3973 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:17 +0530 (0:10:28.419)       0:13:32.145 ******* 
+2026-01-27 12:58:17,681 p=3973 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 12:58:17,682 p=3973 u=durgesh n=ansible | extract_tc_kit : Extract TC Kits Zip files --------------------------------------------------------------------------------------------------------------- 628.42s
+/mnt/d/TC Apps Automation/deploy/roles/extract_tc_kit/tasks/main.yml:11 ------------------------------------------------------------------------------------------
+2026-01-27 12:58:17,682 p=3973 u=durgesh n=ansible | extract_tc_kit : Copy TC Kits Zip from network share to local machine ------------------------------------------------------------------------------------ 183.52s
+/mnt/d/TC Apps Automation/deploy/roles/extract_tc_kit/tasks/main.yml:2 -------------------------------------------------------------------------------------------
+2026-01-27 12:58:17,683 p=3973 u=durgesh n=ansible | Import Extract TC Kits Role -------------------------------------------------------------------------------------------------------------------------------- 0.14s
+/mnt/d/TC Apps Automation/deploy/01_extract_tc_kit.yml:6 ---------------------------------------------------------------------------------------------------------
+2026-01-27 12:58:18,404 p=4021 u=durgesh n=ansible | ansible-playbook [core 2.17.14]
+  config file = /mnt/d/TC Apps Automation/deploy/ansible.cfg
+  configured module search path = ['/home/durgesh/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/durgesh/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+2026-01-27 12:58:18,405 p=4021 u=durgesh n=ansible | Using /mnt/d/TC Apps Automation/deploy/ansible.cfg as config file
+2026-01-27 12:58:18,578 p=4021 u=durgesh n=ansible | host_list declined parsing /mnt/d/TC Apps Automation/deploy/inventory.yml as it did not pass its verify_file() method
+2026-01-27 12:58:18,621 p=4021 u=durgesh n=ansible | Parsed /mnt/d/TC Apps Automation/deploy/inventory.yml inventory source with yaml plugin
+2026-01-27 12:58:18,911 p=4021 u=durgesh n=ansible | redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+2026-01-27 12:58:18,915 p=4021 u=durgesh n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2026-01-27 12:58:18,915 p=4021 u=durgesh n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2026-01-27 12:58:18,916 p=4021 u=durgesh n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2026-01-27 12:58:18,916 p=4021 u=durgesh n=ansible | PLAYBOOK: 02_upgrade_dc.yml ***************************************************************************************************************************************
+2026-01-27 12:58:18,917 p=4021 u=durgesh n=ansible | 1 plays in 02_upgrade_dc.yml
+2026-01-27 12:58:18,919 p=4021 u=durgesh n=ansible | PLAY [Upgrade DC and restart services] ****************************************************************************************************************************
+2026-01-27 12:58:19,009 p=4021 u=durgesh n=ansible | TASK [Import upgrade_dc Role] *************************************************************************************************************************************
+2026-01-27 12:58:19,010 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:19 +0530 (0:00:00.096)       0:00:00.096 ******* 
+2026-01-27 12:58:19,174 p=4021 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/extract_dc_kit.yml
+2026-01-27 12:58:19,215 p=4021 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/upgrade.yml
+2026-01-27 12:58:19,261 p=4021 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/copy_kits.yml
+2026-01-27 12:58:19,275 p=4021 u=durgesh n=ansible | included: upgrade_dc for teamcenter
+2026-01-27 12:58:19,284 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Check if TC Kit path exists] *******************************************************************************************************************
+2026-01-27 12:58:19,285 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:19 +0530 (0:00:00.274)       0:00:00.370 ******* 
+2026-01-27 12:58:19,329 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_stat.ps1
+2026-01-27 12:58:19,331 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:58:19,331 p=4021 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:58:21,178 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 12:58:24,477 p=4021 u=durgesh n=ansible | ok: [teamcenter] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "checksum_algorithm": "sha1",
+            "follow": false,
+            "get_checksum": true,
+            "get_size": true,
+            "path": "D:\\TC_kits\\tc2606\\tc2606_wntx64"
+        }
+    },
+    "stat": {
+        "attributes": "Directory",
+        "creationtime": 1769498272.1889758,
+        "exists": true,
+        "filename": "tc2606_wntx64",
+        "hlnk_targets": [],
+        "isarchive": false,
+        "isdir": true,
+        "ishidden": false,
+        "isjunction": false,
+        "islnk": false,
+        "isreadonly": false,
+        "isreg": false,
+        "isshared": false,
+        "lastaccesstime": 1769498897.2535803,
+        "lastwritetime": 1769498897.2433934,
+        "nlink": 1,
+        "owner": "BUILTIN\\Administrators",
+        "path": "D:\\TC_kits\\tc2606\\tc2606_wntx64",
+        "size": 17214095538
+    }
+}
+2026-01-27 12:58:24,494 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Fail if TC Kit path does not exist] ************************************************************************************************************
+2026-01-27 12:58:24,495 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:24 +0530 (0:00:05.210)       0:00:05.581 ******* 
+2026-01-27 12:58:24,513 p=4021 u=durgesh n=ansible | skipping: [teamcenter] => {
+    "changed": false,
+    "false_condition": "not tc_kit_path_stat.stat.exists",
+    "skip_reason": "Conditional result was False"
+}
+2026-01-27 12:58:24,523 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Unzip DC Kit] **********************************************************************************************************************************
+2026-01-27 12:58:24,523 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:24 +0530 (0:00:00.028)       0:00:05.609 ******* 
+2026-01-27 12:58:24,559 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/community/windows/plugins/modules/win_unzip.ps1
+2026-01-27 12:58:24,560 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:58:24,560 p=4021 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:58:28,683 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 12:58:55,537 p=4021 u=durgesh n=ansible | changed: [teamcenter] => {
+    "changed": true,
+    "dest": "D:\\TC_kits\\tc2606\\tc2606_wntx64\\install\\DeploymentCenter",
+    "removed": false,
+    "src": "D:\\TC_kits\\tc2606\\tc2606_wntx64\\install\\DeploymentCenter\\deployment_center.zip"
+}
+2026-01-27 12:58:55,548 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Update ServerDir in upgrade_config.properties] *************************************************************************************************
+2026-01-27 12:58:55,549 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:55 +0530 (0:00:31.025)       0:00:36.635 ******* 
+2026-01-27 12:58:55,585 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/community/windows/plugins/modules/win_lineinfile.ps1
+2026-01-27 12:58:55,586 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:58:55,587 p=4021 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:58:56,928 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 12:58:58,229 p=4021 u=durgesh n=ansible | changed: [teamcenter] => {
+    "backup": "",
+    "changed": true,
+    "encoding": "utf-8",
+    "msg": "line replaced"
+}
+2026-01-27 12:58:58,241 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Run DC Upgrade] ********************************************************************************************************************************
+2026-01-27 12:58:58,241 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  12:58:58 +0530 (0:00:02.692)       0:00:39.327 ******* 
+2026-01-27 12:58:58,280 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_shell.ps1
+2026-01-27 12:58:58,281 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 12:58:58,281 p=4021 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 12:58:59,814 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:05:48,680 p=4021 u=durgesh n=ansible | changed: [teamcenter] => {
+    "changed": true,
+    "cmd": "cmd /C \"cd /D D:\\TC_kits\\tc2606\\tc2606_wntx64\\\\install\\\\DeploymentCenter\\\\deployment_center && deployment_center.bat -upgrade -inputFile=upgrade_config.properties\"",
+    "delta": "0:06:47.967700",
+    "end": "2026-01-27 07:35:47.888815",
+    "rc": 0,
+    "start": "2026-01-27 07:28:59.921115",
+    "stderr": "Jan 27, 2026 1:02:19 PM liquibase.database\r\nINFO: Set default schema name to PUBLIC\r\nJan 27, 2026 1:02:19 PM liquibase.database\r\nINFO: Set default schema name to PUBLIC\r\nJan 27, 2026 1:02:19 PM liquibase.servicelocator\r\nINFO: Cannot load service: liquibase.serializer.ChangeLogSerializer: Provider liquibase.serializer.core.json.JsonChangeLogSerializer could not be instantiated\r\nJan 27, 2026 1:02:19 PM liquibase.servicelocator\r\nINFO: Cannot load service: liquibase.serializer.ChangeLogSerializer: Provider liquibase.serializer.core.yaml.YamlChangeLogSerializer could not be instantiated\r\nJan 27, 2026 1:02:19 PM liquibase.diff\r\nINFO: changeSets count: 7\r\nJan 27, 2026 1:02:19 PM liquibase.diff\r\nINFO: D:\\apps\\DeploymentCenter\\webserver\\db\\temp\\deployment_center_database_change_log.xml does not exist, creating and adding 7 changesets.\r\nJan 27, 2026 1:02:20 PM liquibase.database\r\nINFO: Set default schema name to PUBLIC\r\nJan 27, 2026 1:02:20 PM liquibase.lockservice\r\nINFO: Successfully acquired change log lock\r\nJan 27, 2026 1:02:20 PM liquibase.servicelocator\r\nINFO: Cannot load service: liquibase.change.Change: liquibase.change.core.LoadDataChange Unable to get public no-arg constructor\r\nJan 27, 2026 1:02:20 PM liquibase.servicelocator\r\nINFO: Cannot load service: liquibase.change.Change: liquibase.change.core.LoadUpdateDataChange Unable to get public no-arg constructor\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Creating database history table with name: DEPLOY_CENTER.DATABASECHANGELOG\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Reading from DEPLOY_CENTER.DATABASECHANGELOG\r\nJan 27, 2026 1:02:20 PM liquibase.servicelocator\r\nINFO: Cannot load service: liquibase.hub.HubService: Provider liquibase.hub.core.StandardHubService could not be instantiated\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Table UNINSTALL_PROPERTY created\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-1::yytcawpt (generated) ran successfully in 1ms\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Table UNINSTALL_RULE created\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-2::yytcawpt (generated) ran successfully in 1ms\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Columns FORCE_REMOVE(BOOLEAN) added to QUICK_DEPLOY_APPLICATIONS\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-3::yytcawpt (generated) ran successfully in 4ms\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Unique constraint added to UNINSTALL_RULE(COMPONENT_ID)\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-4::yytcawpt (generated) ran successfully in 1ms\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Index FKOOHLDH6KMT0VFLY0WQY2HFDXE_INDEX_B created\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-5::yytcawpt (generated) ran successfully in 1ms\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Foreign key constraint added to UNINSTALL_PROPERTY (UNINSTALL_RULE)\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-6::yytcawpt (generated) ran successfully in 3ms\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Foreign key constraint added to UNINSTALL_RULE (COMPONENT_ID)\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-7::yytcawpt (generated) ran successfully in 1ms\r\nJan 27, 2026 1:02:20 PM liquibase.lockservice\r\nINFO: Successfully released change log lock\r\nJan 27, 2026 1:02:20 PM liquibase.lockservice\r\nINFO: Successfully acquired change log lock\r\nJan 27, 2026 1:02:20 PM liquibase.changelog\r\nINFO: Reading from DEPLOY_CENTER.DATABASECHANGELOG\r\nJan 27, 2026 1:02:20 PM liquibase.lockservice\r\nINFO: Successfully released change log lock",
+    "stderr_lines": [
+        "Jan 27, 2026 1:02:19 PM liquibase.database",
+        "INFO: Set default schema name to PUBLIC",
+        "Jan 27, 2026 1:02:19 PM liquibase.database",
+        "INFO: Set default schema name to PUBLIC",
+        "Jan 27, 2026 1:02:19 PM liquibase.servicelocator",
+        "INFO: Cannot load service: liquibase.serializer.ChangeLogSerializer: Provider liquibase.serializer.core.json.JsonChangeLogSerializer could not be instantiated",
+        "Jan 27, 2026 1:02:19 PM liquibase.servicelocator",
+        "INFO: Cannot load service: liquibase.serializer.ChangeLogSerializer: Provider liquibase.serializer.core.yaml.YamlChangeLogSerializer could not be instantiated",
+        "Jan 27, 2026 1:02:19 PM liquibase.diff",
+        "INFO: changeSets count: 7",
+        "Jan 27, 2026 1:02:19 PM liquibase.diff",
+        "INFO: D:\\apps\\DeploymentCenter\\webserver\\db\\temp\\deployment_center_database_change_log.xml does not exist, creating and adding 7 changesets.",
+        "Jan 27, 2026 1:02:20 PM liquibase.database",
+        "INFO: Set default schema name to PUBLIC",
+        "Jan 27, 2026 1:02:20 PM liquibase.lockservice",
+        "INFO: Successfully acquired change log lock",
+        "Jan 27, 2026 1:02:20 PM liquibase.servicelocator",
+        "INFO: Cannot load service: liquibase.change.Change: liquibase.change.core.LoadDataChange Unable to get public no-arg constructor",
+        "Jan 27, 2026 1:02:20 PM liquibase.servicelocator",
+        "INFO: Cannot load service: liquibase.change.Change: liquibase.change.core.LoadUpdateDataChange Unable to get public no-arg constructor",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Creating database history table with name: DEPLOY_CENTER.DATABASECHANGELOG",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Reading from DEPLOY_CENTER.DATABASECHANGELOG",
+        "Jan 27, 2026 1:02:20 PM liquibase.servicelocator",
+        "INFO: Cannot load service: liquibase.hub.HubService: Provider liquibase.hub.core.StandardHubService could not be instantiated",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Table UNINSTALL_PROPERTY created",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-1::yytcawpt (generated) ran successfully in 1ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Table UNINSTALL_RULE created",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-2::yytcawpt (generated) ran successfully in 1ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Columns FORCE_REMOVE(BOOLEAN) added to QUICK_DEPLOY_APPLICATIONS",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-3::yytcawpt (generated) ran successfully in 4ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Unique constraint added to UNINSTALL_RULE(COMPONENT_ID)",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-4::yytcawpt (generated) ran successfully in 1ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Index FKOOHLDH6KMT0VFLY0WQY2HFDXE_INDEX_B created",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-5::yytcawpt (generated) ran successfully in 1ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Foreign key constraint added to UNINSTALL_PROPERTY (UNINSTALL_RULE)",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-6::yytcawpt (generated) ran successfully in 3ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Foreign key constraint added to UNINSTALL_RULE (COMPONENT_ID)",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: ChangeSet deployment_center_database_change_log.xml::1769499139582-7::yytcawpt (generated) ran successfully in 1ms",
+        "Jan 27, 2026 1:02:20 PM liquibase.lockservice",
+        "INFO: Successfully released change log lock",
+        "Jan 27, 2026 1:02:20 PM liquibase.lockservice",
+        "INFO: Successfully acquired change log lock",
+        "Jan 27, 2026 1:02:20 PM liquibase.changelog",
+        "INFO: Reading from DEPLOY_CENTER.DATABASECHANGELOG",
+        "Jan 27, 2026 1:02:20 PM liquibase.lockservice",
+        "INFO: Successfully released change log lock"
+    ],
+    "stdout": "----------------------------------------------------------------------------------------------------\r\n----------------------------------------------------------------------------------------------------\r\n----------------------------------   Upgrading Deployment Center   ---------------------------------\r\n----------------------------------------------------------------------------------------------------\r\nDeployment Center upgrade log\r\nDate and time : Jan 27, 2026 12:59 PM\r\nLog file location: D:\\TC_kits\\tc2606\\tc2606_wntx64\\install\\DeploymentCenter\\deployment_center\\logs\r\n----------------------------------------------------------------------------------------------------\r\nInput arguments: \r\n-upgrade\r\n-inputFile=upgrade_config.properties\r\n----------------------------------------------------------------------------------------------------\r\nChecking for incomplete environments that may be affected by DC upgrade...\r\nFound Foundation software that will become incompatible with DC 2606:2026011400:\r\n  - Foundation 2506\r\n  - Foundation 2512\r\nEnvironment check completed. Proceeding with DC upgrade.\r\n\r\nDeployment Center upgrade has started...\r\n\r\n[Step  1 of 24] Stopping Deployment Center Publisher Service [DC_RepoService_Publisher]...\r\n[Step  2 of 24] Stopping Repository Service [DC_RepoService]...\r\n[Step  3 of 24] Stopping Deployment Center Service [DC_Service]...\r\n\r\n[Step  4 of 24] Stopping Deployment Center Vault Service [DC_Vault_Service]...\r\n[Step  5 of 24] Backing up Deployment Center Database...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\webserver\\db\\deploy_center.mv.db\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\webserver\\db\\deploy_center.mv.db.2606_2026011400.2026-01-27-12-59-01\r\n\r\n[Step  6 of 24] Backing up Deployment Center Server Directory...\r\n\r\n[Step  7 of 24] Backing up Repository...\r\n\t\t--> Backing up the 'dc_contributions' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\dc_contributions\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\dc_contributions\r\n\r\n\r\t\t\t--> Processing [ActiveWorkspace 3.1.1_10x], Overall progress: 0% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1.1_11x], Overall progress: 1% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1.2_10x], Overall progress: 1% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1.2_11x], Overall progress: 2% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1_10.1.5], Overall progress: 2% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1_11.2.1], Overall progress: 3% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2.1_10x], Overall progress: 3% complete. \r\t\t\t--> Processing [ActiveWorkspace 3.2.1_11x], Overall progress: 3% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2.2_10x], Overall progress: 4% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2.2_11x], Overall progress: 4% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2_10x], Overall progress: 5% complete.  \r\t\t\t--> Processing [ActiveWorkspace 3.2_11x], Overall progress: 5% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.1_11x], Overall progress: 6% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.1_12x], Overall progress: 6% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.2_11x], Overall progress: 6% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.2_12x], Overall progress: 7% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.3_11x], Overall progress: 7% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.3_12x], Overall progress: 8% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.4_11x], Overall progress: 8% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.4_12x], Overall progress: 9% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.5_11x], Overall progress: 9% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.5_12x], Overall progress: 9% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.6_11x], Overall progress: 10% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.6_12x], Overall progress: 10% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.8_11x], Overall progress: 11% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.8_12x], Overall progress: 11% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0_11x], Overall progress: 12% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.0_12x], Overall progress: 12% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.1_11x], Overall progress: 12% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.1_12x], Overall progress: 13% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.2_11x], Overall progress: 13% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.2_12x], Overall progress: 14% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.3_11x], Overall progress: 14% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.3_12x], Overall progress: 15% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.4_11x], Overall progress: 15% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.4_12x], Overall progress: 15% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.9_11x], Overall progress: 16% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.9_12x], Overall progress: 16% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1_11x], Overall progress: 17% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.1_12x], Overall progress: 17% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.1_12x], Overall progress: 18% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.2_12x], Overall progress: 18% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.3_12x], Overall progress: 18% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.4_12x], Overall progress: 19% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.5_12x], Overall progress: 19% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.6_12x], Overall progress: 20% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.7_11x], Overall progress: 20% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.7_12x], Overall progress: 21% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2_11x], Overall progress: 21% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.2_12x], Overall progress: 21% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.1_11x], Overall progress: 22% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.1_12x], Overall progress: 22% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.2_11x], Overall progress: 23% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.2_12x], Overall progress: 23% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.3_11x], Overall progress: 24% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.3_12x], Overall progress: 24% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3_11x], Overall progress: 24% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.3_12x], Overall progress: 25% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.12_13x], Overall progress: 25% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.1_12x], Overall progress: 26% complete. \r\t\t\t--> Processing [ActiveWorkspace 5.0.1_13x], Overall progress: 26% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.2_12x], Overall progress: 26% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.2_13x], Overall progress: 27% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.19_13x], Overall progress: 27% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.1_12x], Overall progress: 28% complete. \r\t\t\t--> Processing [ActiveWorkspace 5.1.1_13x], Overall progress: 28% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.8_13x], Overall progress: 29% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.9_13x], Overall progress: 29% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1_13x], Overall progress: 29% complete.  \r\t\t\t--> Processing [ActiveWorkspace 5.2.6_13x], Overall progress: 30% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.2.7_13x], Overall progress: 30% complete.\r\t\t\t--> Processing [ActiveWorkspace 6.0.1_13x], Overall progress: 31% complete.\r\t\t\t--> Processing [ActiveWorkspace 6.0.1_14x], Overall progress: 31% complete.\r\t\t\t--> Processing [ActiveWorkspace 6.1_13x], Overall progress: 32% complete.  \r\t\t\t--> Processing [ActiveWorkspace 6.1_14x], Overall progress: 32% complete.\r\t\t\t--> Processing [Foundation 10.1.0], Overall progress: 32% complete.      \r\t\t\t--> Processing [Foundation 10.1.5], Overall progress: 33% complete.\r\t\t\t--> Processing [Foundation 10.1.5.1], Overall progress: 33% complete.\r\t\t\t--> Processing [Foundation 11.3], Overall progress: 34% complete.    \r\t\t\t--> Processing [Foundation 11.3.0.1], Overall progress: 34% complete.\r\t\t\t--> Processing [Foundation 11.4.0.1], Overall progress: 35% complete.\r\t\t\t--> Processing [Foundation 11.4.0.10], Overall progress: 35% complete.\r\t\t\t--> Processing [Foundation 11.4.0.11], Overall progress: 35% complete.\r\t\t\t--> Processing [Foundation 11.4.0.12], Overall progress: 36% complete.\r\t\t\t--> Processing [Foundation 11.4.0.13], Overall progress: 36% complete.\r\t\t\t--> Processing [Foundation 11.4.0.14], Overall progress: 37% complete.\r\t\t\t--> Processing [Foundation 11.4.0.15], Overall progress: 37% complete.\r\t\t\t--> Processing [Foundation 11.4.0.2], Overall progress: 38% complete. \r\t\t\t--> Processing [Foundation 11.4.0.3], Overall progress: 38% complete.\r\t\t\t--> Processing [Foundation 11.4.0.4], Overall progress: 38% complete.\r\t\t\t--> Processing [Foundation 11.4.0.5], Overall progress: 39% complete.\r\t\t\t--> Processing [Foundation 11.4.0.6], Overall progress: 39% complete.\r\t\t\t--> Processing [Foundation 11.4.0.7], Overall progress: 40% complete.\r\t\t\t--> Processing [Foundation 11.4.0.8], Overall progress: 40% complete.\r\t\t\t--> Processing [Foundation 11.4.0.9], Overall progress: 41% complete.\r\t\t\t--> Processing [Foundation 11.5], Overall progress: 41% complete.    \r\t\t\t--> Processing [Foundation 11.5.0.10], Overall progress: 41% complete.\r\t\t\t--> Processing [Foundation 11.5.0.11], Overall progress: 42% complete.\r\t\t\t--> Processing [Foundation 11.5.0.12], Overall progress: 42% complete.\r\t\t\t--> Processing [Foundation 11.5.0.2], Overall progress: 43% complete. \r\t\t\t--> Processing [Foundation 11.5.0.3], Overall progress: 43% complete.\r\t\t\t--> Processing [Foundation 11.5.0.4], Overall progress: 44% complete.\r\t\t\t--> Processing [Foundation 11.5.0.5], Overall progress: 44% complete.\r\t\t\t--> Processing [Foundation 11.5.0.6], Overall progress: 44% complete.\r\t\t\t--> Processing [Foundation 11.5.0.7], Overall progress: 45% complete.\r\t\t\t--> Processing [Foundation 11.5.0.8], Overall progress: 45% complete.\r\t\t\t--> Processing [Foundation 11.5.0.9], Overall progress: 46% complete.\r\t\t\t--> Processing [Foundation 11.6], Overall progress: 46% complete.    \r\t\t\t--> Processing [Foundation 11.6.0.1], Overall progress: 47% complete.\r\t\t\t--> Processing [Foundation 11.6.0.10], Overall progress: 47% complete.\r\t\t\t--> Processing [Foundation 11.6.0.11], Overall progress: 47% complete.\r\t\t\t--> Processing [Foundation 11.6.0.12], Overall progress: 48% complete.\r\t\t\t--> Processing [Foundation 11.6.0.13], Overall progress: 48% complete.\r\t\t\t--> Processing [Foundation 11.6.0.2], Overall progress: 49% complete. \r\t\t\t--> Processing [Foundation 11.6.0.3], Overall progress: 49% complete.\r\t\t\t--> Processing [Foundation 11.6.0.4], Overall progress: 50% complete.\r\t\t\t--> Processing [Foundation 11.6.0.5], Overall progress: 50% complete.\r\t\t\t--> Processing [Foundation 11.6.0.6], Overall progress: 50% complete.\r\t\t\t--> Processing [Foundation 11.6.0.7], Overall progress: 51% complete.\r\t\t\t--> Processing [Foundation 11.6.0.8], Overall progress: 51% complete.\r\t\t\t--> Processing [Foundation 11.6.0.9], Overall progress: 52% complete.\r\t\t\t--> Processing [Foundation 12.0], Overall progress: 52% complete.    \r\t\t\t--> Processing [Foundation 12.0.0.1], Overall progress: 53% complete.\r\t\t\t--> Processing [Foundation 12.1], Overall progress: 53% complete.    \r\t\t\t--> Processing [Foundation 12.1.0.1], Overall progress: 53% complete.\r\t\t\t--> Processing [Foundation 12.1.0.10], Overall progress: 54% complete.\r\t\t\t--> Processing [Foundation 12.1.0.11], Overall progress: 54% complete.\r\t\t\t--> Processing [Foundation 12.1.0.2], Overall progress: 55% complete. \r\t\t\t--> Processing [Foundation 12.1.0.3], Overall progress: 55% complete.\r\t\t\t--> Processing [Foundation 12.1.0.4], Overall progress: 56% complete.\r\t\t\t--> Processing [Foundation 12.1.0.5], Overall progress: 56% complete.\r\t\t\t--> Processing [Foundation 12.1.0.6], Overall progress: 56% complete.\r\t\t\t--> Processing [Foundation 12.1.0.7], Overall progress: 57% complete.\r\t\t\t--> Processing [Foundation 12.1.0.8], Overall progress: 57% complete.\r\t\t\t--> Processing [Foundation 12.1.0.9], Overall progress: 58% complete.\r\t\t\t--> Processing [Foundation 12.2], Overall progress: 58% complete.    \r\t\t\t--> Processing [Foundation 12.2.0.1], Overall progress: 59% complete.\r\t\t\t--> Processing [Foundation 12.2.0.2], Overall progress: 59% complete.\r\t\t\t--> Processing [Foundation 12.2.0.3], Overall progress: 59% complete.\r\t\t\t--> Processing [Foundation 12.2.0.4], Overall progress: 60% complete.\r\t\t\t--> Processing [Foundation 12.2.0.5], Overall progress: 60% complete.\r\t\t\t--> Processing [Foundation 12.2.0.6], Overall progress: 61% complete.\r\t\t\t--> Processing [Foundation 12.2.0.7], Overall progress: 61% complete.\r\t\t\t--> Processing [Foundation 12.2.0.8], Overall progress: 62% complete.\r\t\t\t--> Processing [Foundation 13.0], Overall progress: 62% complete.    \r\t\t\t--> Processing [Foundation 13.0.0.10], Overall progress: 62% complete.\r\t\t\t--> Processing [Foundation 13.0.0.8], Overall progress: 63% complete. \r\t\t\t--> Processing [Foundation 13.0.0.9], Overall progress: 63% complete.\r\t\t\t--> Processing [Foundation 13.1], Overall progress: 64% complete.    \r\t\t\t--> Processing [Foundation 13.1.0.1], Overall progress: 64% complete.\r\t\t\t--> Processing [Foundation 13.1.0.2], Overall progress: 65% complete.\r\t\t\t--> Processing [Foundation 13.1.0.8], Overall progress: 65% complete.\r\t\t\t--> Processing [Foundation 13.2], Overall progress: 65% complete.    \r\t\t\t--> Processing [Foundation 13.2.0.11.1.2], Overall progress: 66% complete.\r\t\t\t--> Processing [Foundation 13.2.0.15], Overall progress: 66% complete.    \r\t\t\t--> Processing [Foundation 13.2.0.16], Overall progress: 67% complete.\r\t\t\t--> Processing [Foundation 13.2.0.7], Overall progress: 67% complete. \r\t\t\t--> Processing [Foundation 13.3], Overall progress: 68% complete.    \r\t\t\t--> Processing [Foundation 13.3.0.1], Overall progress: 68% complete.\r\t\t\t--> Processing [Foundation 13.3.0.4], Overall progress: 68% complete.\r\t\t\t--> Processing [Foundation 14.0], Overall progress: 69% complete.    \r\t\t\t--> Processing [Foundation 14.1], Overall progress: 69% complete.\r\t\t\t--> Processing [Foundation 14.2], Overall progress: 70% complete.\r\t\t\t--> Processing [Foundation 14.3], Overall progress: 70% complete.\r\t\t\t--> Processing [Foundation 2406], Overall progress: 71% complete.\r\t\t\t--> Processing [Foundation TC2312], Overall progress: 71% complete.\r\t\t\t--> Processing [Subscmpl 4.0.0_11x], Overall progress: 71% complete.\r\t\t\t--> Processing [Subscmpl 4.0.0_12x], Overall progress: 72% complete.\r\t\t\t--> Processing [Subscmpl 4.0.10_11x], Overall progress: 72% complete.\r\t\t\t--> Processing [Subscmpl 4.0.10_12x], Overall progress: 73% complete.\r\t\t\t--> Processing [Subscmpl 4.0.1_11x], Overall progress: 73% complete. \r\t\t\t--> Processing [Subscmpl 4.0.1_12x], Overall progress: 74% complete.\r\t\t\t--> Processing [Subscmpl 4.0.2_11x], Overall progress: 74% complete.\r\t\t\t--> Processing [Subscmpl 4.0.2_12x], Overall progress: 74% complete.\r\t\t\t--> Processing [Subscmpl 4.0.3_11x], Overall progress: 75% complete.\r\t\t\t--> Processing [Subscmpl 4.0.3_12x], Overall progress: 75% complete.\r\t\t\t--> Processing [Subscmpl 4.0.4_11x], Overall progress: 76% complete.\r\t\t\t--> Processing [Subscmpl 4.0.4_12x], Overall progress: 76% complete.\r\t\t\t--> Processing [Subscmpl 4.0.5_11x], Overall progress: 76% complete.\r\t\t\t--> Processing [Subscmpl 4.0.5_12x], Overall progress: 77% complete.\r\t\t\t--> Processing [Subscmpl 4.0.6_11x], Overall progress: 77% complete.\r\t\t\t--> Processing [Subscmpl 4.0.6_12x], Overall progress: 78% complete.\r\t\t\t--> Processing [Subscmpl 4.0.7_11x], Overall progress: 78% complete.\r\t\t\t--> Processing [Subscmpl 4.0.7_12x], Overall progress: 79% complete.\r\t\t\t--> Processing [Subscmpl 4.0.8_11x], Overall progress: 79% complete.\r\t\t\t--> Processing [Subscmpl 4.0.8_12x], Overall progress: 79% complete.\r\t\t\t--> Processing [Subscmpl 4.0.9_11x], Overall progress: 80% complete.\r\t\t\t--> Processing [Subscmpl 4.0.9_12x], Overall progress: 80% complete.\r\t\t\t--> Processing [Subscmpl 4.1.0_11x], Overall progress: 81% complete.\r\t\t\t--> Processing [Subscmpl 4.1.0_12x], Overall progress: 81% complete.\r\t\t\t--> Processing [Subscmpl 4.1.1_11x], Overall progress: 82% complete.\r\t\t\t--> Processing [Subscmpl 4.1.1_12x], Overall progress: 82% complete.\r\t\t\t--> Processing [Subscmpl 4.1.2_11x], Overall progress: 82% complete.\r\t\t\t--> Processing [Subscmpl 4.1.2_12x], Overall progress: 83% complete.\r\t\t\t--> Processing [Subscmpl 4.1.3_11x], Overall progress: 83% complete.\r\t\t\t--> Processing [Subscmpl 4.1.3_12x], Overall progress: 84% complete.\r\t\t\t--> Processing [Subscmpl 4.1.4_11x], Overall progress: 84% complete.\r\t\t\t--> Processing [Subscmpl 4.1.4_12x], Overall progress: 85% complete.\r\t\t\t--> Processing [Subscmpl 4.1.5_11x], Overall progress: 85% complete.\r\t\t\t--> Processing [Subscmpl 4.1.5_12x], Overall progress: 85% complete.\r\t\t\t--> Processing [Subscmpl 4.1.6_11x], Overall progress: 86% complete.\r\t\t\t--> Processing [Subscmpl 4.1.6_12x], Overall progress: 86% complete.\r\t\t\t--> Processing [Subscmpl 4.1.7_11x], Overall progress: 87% complete.\r\t\t\t--> Processing [Subscmpl 4.1.7_12x], Overall progress: 87% complete.\r\t\t\t--> Processing [Subscmpl 4.1.8_11x], Overall progress: 88% complete.\r\t\t\t--> Processing [Subscmpl 4.1.8_12x], Overall progress: 88% complete.\r\t\t\t--> Processing [Subscmpl 4.1.9_11x], Overall progress: 88% complete.\r\t\t\t--> Processing [Subscmpl 4.1.9_12x], Overall progress: 89% complete.\r\t\t\t--> Processing [Subscmpl 4.2.0_11x], Overall progress: 89% complete.\r\t\t\t--> Processing [Subscmpl 4.2.0_12x], Overall progress: 90% complete.\r\t\t\t--> Processing [Subscmpl 4.2.1_11x], Overall progress: 90% complete.\r\t\t\t--> Processing [Subscmpl 4.2.1_12x], Overall progress: 91% complete.\r\t\t\t--> Processing [Subscmpl 4.2.2_11x], Overall progress: 91% complete.\r\t\t\t--> Processing [Subscmpl 4.2.2_12x], Overall progress: 91% complete.\r\t\t\t--> Processing [Subscmpl 4.2.3_11x], Overall progress: 92% complete.\r\t\t\t--> Processing [Subscmpl 4.2.3_12x], Overall progress: 92% complete.\r\t\t\t--> Processing [Subscmpl 4.2.4_11x], Overall progress: 93% complete.\r\t\t\t--> Processing [Subscmpl 4.2.4_12x], Overall progress: 93% complete.\r\t\t\t--> Processing [Subscmpl 4.2.5_11x], Overall progress: 94% complete.\r\t\t\t--> Processing [Subscmpl 4.2.5_12x], Overall progress: 94% complete.\r\t\t\t--> Processing [Subscmpl 4.2.6_11x], Overall progress: 94% complete.\r\t\t\t--> Processing [Subscmpl 4.2.6_12x], Overall progress: 95% complete.\r\t\t\t--> Processing [Subscmpl 4.2.7_11x], Overall progress: 95% complete.\r\t\t\t--> Processing [Subscmpl 4.2.7_12x], Overall progress: 96% complete.\r\t\t\t--> Processing [Subscmpl 4.2.8_11x], Overall progress: 96% complete.\r\t\t\t--> Processing [Subscmpl 4.2.8_12x], Overall progress: 97% complete.\r\t\t\t--> Processing [Subscmpl 4.3.0_11x], Overall progress: 97% complete.\r\t\t\t--> Processing [Subscmpl 4.3.0_12x], Overall progress: 97% complete.\r\t\t\t--> Processing [Subscmpl 4.3.1_11x], Overall progress: 98% complete.\r\t\t\t--> Processing [Subscmpl 4.3.1_12x], Overall progress: 98% complete.\r\t\t\t--> Processing [tcmsf 5.0.0], Overall progress: 99% complete.       \r\t\t\t--> Processing [tcmsf 5.0.1], Overall progress: 99% complete.\r\t\t\t--> Processing [tcmsf 5.1.8], Overall progress: 100% complete.\r\n\r\n\t\t--> Backing up the 'deploy_scripts' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\deploy_scripts\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\deploy_scripts\r\n\r\n\t\t--> Backing up the 'quick_deploy_config' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\quick_deploy_config\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\quick_deploy_config\r\n\r\n\t\t--> Backing up the 'snapshot' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\snapshot\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\snapshot\r\n\r\n\t\t--> Backing up the 'system' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\system\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\system\r\n\r\n\t\t--> Transferring the backup directory to a zipped archive.\r\n\t\t\tBackup Directory: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\r\n\t\t\tTarget Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository.2606_2026011400.2026-01-27-12-59-01.zip\r\n\r\n[Step  8 of 24] Backing up DC Vault directory...\r\n[Step  9 of 24] Cleaning Repository system directory...\r\n\r\n[Step 10 of 24] Cleaning up D:\\apps\\DeploymentCenter\\webserver\\temp directory...\r\n[Step 11 of 24] Cleaning Repository dc_contributions directory...\r\n[Step 12 of 24] Cleaning Deployment Center utilities directory...\r\n\r\n[Step 13 of 24] Updating Deployment Center Database...\r\nHibernate: SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE where TABLE_NAME='COMPONENT' and COLUMN_NAME='UNINSTALLRULE_UNINSTALL_RULE_ID' and CONSTRAINT_SCHEMA ='DEPLOY_CENTER'\r\nHibernate: SELECT INDEX_NAME FROM INFORMATION_SCHEMA.INDEX_COLUMNS where TABLE_NAME='COMPONENT' and COLUMN_NAME='UNINSTALLRULE_UNINSTALL_RULE_ID' and  INDEX_SCHEMA ='DEPLOY_CENTER'\r\nHibernate: DROP TABLE IF EXISTS DEPLOY_CENTER.uninstall_property\r\nHibernate: DROP TABLE IF EXISTS DEPLOY_CENTER.UNINSTALL_RULE\r\nHibernate: SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CHECK_CONSTRAINTS WHERE CHECK_CLAUSE LIKE '%DC_LOCALE%'\r\nHibernate: ALTER TABLE DEPLOY_CENTER.DC_LOCALE DROP CONSTRAINT IF EXISTS CONSTRAINT_B9\r\nHibernate: ALTER TABLE DEPLOY_CENTER.DC_LOCALE ADD CONSTRAINT CONSTRAINT_B9 CHECK (\"DC_LOCALE\" IN('CHINESE_SIMPLIFIED', 'CHINESE_TRADITIONAL', 'CZECH', 'ENGLISH', 'FRENCH', 'GERMAN', 'ITALIAN', 'JAPANESE', 'KOREAN', 'POLISH', 'PORTUGUESE_BRAZIL', 'RUSSIAN', 'SPANISH', 'UKRAINIAN'))\r\nBEST PRACTICE: The changelog generated by diffChangeLog/generateChangeLog should be inspected for correctness and completeness before being deployed. Some database objects and their dependencies cannot be represented automatically, and they may need to be manually updated before being deployed.\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-1::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-2::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-3::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-4::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-5::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-6::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-7::yytcawpt (generated)\r\n[Step 14 of 24] Deploying Deployment Center Open source Vault...\r\nWaiting for vault server to start for a minute\r\nEnabling the Admin Capability for Vault.\r\n[Step 15 of 24] Updating Deployment Center Repository...\r\n\r\n[Step 16 of 24] Updating Deployment Center Server...\r\n[Step 17 of 24] Copying Deployment Center utilities...\r\n[Step 18 of 24] Updating Deployment Center Service [DC_Service]...\r\n\r\n[Step 19 of 24] Updating Deployment Center Repository Service [DC_RepoService]...\r\n[Step 20 of 24] Updating Deployment Center Publisher Service [DC_RepoService_Publisher]...\r\n[Step 21 of 24] Waiting for Deployment Center Server to start...\r\n\r\n.[Step 22 of 24] Waiting for Repository Scanning to complete...\r\n.............[Step 23 of 24] Updating Deployment Center Environments...\r\n[Step 24 of 24] Successfully updated Deployment Center environments. \r\n\r\n----------------------------------------------------------------------------------------------------\r\nSuccess : Deployment Center upgrade completed.\r\n----------------------------------------------------------------------------------------------------\r\nDeployment Center service (\"DC_Service\") is installed and started.\r\nDeployment Center Repository service (\"DC_RepoService\") is installed and started.\r\nDeployment Center Publisher service (\"DC_RepoService_Publisher\") is installed and started.\r\nDeployment Center Vault service (\"DC_Vault_Service\") is installed and started.\r\n----------------------------------------------------------------------------------------------------\r\nAccess Deployment Center at the URL: \nhttp://INPUNLCSQA016.NET.PLM.EDS.COM:8080/deploymentcenter/\r\n----------------------------------------------------------------------------------------------------\r\n\nNOTE: The Deployment Center utilities are available under the \"D:\\\\apps\\\\DeploymentCenter\\\\webserver\\additional_tools\\\" directory and will no longer be available inside the Deployment Center kit directory.\r\n\nNOTE: The input file \"upgrade_config.properties\" contains sensitive information, such as passwords. It is recommended that you delete the input file after the installation/upgrade is completed.\r\n----------------------------------------------------------------------------------------------------\r\n\r\n",
+    "stdout_lines": [
+        "----------------------------------------------------------------------------------------------------",
+        "----------------------------------------------------------------------------------------------------",
+        "----------------------------------   Upgrading Deployment Center   ---------------------------------",
+        "----------------------------------------------------------------------------------------------------",
+        "Deployment Center upgrade log",
+        "Date and time : Jan 27, 2026 12:59 PM",
+        "Log file location: D:\\TC_kits\\tc2606\\tc2606_wntx64\\install\\DeploymentCenter\\deployment_center\\logs",
+        "----------------------------------------------------------------------------------------------------",
+        "Input arguments: ",
+        "-upgrade",
+        "-inputFile=upgrade_config.properties",
+        "----------------------------------------------------------------------------------------------------",
+        "Checking for incomplete environments that may be affected by DC upgrade...",
+        "Found Foundation software that will become incompatible with DC 2606:2026011400:",
+        "  - Foundation 2506",
+        "  - Foundation 2512",
+        "Environment check completed. Proceeding with DC upgrade.",
+        "",
+        "Deployment Center upgrade has started...",
+        "",
+        "[Step  1 of 24] Stopping Deployment Center Publisher Service [DC_RepoService_Publisher]...",
+        "[Step  2 of 24] Stopping Repository Service [DC_RepoService]...",
+        "[Step  3 of 24] Stopping Deployment Center Service [DC_Service]...",
+        "",
+        "[Step  4 of 24] Stopping Deployment Center Vault Service [DC_Vault_Service]...",
+        "[Step  5 of 24] Backing up Deployment Center Database...",
+        "\t\t\tSource Location: D:\\apps\\DeploymentCenter\\webserver\\db\\deploy_center.mv.db",
+        "\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\webserver\\db\\deploy_center.mv.db.2606_2026011400.2026-01-27-12-59-01",
+        "",
+        "[Step  6 of 24] Backing up Deployment Center Server Directory...",
+        "",
+        "[Step  7 of 24] Backing up Repository...",
+        "\t\t--> Backing up the 'dc_contributions' directory...",
+        "\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\dc_contributions",
+        "\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\dc_contributions",
+        "",
+        "",
+        "\t\t\t--> Processing [ActiveWorkspace 3.1.1_10x], Overall progress: 0% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.1.1_11x], Overall progress: 1% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.1.2_10x], Overall progress: 1% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.1.2_11x], Overall progress: 2% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.1_10.1.5], Overall progress: 2% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.1_11.2.1], Overall progress: 3% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.2.1_10x], Overall progress: 3% complete. ",
+        "\t\t\t--> Processing [ActiveWorkspace 3.2.1_11x], Overall progress: 3% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.2.2_10x], Overall progress: 4% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.2.2_11x], Overall progress: 4% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 3.2_10x], Overall progress: 5% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 3.2_11x], Overall progress: 5% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.1_11x], Overall progress: 6% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.1_12x], Overall progress: 6% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.2_11x], Overall progress: 6% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.2_12x], Overall progress: 7% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.3_11x], Overall progress: 7% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.3_12x], Overall progress: 8% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.4_11x], Overall progress: 8% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.4_12x], Overall progress: 9% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.5_11x], Overall progress: 9% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.5_12x], Overall progress: 9% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.6_11x], Overall progress: 10% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.6_12x], Overall progress: 10% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.8_11x], Overall progress: 11% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0.8_12x], Overall progress: 11% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0_11x], Overall progress: 12% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 4.0_12x], Overall progress: 12% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.1_11x], Overall progress: 12% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.1_12x], Overall progress: 13% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.2_11x], Overall progress: 13% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.2_12x], Overall progress: 14% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.3_11x], Overall progress: 14% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.3_12x], Overall progress: 15% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.4_11x], Overall progress: 15% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.4_12x], Overall progress: 15% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.9_11x], Overall progress: 16% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1.9_12x], Overall progress: 16% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1_11x], Overall progress: 17% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 4.1_12x], Overall progress: 17% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.1_12x], Overall progress: 18% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.2_12x], Overall progress: 18% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.3_12x], Overall progress: 18% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.4_12x], Overall progress: 19% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.5_12x], Overall progress: 19% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.6_12x], Overall progress: 20% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.7_11x], Overall progress: 20% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2.7_12x], Overall progress: 21% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2_11x], Overall progress: 21% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 4.2_12x], Overall progress: 21% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3.1_11x], Overall progress: 22% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3.1_12x], Overall progress: 22% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3.2_11x], Overall progress: 23% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3.2_12x], Overall progress: 23% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3.3_11x], Overall progress: 24% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3.3_12x], Overall progress: 24% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3_11x], Overall progress: 24% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 4.3_12x], Overall progress: 25% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.0.12_13x], Overall progress: 25% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.0.1_12x], Overall progress: 26% complete. ",
+        "\t\t\t--> Processing [ActiveWorkspace 5.0.1_13x], Overall progress: 26% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.0.2_12x], Overall progress: 26% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.0.2_13x], Overall progress: 27% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.1.19_13x], Overall progress: 27% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.1.1_12x], Overall progress: 28% complete. ",
+        "\t\t\t--> Processing [ActiveWorkspace 5.1.1_13x], Overall progress: 28% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.1.8_13x], Overall progress: 29% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.1.9_13x], Overall progress: 29% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.1_13x], Overall progress: 29% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 5.2.6_13x], Overall progress: 30% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 5.2.7_13x], Overall progress: 30% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 6.0.1_13x], Overall progress: 31% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 6.0.1_14x], Overall progress: 31% complete.",
+        "\t\t\t--> Processing [ActiveWorkspace 6.1_13x], Overall progress: 32% complete.  ",
+        "\t\t\t--> Processing [ActiveWorkspace 6.1_14x], Overall progress: 32% complete.",
+        "\t\t\t--> Processing [Foundation 10.1.0], Overall progress: 32% complete.      ",
+        "\t\t\t--> Processing [Foundation 10.1.5], Overall progress: 33% complete.",
+        "\t\t\t--> Processing [Foundation 10.1.5.1], Overall progress: 33% complete.",
+        "\t\t\t--> Processing [Foundation 11.3], Overall progress: 34% complete.    ",
+        "\t\t\t--> Processing [Foundation 11.3.0.1], Overall progress: 34% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.1], Overall progress: 35% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.10], Overall progress: 35% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.11], Overall progress: 35% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.12], Overall progress: 36% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.13], Overall progress: 36% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.14], Overall progress: 37% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.15], Overall progress: 37% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.2], Overall progress: 38% complete. ",
+        "\t\t\t--> Processing [Foundation 11.4.0.3], Overall progress: 38% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.4], Overall progress: 38% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.5], Overall progress: 39% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.6], Overall progress: 39% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.7], Overall progress: 40% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.8], Overall progress: 40% complete.",
+        "\t\t\t--> Processing [Foundation 11.4.0.9], Overall progress: 41% complete.",
+        "\t\t\t--> Processing [Foundation 11.5], Overall progress: 41% complete.    ",
+        "\t\t\t--> Processing [Foundation 11.5.0.10], Overall progress: 41% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.11], Overall progress: 42% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.12], Overall progress: 42% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.2], Overall progress: 43% complete. ",
+        "\t\t\t--> Processing [Foundation 11.5.0.3], Overall progress: 43% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.4], Overall progress: 44% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.5], Overall progress: 44% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.6], Overall progress: 44% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.7], Overall progress: 45% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.8], Overall progress: 45% complete.",
+        "\t\t\t--> Processing [Foundation 11.5.0.9], Overall progress: 46% complete.",
+        "\t\t\t--> Processing [Foundation 11.6], Overall progress: 46% complete.    ",
+        "\t\t\t--> Processing [Foundation 11.6.0.1], Overall progress: 47% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.10], Overall progress: 47% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.11], Overall progress: 47% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.12], Overall progress: 48% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.13], Overall progress: 48% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.2], Overall progress: 49% complete. ",
+        "\t\t\t--> Processing [Foundation 11.6.0.3], Overall progress: 49% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.4], Overall progress: 50% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.5], Overall progress: 50% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.6], Overall progress: 50% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.7], Overall progress: 51% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.8], Overall progress: 51% complete.",
+        "\t\t\t--> Processing [Foundation 11.6.0.9], Overall progress: 52% complete.",
+        "\t\t\t--> Processing [Foundation 12.0], Overall progress: 52% complete.    ",
+        "\t\t\t--> Processing [Foundation 12.0.0.1], Overall progress: 53% complete.",
+        "\t\t\t--> Processing [Foundation 12.1], Overall progress: 53% complete.    ",
+        "\t\t\t--> Processing [Foundation 12.1.0.1], Overall progress: 53% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.10], Overall progress: 54% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.11], Overall progress: 54% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.2], Overall progress: 55% complete. ",
+        "\t\t\t--> Processing [Foundation 12.1.0.3], Overall progress: 55% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.4], Overall progress: 56% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.5], Overall progress: 56% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.6], Overall progress: 56% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.7], Overall progress: 57% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.8], Overall progress: 57% complete.",
+        "\t\t\t--> Processing [Foundation 12.1.0.9], Overall progress: 58% complete.",
+        "\t\t\t--> Processing [Foundation 12.2], Overall progress: 58% complete.    ",
+        "\t\t\t--> Processing [Foundation 12.2.0.1], Overall progress: 59% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.2], Overall progress: 59% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.3], Overall progress: 59% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.4], Overall progress: 60% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.5], Overall progress: 60% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.6], Overall progress: 61% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.7], Overall progress: 61% complete.",
+        "\t\t\t--> Processing [Foundation 12.2.0.8], Overall progress: 62% complete.",
+        "\t\t\t--> Processing [Foundation 13.0], Overall progress: 62% complete.    ",
+        "\t\t\t--> Processing [Foundation 13.0.0.10], Overall progress: 62% complete.",
+        "\t\t\t--> Processing [Foundation 13.0.0.8], Overall progress: 63% complete. ",
+        "\t\t\t--> Processing [Foundation 13.0.0.9], Overall progress: 63% complete.",
+        "\t\t\t--> Processing [Foundation 13.1], Overall progress: 64% complete.    ",
+        "\t\t\t--> Processing [Foundation 13.1.0.1], Overall progress: 64% complete.",
+        "\t\t\t--> Processing [Foundation 13.1.0.2], Overall progress: 65% complete.",
+        "\t\t\t--> Processing [Foundation 13.1.0.8], Overall progress: 65% complete.",
+        "\t\t\t--> Processing [Foundation 13.2], Overall progress: 65% complete.    ",
+        "\t\t\t--> Processing [Foundation 13.2.0.11.1.2], Overall progress: 66% complete.",
+        "\t\t\t--> Processing [Foundation 13.2.0.15], Overall progress: 66% complete.    ",
+        "\t\t\t--> Processing [Foundation 13.2.0.16], Overall progress: 67% complete.",
+        "\t\t\t--> Processing [Foundation 13.2.0.7], Overall progress: 67% complete. ",
+        "\t\t\t--> Processing [Foundation 13.3], Overall progress: 68% complete.    ",
+        "\t\t\t--> Processing [Foundation 13.3.0.1], Overall progress: 68% complete.",
+        "\t\t\t--> Processing [Foundation 13.3.0.4], Overall progress: 68% complete.",
+        "\t\t\t--> Processing [Foundation 14.0], Overall progress: 69% complete.    ",
+        "\t\t\t--> Processing [Foundation 14.1], Overall progress: 69% complete.",
+        "\t\t\t--> Processing [Foundation 14.2], Overall progress: 70% complete.",
+        "\t\t\t--> Processing [Foundation 14.3], Overall progress: 70% complete.",
+        "\t\t\t--> Processing [Foundation 2406], Overall progress: 71% complete.",
+        "\t\t\t--> Processing [Foundation TC2312], Overall progress: 71% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.0_11x], Overall progress: 71% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.0_12x], Overall progress: 72% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.10_11x], Overall progress: 72% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.10_12x], Overall progress: 73% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.1_11x], Overall progress: 73% complete. ",
+        "\t\t\t--> Processing [Subscmpl 4.0.1_12x], Overall progress: 74% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.2_11x], Overall progress: 74% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.2_12x], Overall progress: 74% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.3_11x], Overall progress: 75% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.3_12x], Overall progress: 75% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.4_11x], Overall progress: 76% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.4_12x], Overall progress: 76% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.5_11x], Overall progress: 76% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.5_12x], Overall progress: 77% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.6_11x], Overall progress: 77% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.6_12x], Overall progress: 78% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.7_11x], Overall progress: 78% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.7_12x], Overall progress: 79% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.8_11x], Overall progress: 79% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.8_12x], Overall progress: 79% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.9_11x], Overall progress: 80% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.0.9_12x], Overall progress: 80% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.0_11x], Overall progress: 81% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.0_12x], Overall progress: 81% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.1_11x], Overall progress: 82% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.1_12x], Overall progress: 82% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.2_11x], Overall progress: 82% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.2_12x], Overall progress: 83% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.3_11x], Overall progress: 83% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.3_12x], Overall progress: 84% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.4_11x], Overall progress: 84% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.4_12x], Overall progress: 85% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.5_11x], Overall progress: 85% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.5_12x], Overall progress: 85% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.6_11x], Overall progress: 86% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.6_12x], Overall progress: 86% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.7_11x], Overall progress: 87% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.7_12x], Overall progress: 87% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.8_11x], Overall progress: 88% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.8_12x], Overall progress: 88% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.9_11x], Overall progress: 88% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.1.9_12x], Overall progress: 89% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.0_11x], Overall progress: 89% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.0_12x], Overall progress: 90% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.1_11x], Overall progress: 90% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.1_12x], Overall progress: 91% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.2_11x], Overall progress: 91% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.2_12x], Overall progress: 91% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.3_11x], Overall progress: 92% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.3_12x], Overall progress: 92% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.4_11x], Overall progress: 93% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.4_12x], Overall progress: 93% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.5_11x], Overall progress: 94% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.5_12x], Overall progress: 94% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.6_11x], Overall progress: 94% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.6_12x], Overall progress: 95% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.7_11x], Overall progress: 95% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.7_12x], Overall progress: 96% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.8_11x], Overall progress: 96% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.2.8_12x], Overall progress: 97% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.3.0_11x], Overall progress: 97% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.3.0_12x], Overall progress: 97% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.3.1_11x], Overall progress: 98% complete.",
+        "\t\t\t--> Processing [Subscmpl 4.3.1_12x], Overall progress: 98% complete.",
+        "\t\t\t--> Processing [tcmsf 5.0.0], Overall progress: 99% complete.       ",
+        "\t\t\t--> Processing [tcmsf 5.0.1], Overall progress: 99% complete.",
+        "\t\t\t--> Processing [tcmsf 5.1.8], Overall progress: 100% complete.",
+        "",
+        "\t\t--> Backing up the 'deploy_scripts' directory...",
+        "\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\deploy_scripts",
+        "\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\deploy_scripts",
+        "",
+        "\t\t--> Backing up the 'quick_deploy_config' directory...",
+        "\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\quick_deploy_config",
+        "\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\quick_deploy_config",
+        "",
+        "\t\t--> Backing up the 'snapshot' directory...",
+        "\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\snapshot",
+        "\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\snapshot",
+        "",
+        "\t\t--> Backing up the 'system' directory...",
+        "\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\system",
+        "\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\system",
+        "",
+        "\t\t--> Transferring the backup directory to a zipped archive.",
+        "\t\t\tBackup Directory: D:\\apps\\DeploymentCenter\\repository\\backup\\repository",
+        "\t\t\tTarget Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository.2606_2026011400.2026-01-27-12-59-01.zip",
+        "",
+        "[Step  8 of 24] Backing up DC Vault directory...",
+        "[Step  9 of 24] Cleaning Repository system directory...",
+        "",
+        "[Step 10 of 24] Cleaning up D:\\apps\\DeploymentCenter\\webserver\\temp directory...",
+        "[Step 11 of 24] Cleaning Repository dc_contributions directory...",
+        "[Step 12 of 24] Cleaning Deployment Center utilities directory...",
+        "",
+        "[Step 13 of 24] Updating Deployment Center Database...",
+        "Hibernate: SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE where TABLE_NAME='COMPONENT' and COLUMN_NAME='UNINSTALLRULE_UNINSTALL_RULE_ID' and CONSTRAINT_SCHEMA ='DEPLOY_CENTER'",
+        "Hibernate: SELECT INDEX_NAME FROM INFORMATION_SCHEMA.INDEX_COLUMNS where TABLE_NAME='COMPONENT' and COLUMN_NAME='UNINSTALLRULE_UNINSTALL_RULE_ID' and  INDEX_SCHEMA ='DEPLOY_CENTER'",
+        "Hibernate: DROP TABLE IF EXISTS DEPLOY_CENTER.uninstall_property",
+        "Hibernate: DROP TABLE IF EXISTS DEPLOY_CENTER.UNINSTALL_RULE",
+        "Hibernate: SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CHECK_CONSTRAINTS WHERE CHECK_CLAUSE LIKE '%DC_LOCALE%'",
+        "Hibernate: ALTER TABLE DEPLOY_CENTER.DC_LOCALE DROP CONSTRAINT IF EXISTS CONSTRAINT_B9",
+        "Hibernate: ALTER TABLE DEPLOY_CENTER.DC_LOCALE ADD CONSTRAINT CONSTRAINT_B9 CHECK (\"DC_LOCALE\" IN('CHINESE_SIMPLIFIED', 'CHINESE_TRADITIONAL', 'CZECH', 'ENGLISH', 'FRENCH', 'GERMAN', 'ITALIAN', 'JAPANESE', 'KOREAN', 'POLISH', 'PORTUGUESE_BRAZIL', 'RUSSIAN', 'SPANISH', 'UKRAINIAN'))",
+        "BEST PRACTICE: The changelog generated by diffChangeLog/generateChangeLog should be inspected for correctness and completeness before being deployed. Some database objects and their dependencies cannot be represented automatically, and they may need to be manually updated before being deployed.",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-1::yytcawpt (generated)",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-2::yytcawpt (generated)",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-3::yytcawpt (generated)",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-4::yytcawpt (generated)",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-5::yytcawpt (generated)",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-6::yytcawpt (generated)",
+        "Running Changeset: deployment_center_database_change_log.xml::1769499139582-7::yytcawpt (generated)",
+        "[Step 14 of 24] Deploying Deployment Center Open source Vault...",
+        "Waiting for vault server to start for a minute",
+        "Enabling the Admin Capability for Vault.",
+        "[Step 15 of 24] Updating Deployment Center Repository...",
+        "",
+        "[Step 16 of 24] Updating Deployment Center Server...",
+        "[Step 17 of 24] Copying Deployment Center utilities...",
+        "[Step 18 of 24] Updating Deployment Center Service [DC_Service]...",
+        "",
+        "[Step 19 of 24] Updating Deployment Center Repository Service [DC_RepoService]...",
+        "[Step 20 of 24] Updating Deployment Center Publisher Service [DC_RepoService_Publisher]...",
+        "[Step 21 of 24] Waiting for Deployment Center Server to start...",
+        "",
+        ".[Step 22 of 24] Waiting for Repository Scanning to complete...",
+        ".............[Step 23 of 24] Updating Deployment Center Environments...",
+        "[Step 24 of 24] Successfully updated Deployment Center environments. ",
+        "",
+        "----------------------------------------------------------------------------------------------------",
+        "Success : Deployment Center upgrade completed.",
+        "----------------------------------------------------------------------------------------------------",
+        "Deployment Center service (\"DC_Service\") is installed and started.",
+        "Deployment Center Repository service (\"DC_RepoService\") is installed and started.",
+        "Deployment Center Publisher service (\"DC_RepoService_Publisher\") is installed and started.",
+        "Deployment Center Vault service (\"DC_Vault_Service\") is installed and started.",
+        "----------------------------------------------------------------------------------------------------",
+        "Access Deployment Center at the URL: ",
+        "http://INPUNLCSQA016.NET.PLM.EDS.COM:8080/deploymentcenter/",
+        "----------------------------------------------------------------------------------------------------",
+        "",
+        "NOTE: The Deployment Center utilities are available under the \"D:\\\\apps\\\\DeploymentCenter\\\\webserver\\additional_tools\\\" directory and will no longer be available inside the Deployment Center kit directory.",
+        "",
+        "NOTE: The input file \"upgrade_config.properties\" contains sensitive information, such as passwords. It is recommended that you delete the input file after the installation/upgrade is completed.",
+        "----------------------------------------------------------------------------------------------------",
+        ""
+    ]
+}
+2026-01-27 13:05:48,698 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Display current directory] *********************************************************************************************************************
+2026-01-27 13:05:48,699 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  13:05:48 +0530 (0:06:50.457)       0:07:29.785 ******* 
+2026-01-27 13:05:48,724 p=4021 u=durgesh n=ansible | ok: [teamcenter] => {
+    "msg": "----------------------------------------------------------------------------------------------------\r\n----------------------------------------------------------------------------------------------------\r\n----------------------------------   Upgrading Deployment Center   ---------------------------------\r\n----------------------------------------------------------------------------------------------------\r\nDeployment Center upgrade log\r\nDate and time : Jan 27, 2026 12:59 PM\r\nLog file location: D:\\TC_kits\\tc2606\\tc2606_wntx64\\install\\DeploymentCenter\\deployment_center\\logs\r\n----------------------------------------------------------------------------------------------------\r\nInput arguments: \r\n-upgrade\r\n-inputFile=upgrade_config.properties\r\n----------------------------------------------------------------------------------------------------\r\nChecking for incomplete environments that may be affected by DC upgrade...\r\nFound Foundation software that will become incompatible with DC 2606:2026011400:\r\n  - Foundation 2506\r\n  - Foundation 2512\r\nEnvironment check completed. Proceeding with DC upgrade.\r\n\r\nDeployment Center upgrade has started...\r\n\r\n[Step  1 of 24] Stopping Deployment Center Publisher Service [DC_RepoService_Publisher]...\r\n[Step  2 of 24] Stopping Repository Service [DC_RepoService]...\r\n[Step  3 of 24] Stopping Deployment Center Service [DC_Service]...\r\n\r\n[Step  4 of 24] Stopping Deployment Center Vault Service [DC_Vault_Service]...\r\n[Step  5 of 24] Backing up Deployment Center Database...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\webserver\\db\\deploy_center.mv.db\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\webserver\\db\\deploy_center.mv.db.2606_2026011400.2026-01-27-12-59-01\r\n\r\n[Step  6 of 24] Backing up Deployment Center Server Directory...\r\n\r\n[Step  7 of 24] Backing up Repository...\r\n\t\t--> Backing up the 'dc_contributions' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\dc_contributions\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\dc_contributions\r\n\r\n\r\t\t\t--> Processing [ActiveWorkspace 3.1.1_10x], Overall progress: 0% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1.1_11x], Overall progress: 1% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1.2_10x], Overall progress: 1% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1.2_11x], Overall progress: 2% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1_10.1.5], Overall progress: 2% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.1_11.2.1], Overall progress: 3% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2.1_10x], Overall progress: 3% complete. \r\t\t\t--> Processing [ActiveWorkspace 3.2.1_11x], Overall progress: 3% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2.2_10x], Overall progress: 4% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2.2_11x], Overall progress: 4% complete.\r\t\t\t--> Processing [ActiveWorkspace 3.2_10x], Overall progress: 5% complete.  \r\t\t\t--> Processing [ActiveWorkspace 3.2_11x], Overall progress: 5% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.1_11x], Overall progress: 6% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.1_12x], Overall progress: 6% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.2_11x], Overall progress: 6% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.2_12x], Overall progress: 7% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.3_11x], Overall progress: 7% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.3_12x], Overall progress: 8% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.4_11x], Overall progress: 8% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.4_12x], Overall progress: 9% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.5_11x], Overall progress: 9% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.5_12x], Overall progress: 9% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.6_11x], Overall progress: 10% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.6_12x], Overall progress: 10% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.8_11x], Overall progress: 11% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0.8_12x], Overall progress: 11% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.0_11x], Overall progress: 12% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.0_12x], Overall progress: 12% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.1_11x], Overall progress: 12% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.1_12x], Overall progress: 13% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.2_11x], Overall progress: 13% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.2_12x], Overall progress: 14% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.3_11x], Overall progress: 14% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.3_12x], Overall progress: 15% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.4_11x], Overall progress: 15% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.4_12x], Overall progress: 15% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.9_11x], Overall progress: 16% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1.9_12x], Overall progress: 16% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.1_11x], Overall progress: 17% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.1_12x], Overall progress: 17% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.1_12x], Overall progress: 18% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.2_12x], Overall progress: 18% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.3_12x], Overall progress: 18% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.4_12x], Overall progress: 19% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.5_12x], Overall progress: 19% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.6_12x], Overall progress: 20% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.7_11x], Overall progress: 20% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2.7_12x], Overall progress: 21% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.2_11x], Overall progress: 21% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.2_12x], Overall progress: 21% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.1_11x], Overall progress: 22% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.1_12x], Overall progress: 22% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.2_11x], Overall progress: 23% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.2_12x], Overall progress: 23% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.3_11x], Overall progress: 24% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3.3_12x], Overall progress: 24% complete.\r\t\t\t--> Processing [ActiveWorkspace 4.3_11x], Overall progress: 24% complete.  \r\t\t\t--> Processing [ActiveWorkspace 4.3_12x], Overall progress: 25% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.12_13x], Overall progress: 25% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.1_12x], Overall progress: 26% complete. \r\t\t\t--> Processing [ActiveWorkspace 5.0.1_13x], Overall progress: 26% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.2_12x], Overall progress: 26% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.0.2_13x], Overall progress: 27% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.19_13x], Overall progress: 27% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.1_12x], Overall progress: 28% complete. \r\t\t\t--> Processing [ActiveWorkspace 5.1.1_13x], Overall progress: 28% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.8_13x], Overall progress: 29% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1.9_13x], Overall progress: 29% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.1_13x], Overall progress: 29% complete.  \r\t\t\t--> Processing [ActiveWorkspace 5.2.6_13x], Overall progress: 30% complete.\r\t\t\t--> Processing [ActiveWorkspace 5.2.7_13x], Overall progress: 30% complete.\r\t\t\t--> Processing [ActiveWorkspace 6.0.1_13x], Overall progress: 31% complete.\r\t\t\t--> Processing [ActiveWorkspace 6.0.1_14x], Overall progress: 31% complete.\r\t\t\t--> Processing [ActiveWorkspace 6.1_13x], Overall progress: 32% complete.  \r\t\t\t--> Processing [ActiveWorkspace 6.1_14x], Overall progress: 32% complete.\r\t\t\t--> Processing [Foundation 10.1.0], Overall progress: 32% complete.      \r\t\t\t--> Processing [Foundation 10.1.5], Overall progress: 33% complete.\r\t\t\t--> Processing [Foundation 10.1.5.1], Overall progress: 33% complete.\r\t\t\t--> Processing [Foundation 11.3], Overall progress: 34% complete.    \r\t\t\t--> Processing [Foundation 11.3.0.1], Overall progress: 34% complete.\r\t\t\t--> Processing [Foundation 11.4.0.1], Overall progress: 35% complete.\r\t\t\t--> Processing [Foundation 11.4.0.10], Overall progress: 35% complete.\r\t\t\t--> Processing [Foundation 11.4.0.11], Overall progress: 35% complete.\r\t\t\t--> Processing [Foundation 11.4.0.12], Overall progress: 36% complete.\r\t\t\t--> Processing [Foundation 11.4.0.13], Overall progress: 36% complete.\r\t\t\t--> Processing [Foundation 11.4.0.14], Overall progress: 37% complete.\r\t\t\t--> Processing [Foundation 11.4.0.15], Overall progress: 37% complete.\r\t\t\t--> Processing [Foundation 11.4.0.2], Overall progress: 38% complete. \r\t\t\t--> Processing [Foundation 11.4.0.3], Overall progress: 38% complete.\r\t\t\t--> Processing [Foundation 11.4.0.4], Overall progress: 38% complete.\r\t\t\t--> Processing [Foundation 11.4.0.5], Overall progress: 39% complete.\r\t\t\t--> Processing [Foundation 11.4.0.6], Overall progress: 39% complete.\r\t\t\t--> Processing [Foundation 11.4.0.7], Overall progress: 40% complete.\r\t\t\t--> Processing [Foundation 11.4.0.8], Overall progress: 40% complete.\r\t\t\t--> Processing [Foundation 11.4.0.9], Overall progress: 41% complete.\r\t\t\t--> Processing [Foundation 11.5], Overall progress: 41% complete.    \r\t\t\t--> Processing [Foundation 11.5.0.10], Overall progress: 41% complete.\r\t\t\t--> Processing [Foundation 11.5.0.11], Overall progress: 42% complete.\r\t\t\t--> Processing [Foundation 11.5.0.12], Overall progress: 42% complete.\r\t\t\t--> Processing [Foundation 11.5.0.2], Overall progress: 43% complete. \r\t\t\t--> Processing [Foundation 11.5.0.3], Overall progress: 43% complete.\r\t\t\t--> Processing [Foundation 11.5.0.4], Overall progress: 44% complete.\r\t\t\t--> Processing [Foundation 11.5.0.5], Overall progress: 44% complete.\r\t\t\t--> Processing [Foundation 11.5.0.6], Overall progress: 44% complete.\r\t\t\t--> Processing [Foundation 11.5.0.7], Overall progress: 45% complete.\r\t\t\t--> Processing [Foundation 11.5.0.8], Overall progress: 45% complete.\r\t\t\t--> Processing [Foundation 11.5.0.9], Overall progress: 46% complete.\r\t\t\t--> Processing [Foundation 11.6], Overall progress: 46% complete.    \r\t\t\t--> Processing [Foundation 11.6.0.1], Overall progress: 47% complete.\r\t\t\t--> Processing [Foundation 11.6.0.10], Overall progress: 47% complete.\r\t\t\t--> Processing [Foundation 11.6.0.11], Overall progress: 47% complete.\r\t\t\t--> Processing [Foundation 11.6.0.12], Overall progress: 48% complete.\r\t\t\t--> Processing [Foundation 11.6.0.13], Overall progress: 48% complete.\r\t\t\t--> Processing [Foundation 11.6.0.2], Overall progress: 49% complete. \r\t\t\t--> Processing [Foundation 11.6.0.3], Overall progress: 49% complete.\r\t\t\t--> Processing [Foundation 11.6.0.4], Overall progress: 50% complete.\r\t\t\t--> Processing [Foundation 11.6.0.5], Overall progress: 50% complete.\r\t\t\t--> Processing [Foundation 11.6.0.6], Overall progress: 50% complete.\r\t\t\t--> Processing [Foundation 11.6.0.7], Overall progress: 51% complete.\r\t\t\t--> Processing [Foundation 11.6.0.8], Overall progress: 51% complete.\r\t\t\t--> Processing [Foundation 11.6.0.9], Overall progress: 52% complete.\r\t\t\t--> Processing [Foundation 12.0], Overall progress: 52% complete.    \r\t\t\t--> Processing [Foundation 12.0.0.1], Overall progress: 53% complete.\r\t\t\t--> Processing [Foundation 12.1], Overall progress: 53% complete.    \r\t\t\t--> Processing [Foundation 12.1.0.1], Overall progress: 53% complete.\r\t\t\t--> Processing [Foundation 12.1.0.10], Overall progress: 54% complete.\r\t\t\t--> Processing [Foundation 12.1.0.11], Overall progress: 54% complete.\r\t\t\t--> Processing [Foundation 12.1.0.2], Overall progress: 55% complete. \r\t\t\t--> Processing [Foundation 12.1.0.3], Overall progress: 55% complete.\r\t\t\t--> Processing [Foundation 12.1.0.4], Overall progress: 56% complete.\r\t\t\t--> Processing [Foundation 12.1.0.5], Overall progress: 56% complete.\r\t\t\t--> Processing [Foundation 12.1.0.6], Overall progress: 56% complete.\r\t\t\t--> Processing [Foundation 12.1.0.7], Overall progress: 57% complete.\r\t\t\t--> Processing [Foundation 12.1.0.8], Overall progress: 57% complete.\r\t\t\t--> Processing [Foundation 12.1.0.9], Overall progress: 58% complete.\r\t\t\t--> Processing [Foundation 12.2], Overall progress: 58% complete.    \r\t\t\t--> Processing [Foundation 12.2.0.1], Overall progress: 59% complete.\r\t\t\t--> Processing [Foundation 12.2.0.2], Overall progress: 59% complete.\r\t\t\t--> Processing [Foundation 12.2.0.3], Overall progress: 59% complete.\r\t\t\t--> Processing [Foundation 12.2.0.4], Overall progress: 60% complete.\r\t\t\t--> Processing [Foundation 12.2.0.5], Overall progress: 60% complete.\r\t\t\t--> Processing [Foundation 12.2.0.6], Overall progress: 61% complete.\r\t\t\t--> Processing [Foundation 12.2.0.7], Overall progress: 61% complete.\r\t\t\t--> Processing [Foundation 12.2.0.8], Overall progress: 62% complete.\r\t\t\t--> Processing [Foundation 13.0], Overall progress: 62% complete.    \r\t\t\t--> Processing [Foundation 13.0.0.10], Overall progress: 62% complete.\r\t\t\t--> Processing [Foundation 13.0.0.8], Overall progress: 63% complete. \r\t\t\t--> Processing [Foundation 13.0.0.9], Overall progress: 63% complete.\r\t\t\t--> Processing [Foundation 13.1], Overall progress: 64% complete.    \r\t\t\t--> Processing [Foundation 13.1.0.1], Overall progress: 64% complete.\r\t\t\t--> Processing [Foundation 13.1.0.2], Overall progress: 65% complete.\r\t\t\t--> Processing [Foundation 13.1.0.8], Overall progress: 65% complete.\r\t\t\t--> Processing [Foundation 13.2], Overall progress: 65% complete.    \r\t\t\t--> Processing [Foundation 13.2.0.11.1.2], Overall progress: 66% complete.\r\t\t\t--> Processing [Foundation 13.2.0.15], Overall progress: 66% complete.    \r\t\t\t--> Processing [Foundation 13.2.0.16], Overall progress: 67% complete.\r\t\t\t--> Processing [Foundation 13.2.0.7], Overall progress: 67% complete. \r\t\t\t--> Processing [Foundation 13.3], Overall progress: 68% complete.    \r\t\t\t--> Processing [Foundation 13.3.0.1], Overall progress: 68% complete.\r\t\t\t--> Processing [Foundation 13.3.0.4], Overall progress: 68% complete.\r\t\t\t--> Processing [Foundation 14.0], Overall progress: 69% complete.    \r\t\t\t--> Processing [Foundation 14.1], Overall progress: 69% complete.\r\t\t\t--> Processing [Foundation 14.2], Overall progress: 70% complete.\r\t\t\t--> Processing [Foundation 14.3], Overall progress: 70% complete.\r\t\t\t--> Processing [Foundation 2406], Overall progress: 71% complete.\r\t\t\t--> Processing [Foundation TC2312], Overall progress: 71% complete.\r\t\t\t--> Processing [Subscmpl 4.0.0_11x], Overall progress: 71% complete.\r\t\t\t--> Processing [Subscmpl 4.0.0_12x], Overall progress: 72% complete.\r\t\t\t--> Processing [Subscmpl 4.0.10_11x], Overall progress: 72% complete.\r\t\t\t--> Processing [Subscmpl 4.0.10_12x], Overall progress: 73% complete.\r\t\t\t--> Processing [Subscmpl 4.0.1_11x], Overall progress: 73% complete. \r\t\t\t--> Processing [Subscmpl 4.0.1_12x], Overall progress: 74% complete.\r\t\t\t--> Processing [Subscmpl 4.0.2_11x], Overall progress: 74% complete.\r\t\t\t--> Processing [Subscmpl 4.0.2_12x], Overall progress: 74% complete.\r\t\t\t--> Processing [Subscmpl 4.0.3_11x], Overall progress: 75% complete.\r\t\t\t--> Processing [Subscmpl 4.0.3_12x], Overall progress: 75% complete.\r\t\t\t--> Processing [Subscmpl 4.0.4_11x], Overall progress: 76% complete.\r\t\t\t--> Processing [Subscmpl 4.0.4_12x], Overall progress: 76% complete.\r\t\t\t--> Processing [Subscmpl 4.0.5_11x], Overall progress: 76% complete.\r\t\t\t--> Processing [Subscmpl 4.0.5_12x], Overall progress: 77% complete.\r\t\t\t--> Processing [Subscmpl 4.0.6_11x], Overall progress: 77% complete.\r\t\t\t--> Processing [Subscmpl 4.0.6_12x], Overall progress: 78% complete.\r\t\t\t--> Processing [Subscmpl 4.0.7_11x], Overall progress: 78% complete.\r\t\t\t--> Processing [Subscmpl 4.0.7_12x], Overall progress: 79% complete.\r\t\t\t--> Processing [Subscmpl 4.0.8_11x], Overall progress: 79% complete.\r\t\t\t--> Processing [Subscmpl 4.0.8_12x], Overall progress: 79% complete.\r\t\t\t--> Processing [Subscmpl 4.0.9_11x], Overall progress: 80% complete.\r\t\t\t--> Processing [Subscmpl 4.0.9_12x], Overall progress: 80% complete.\r\t\t\t--> Processing [Subscmpl 4.1.0_11x], Overall progress: 81% complete.\r\t\t\t--> Processing [Subscmpl 4.1.0_12x], Overall progress: 81% complete.\r\t\t\t--> Processing [Subscmpl 4.1.1_11x], Overall progress: 82% complete.\r\t\t\t--> Processing [Subscmpl 4.1.1_12x], Overall progress: 82% complete.\r\t\t\t--> Processing [Subscmpl 4.1.2_11x], Overall progress: 82% complete.\r\t\t\t--> Processing [Subscmpl 4.1.2_12x], Overall progress: 83% complete.\r\t\t\t--> Processing [Subscmpl 4.1.3_11x], Overall progress: 83% complete.\r\t\t\t--> Processing [Subscmpl 4.1.3_12x], Overall progress: 84% complete.\r\t\t\t--> Processing [Subscmpl 4.1.4_11x], Overall progress: 84% complete.\r\t\t\t--> Processing [Subscmpl 4.1.4_12x], Overall progress: 85% complete.\r\t\t\t--> Processing [Subscmpl 4.1.5_11x], Overall progress: 85% complete.\r\t\t\t--> Processing [Subscmpl 4.1.5_12x], Overall progress: 85% complete.\r\t\t\t--> Processing [Subscmpl 4.1.6_11x], Overall progress: 86% complete.\r\t\t\t--> Processing [Subscmpl 4.1.6_12x], Overall progress: 86% complete.\r\t\t\t--> Processing [Subscmpl 4.1.7_11x], Overall progress: 87% complete.\r\t\t\t--> Processing [Subscmpl 4.1.7_12x], Overall progress: 87% complete.\r\t\t\t--> Processing [Subscmpl 4.1.8_11x], Overall progress: 88% complete.\r\t\t\t--> Processing [Subscmpl 4.1.8_12x], Overall progress: 88% complete.\r\t\t\t--> Processing [Subscmpl 4.1.9_11x], Overall progress: 88% complete.\r\t\t\t--> Processing [Subscmpl 4.1.9_12x], Overall progress: 89% complete.\r\t\t\t--> Processing [Subscmpl 4.2.0_11x], Overall progress: 89% complete.\r\t\t\t--> Processing [Subscmpl 4.2.0_12x], Overall progress: 90% complete.\r\t\t\t--> Processing [Subscmpl 4.2.1_11x], Overall progress: 90% complete.\r\t\t\t--> Processing [Subscmpl 4.2.1_12x], Overall progress: 91% complete.\r\t\t\t--> Processing [Subscmpl 4.2.2_11x], Overall progress: 91% complete.\r\t\t\t--> Processing [Subscmpl 4.2.2_12x], Overall progress: 91% complete.\r\t\t\t--> Processing [Subscmpl 4.2.3_11x], Overall progress: 92% complete.\r\t\t\t--> Processing [Subscmpl 4.2.3_12x], Overall progress: 92% complete.\r\t\t\t--> Processing [Subscmpl 4.2.4_11x], Overall progress: 93% complete.\r\t\t\t--> Processing [Subscmpl 4.2.4_12x], Overall progress: 93% complete.\r\t\t\t--> Processing [Subscmpl 4.2.5_11x], Overall progress: 94% complete.\r\t\t\t--> Processing [Subscmpl 4.2.5_12x], Overall progress: 94% complete.\r\t\t\t--> Processing [Subscmpl 4.2.6_11x], Overall progress: 94% complete.\r\t\t\t--> Processing [Subscmpl 4.2.6_12x], Overall progress: 95% complete.\r\t\t\t--> Processing [Subscmpl 4.2.7_11x], Overall progress: 95% complete.\r\t\t\t--> Processing [Subscmpl 4.2.7_12x], Overall progress: 96% complete.\r\t\t\t--> Processing [Subscmpl 4.2.8_11x], Overall progress: 96% complete.\r\t\t\t--> Processing [Subscmpl 4.2.8_12x], Overall progress: 97% complete.\r\t\t\t--> Processing [Subscmpl 4.3.0_11x], Overall progress: 97% complete.\r\t\t\t--> Processing [Subscmpl 4.3.0_12x], Overall progress: 97% complete.\r\t\t\t--> Processing [Subscmpl 4.3.1_11x], Overall progress: 98% complete.\r\t\t\t--> Processing [Subscmpl 4.3.1_12x], Overall progress: 98% complete.\r\t\t\t--> Processing [tcmsf 5.0.0], Overall progress: 99% complete.       \r\t\t\t--> Processing [tcmsf 5.0.1], Overall progress: 99% complete.\r\t\t\t--> Processing [tcmsf 5.1.8], Overall progress: 100% complete.\r\n\r\n\t\t--> Backing up the 'deploy_scripts' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\deploy_scripts\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\deploy_scripts\r\n\r\n\t\t--> Backing up the 'quick_deploy_config' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\quick_deploy_config\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\quick_deploy_config\r\n\r\n\t\t--> Backing up the 'snapshot' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\snapshot\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\snapshot\r\n\r\n\t\t--> Backing up the 'system' directory...\r\n\t\t\tSource Location: D:\\apps\\DeploymentCenter\\repository\\system\r\n\t\t\tBackup Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\\system\r\n\r\n\t\t--> Transferring the backup directory to a zipped archive.\r\n\t\t\tBackup Directory: D:\\apps\\DeploymentCenter\\repository\\backup\\repository\r\n\t\t\tTarget Location: D:\\apps\\DeploymentCenter\\repository\\backup\\repository.2606_2026011400.2026-01-27-12-59-01.zip\r\n\r\n[Step  8 of 24] Backing up DC Vault directory...\r\n[Step  9 of 24] Cleaning Repository system directory...\r\n\r\n[Step 10 of 24] Cleaning up D:\\apps\\DeploymentCenter\\webserver\\temp directory...\r\n[Step 11 of 24] Cleaning Repository dc_contributions directory...\r\n[Step 12 of 24] Cleaning Deployment Center utilities directory...\r\n\r\n[Step 13 of 24] Updating Deployment Center Database...\r\nHibernate: SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE where TABLE_NAME='COMPONENT' and COLUMN_NAME='UNINSTALLRULE_UNINSTALL_RULE_ID' and CONSTRAINT_SCHEMA ='DEPLOY_CENTER'\r\nHibernate: SELECT INDEX_NAME FROM INFORMATION_SCHEMA.INDEX_COLUMNS where TABLE_NAME='COMPONENT' and COLUMN_NAME='UNINSTALLRULE_UNINSTALL_RULE_ID' and  INDEX_SCHEMA ='DEPLOY_CENTER'\r\nHibernate: DROP TABLE IF EXISTS DEPLOY_CENTER.uninstall_property\r\nHibernate: DROP TABLE IF EXISTS DEPLOY_CENTER.UNINSTALL_RULE\r\nHibernate: SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.CHECK_CONSTRAINTS WHERE CHECK_CLAUSE LIKE '%DC_LOCALE%'\r\nHibernate: ALTER TABLE DEPLOY_CENTER.DC_LOCALE DROP CONSTRAINT IF EXISTS CONSTRAINT_B9\r\nHibernate: ALTER TABLE DEPLOY_CENTER.DC_LOCALE ADD CONSTRAINT CONSTRAINT_B9 CHECK (\"DC_LOCALE\" IN('CHINESE_SIMPLIFIED', 'CHINESE_TRADITIONAL', 'CZECH', 'ENGLISH', 'FRENCH', 'GERMAN', 'ITALIAN', 'JAPANESE', 'KOREAN', 'POLISH', 'PORTUGUESE_BRAZIL', 'RUSSIAN', 'SPANISH', 'UKRAINIAN'))\r\nBEST PRACTICE: The changelog generated by diffChangeLog/generateChangeLog should be inspected for correctness and completeness before being deployed. Some database objects and their dependencies cannot be represented automatically, and they may need to be manually updated before being deployed.\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-1::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-2::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-3::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-4::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-5::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-6::yytcawpt (generated)\r\nRunning Changeset: deployment_center_database_change_log.xml::1769499139582-7::yytcawpt (generated)\r\n[Step 14 of 24] Deploying Deployment Center Open source Vault...\r\nWaiting for vault server to start for a minute\r\nEnabling the Admin Capability for Vault.\r\n[Step 15 of 24] Updating Deployment Center Repository...\r\n\r\n[Step 16 of 24] Updating Deployment Center Server...\r\n[Step 17 of 24] Copying Deployment Center utilities...\r\n[Step 18 of 24] Updating Deployment Center Service [DC_Service]...\r\n\r\n[Step 19 of 24] Updating Deployment Center Repository Service [DC_RepoService]...\r\n[Step 20 of 24] Updating Deployment Center Publisher Service [DC_RepoService_Publisher]...\r\n[Step 21 of 24] Waiting for Deployment Center Server to start...\r\n\r\n.[Step 22 of 24] Waiting for Repository Scanning to complete...\r\n.............[Step 23 of 24] Updating Deployment Center Environments...\r\n[Step 24 of 24] Successfully updated Deployment Center environments. \r\n\r\n----------------------------------------------------------------------------------------------------\r\nSuccess : Deployment Center upgrade completed.\r\n----------------------------------------------------------------------------------------------------\r\nDeployment Center service (\"DC_Service\") is installed and started.\r\nDeployment Center Repository service (\"DC_RepoService\") is installed and started.\r\nDeployment Center Publisher service (\"DC_RepoService_Publisher\") is installed and started.\r\nDeployment Center Vault service (\"DC_Vault_Service\") is installed and started.\r\n----------------------------------------------------------------------------------------------------\r\nAccess Deployment Center at the URL: \nhttp://INPUNLCSQA016.NET.PLM.EDS.COM:8080/deploymentcenter/\r\n----------------------------------------------------------------------------------------------------\r\n\nNOTE: The Deployment Center utilities are available under the \"D:\\\\apps\\\\DeploymentCenter\\\\webserver\\additional_tools\\\" directory and will no longer be available inside the Deployment Center kit directory.\r\n\nNOTE: The input file \"upgrade_config.properties\" contains sensitive information, such as passwords. It is recommended that you delete the input file after the installation/upgrade is completed.\r\n----------------------------------------------------------------------------------------------------\r\n\r\n"
+}
+2026-01-27 13:05:48,739 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Copy TC Kits and Custom Templates to Deployment Center Repository] *****************************************************************************
+2026-01-27 13:05:48,740 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  13:05:48 +0530 (0:00:00.040)       0:07:29.826 ******* 
+2026-01-27 13:05:48,796 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_copy.ps1
+2026-01-27 13:05:48,797 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:05:48,798 p=4021 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 13:05:50,457 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:10:41,201 p=4021 u=durgesh n=ansible | changed: [teamcenter] => (item={'src': 'D:\\TC_kits\\tc2606\\tc2606_wntx64'}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "dest": "D:\\apps\\DeploymentCenter\\repository\\software\\tc2606_wntx64",
+    "item": {
+        "src": "D:\\TC_kits\\tc2606\\tc2606_wntx64"
+    },
+    "operation": "folder_copy",
+    "size": 19140556641,
+    "src": "D:\\TC_kits\\tc2606\\tc2606_wntx64"
+}
+2026-01-27 13:10:41,213 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_copy.ps1
+2026-01-27 13:10:41,214 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:10:41,215 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:10:43,521 p=4021 u=durgesh n=ansible | changed: [teamcenter] => (item={'src': '\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Custom_Templates\\custom_2606'}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "dest": "D:\\apps\\DeploymentCenter\\repository\\software\\custom_2606",
+    "item": {
+        "src": "\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Custom_Templates\\custom_2606"
+    },
+    "operation": "folder_copy",
+    "size": 116112,
+    "src": "\\\\pndscl03-data\\TcApps_Performance_Testing\\TC_install\\Custom_Templates\\custom_2606"
+}
+2026-01-27 13:10:43,540 p=4021 u=durgesh n=ansible | TASK [upgrade_dc : Restart Deployment Center Services] ************************************************************************************************************
+2026-01-27 13:10:43,540 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  13:10:43 +0530 (0:04:54.800)       0:12:24.626 ******* 
+2026-01-27 13:10:43,586 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_service.ps1
+2026-01-27 13:10:43,587 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:10:43,587 p=4021 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 13:10:45,417 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:10:52,908 p=4021 u=durgesh n=ansible | changed: [teamcenter] => (item=Deployment Center Repository Publisher Service) => {
+    "ansible_loop_var": "item",
+    "can_pause_and_continue": false,
+    "changed": true,
+    "depended_by": [],
+    "dependencies": [
+        "Tcpip",
+        "Afd"
+    ],
+    "description": "Deployment Center Repository Publisher Service",
+    "desktop_interact": false,
+    "display_name": "Deployment Center Repository Publisher Service",
+    "exists": true,
+    "invocation": {
+        "module_args": {
+            "dependencies": null,
+            "dependency_action": "set",
+            "description": null,
+            "desktop_interact": false,
+            "display_name": null,
+            "error_control": null,
+            "failure_actions": null,
+            "failure_actions_on_non_crash_failure": null,
+            "failure_command": null,
+            "failure_reboot_msg": null,
+            "failure_reset_period_sec": null,
+            "force_dependent_services": false,
+            "load_order_group": null,
+            "name": "Deployment Center Repository Publisher Service",
+            "password": null,
+            "path": null,
+            "pre_shutdown_timeout_ms": null,
+            "required_privileges": null,
+            "service_type": null,
+            "sid_info": null,
+            "start_mode": null,
+            "state": "restarted",
+            "update_password": null,
+            "username": null
+        }
+    },
+    "item": "Deployment Center Repository Publisher Service",
+    "name": "DC_RepoService_Publisher",
+    "path": "D:\\apps\\DeploymentCenter\\webserver\\DC_RepoService_Publisher.exe //RS//DC_RepoService_Publisher",
+    "start_mode": "auto",
+    "state": "running",
+    "username": "LocalSystem"
+}
+2026-01-27 13:10:52,923 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_service.ps1
+2026-01-27 13:10:52,924 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:10:52,924 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:11:01,009 p=4021 u=durgesh n=ansible | changed: [teamcenter] => (item=Deployment Center Repository Service) => {
+    "ansible_loop_var": "item",
+    "can_pause_and_continue": false,
+    "changed": true,
+    "depended_by": [],
+    "dependencies": [
+        "Tcpip",
+        "Afd"
+    ],
+    "description": "Repository Service v1.0",
+    "desktop_interact": false,
+    "display_name": "Deployment Center Repository Service",
+    "exists": true,
+    "invocation": {
+        "module_args": {
+            "dependencies": null,
+            "dependency_action": "set",
+            "description": null,
+            "desktop_interact": false,
+            "display_name": null,
+            "error_control": null,
+            "failure_actions": null,
+            "failure_actions_on_non_crash_failure": null,
+            "failure_command": null,
+            "failure_reboot_msg": null,
+            "failure_reset_period_sec": null,
+            "force_dependent_services": false,
+            "load_order_group": null,
+            "name": "Deployment Center Repository Service",
+            "password": null,
+            "path": null,
+            "pre_shutdown_timeout_ms": null,
+            "required_privileges": null,
+            "service_type": null,
+            "sid_info": null,
+            "start_mode": null,
+            "state": "restarted",
+            "update_password": null,
+            "username": null
+        }
+    },
+    "item": "Deployment Center Repository Service",
+    "name": "DC_RepoService",
+    "path": "D:\\apps\\DeploymentCenter\\webserver\\repotool\\DC_RepoService.exe //RS//DC_RepoService",
+    "start_mode": "auto",
+    "state": "running",
+    "username": "LocalSystem"
+}
+2026-01-27 13:11:01,025 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_service.ps1
+2026-01-27 13:11:01,026 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:11:01,026 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:11:07,415 p=4021 u=durgesh n=ansible | changed: [teamcenter] => (item=Deployment Center Service) => {
+    "ansible_loop_var": "item",
+    "can_pause_and_continue": false,
+    "changed": true,
+    "depended_by": [],
+    "dependencies": [
+        "Tcpip",
+        "Afd"
+    ],
+    "description": "DC_Service",
+    "desktop_interact": false,
+    "display_name": "Deployment Center Service",
+    "exists": true,
+    "invocation": {
+        "module_args": {
+            "dependencies": null,
+            "dependency_action": "set",
+            "description": null,
+            "desktop_interact": false,
+            "display_name": null,
+            "error_control": null,
+            "failure_actions": null,
+            "failure_actions_on_non_crash_failure": null,
+            "failure_command": null,
+            "failure_reboot_msg": null,
+            "failure_reset_period_sec": null,
+            "force_dependent_services": false,
+            "load_order_group": null,
+            "name": "Deployment Center Service",
+            "password": null,
+            "path": null,
+            "pre_shutdown_timeout_ms": null,
+            "required_privileges": null,
+            "service_type": null,
+            "sid_info": null,
+            "start_mode": null,
+            "state": "restarted",
+            "update_password": null,
+            "username": null
+        }
+    },
+    "item": "Deployment Center Service",
+    "name": "DC_Service",
+    "path": "D:\\apps\\DeploymentCenter\\webserver\\DC_Service.exe //RS//DC_Service",
+    "start_mode": "auto",
+    "state": "running",
+    "username": "LocalSystem"
+}
+2026-01-27 13:11:07,430 p=4021 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_service.ps1
+2026-01-27 13:11:07,431 p=4021 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:11:07,432 p=4021 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:11:11,004 p=4021 u=durgesh n=ansible | changed: [teamcenter] => (item=Deployment Center Vault Service) => {
+    "ansible_loop_var": "item",
+    "can_pause_and_continue": false,
+    "changed": true,
+    "depended_by": [],
+    "dependencies": [
+        "Tcpip",
+        "Afd"
+    ],
+    "description": "DC_Vault_Service",
+    "desktop_interact": false,
+    "display_name": "Deployment Center Vault Service",
+    "exists": true,
+    "invocation": {
+        "module_args": {
+            "dependencies": null,
+            "dependency_action": "set",
+            "description": null,
+            "desktop_interact": false,
+            "display_name": null,
+            "error_control": null,
+            "failure_actions": null,
+            "failure_actions_on_non_crash_failure": null,
+            "failure_command": null,
+            "failure_reboot_msg": null,
+            "failure_reset_period_sec": null,
+            "force_dependent_services": false,
+            "load_order_group": null,
+            "name": "Deployment Center Vault Service",
+            "password": null,
+            "path": null,
+            "pre_shutdown_timeout_ms": null,
+            "required_privileges": null,
+            "service_type": null,
+            "sid_info": null,
+            "start_mode": null,
+            "state": "restarted",
+            "update_password": null,
+            "username": null
+        }
+    },
+    "item": "Deployment Center Vault Service",
+    "name": "DC_Vault_Service",
+    "path": "D:\\apps\\DeploymentCenter\\webserver\\dc_vault_service.exe //RS//DC_Vault_Service",
+    "start_mode": "auto",
+    "state": "running",
+    "username": "LocalSystem"
+}
+2026-01-27 13:11:11,029 p=4021 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 13:11:11,030 p=4021 u=durgesh n=ansible | teamcenter                 : ok=8    changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2026-01-27 13:11:11,030 p=4021 u=durgesh n=ansible | Tuesday 27 January 2026  13:11:11 +0530 (0:00:27.490)       0:12:52.116 ******* 
+2026-01-27 13:11:11,031 p=4021 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 13:11:11,031 p=4021 u=durgesh n=ansible | upgrade_dc : Run DC Upgrade ------------------------------------------------------------------------------------------------------------------------------ 410.46s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/upgrade.yml:9 --------------------------------------------------------------------------------------------
+2026-01-27 13:11:11,032 p=4021 u=durgesh n=ansible | upgrade_dc : Copy TC Kits and Custom Templates to Deployment Center Repository --------------------------------------------------------------------------- 294.80s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/copy_kits.yml:2 ------------------------------------------------------------------------------------------
+2026-01-27 13:11:11,032 p=4021 u=durgesh n=ansible | upgrade_dc : Unzip DC Kit --------------------------------------------------------------------------------------------------------------------------------- 31.03s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/extract_dc_kit.yml:12 ------------------------------------------------------------------------------------
+2026-01-27 13:11:11,032 p=4021 u=durgesh n=ansible | upgrade_dc : Restart Deployment Center Services ----------------------------------------------------------------------------------------------------------- 27.49s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/main.yml:8 -----------------------------------------------------------------------------------------------
+2026-01-27 13:11:11,033 p=4021 u=durgesh n=ansible | upgrade_dc : Check if TC Kit path exists ------------------------------------------------------------------------------------------------------------------- 5.21s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/extract_dc_kit.yml:2 -------------------------------------------------------------------------------------
+2026-01-27 13:11:11,033 p=4021 u=durgesh n=ansible | upgrade_dc : Update ServerDir in upgrade_config.properties ------------------------------------------------------------------------------------------------- 2.69s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/upgrade.yml:2 --------------------------------------------------------------------------------------------
+2026-01-27 13:11:11,033 p=4021 u=durgesh n=ansible | Import upgrade_dc Role ------------------------------------------------------------------------------------------------------------------------------------- 0.27s
+/mnt/d/TC Apps Automation/deploy/02_upgrade_dc.yml:6 -------------------------------------------------------------------------------------------------------------
+2026-01-27 13:11:11,034 p=4021 u=durgesh n=ansible | upgrade_dc : Display current directory --------------------------------------------------------------------------------------------------------------------- 0.04s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/upgrade.yml:14 -------------------------------------------------------------------------------------------
+2026-01-27 13:11:11,034 p=4021 u=durgesh n=ansible | upgrade_dc : Fail if TC Kit path does not exist ------------------------------------------------------------------------------------------------------------ 0.03s
+/mnt/d/TC Apps Automation/deploy/roles/upgrade_dc/tasks/extract_dc_kit.yml:7 -------------------------------------------------------------------------------------
+2026-01-27 13:11:11,498 p=4064 u=durgesh n=ansible | ansible-playbook [core 2.17.14]
+  config file = /mnt/d/TC Apps Automation/deploy/ansible.cfg
+  configured module search path = ['/home/durgesh/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/durgesh/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+2026-01-27 13:11:11,498 p=4064 u=durgesh n=ansible | Using /mnt/d/TC Apps Automation/deploy/ansible.cfg as config file
+2026-01-27 13:11:11,677 p=4064 u=durgesh n=ansible | host_list declined parsing /mnt/d/TC Apps Automation/deploy/inventory.yml as it did not pass its verify_file() method
+2026-01-27 13:11:11,702 p=4064 u=durgesh n=ansible | Parsed /mnt/d/TC Apps Automation/deploy/inventory.yml inventory source with yaml plugin
+2026-01-27 13:11:11,891 p=4064 u=durgesh n=ansible | redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+2026-01-27 13:11:11,894 p=4064 u=durgesh n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2026-01-27 13:11:11,895 p=4064 u=durgesh n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2026-01-27 13:11:11,895 p=4064 u=durgesh n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2026-01-27 13:11:11,896 p=4064 u=durgesh n=ansible | PLAYBOOK: 03_deploy_script_execution.yml **************************************************************************************************************************
+2026-01-27 13:11:11,897 p=4064 u=durgesh n=ansible | 1 plays in 03_deploy_script_execution.yml
+2026-01-27 13:11:11,928 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:11,941 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:11,955 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:11,956 p=4064 u=durgesh n=ansible | PLAY [Deploy Script Execution] ************************************************************************************************************************************
+2026-01-27 13:11:12,016 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,018 p=4064 u=durgesh n=ansible | TASK [Import Deploy Script Execution Role] ************************************************************************************************************************
+2026-01-27 13:11:12,019 p=4064 u=durgesh n=ansible | Tuesday 27 January 2026  13:11:12 +0530 (0:00:00.126)       0:00:00.126 ******* 
+2026-01-27 13:11:12,053 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,069 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,087 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,286 p=4064 u=durgesh n=ansible | redirecting (type: modules) ansible.builtin.win_shell to ansible.windows.win_shell
+2026-01-27 13:11:12,318 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,371 p=4064 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/delta_modification.yml
+2026-01-27 13:11:12,437 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,451 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,452 p=4064 u=durgesh n=ansible | included: deploy_script_execution for teamcenter
+2026-01-27 13:11:12,472 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:12,474 p=4064 u=durgesh n=ansible | TASK [deploy_script_execution : Run deploy.bat with parameters] ***************************************************************************************************
+2026-01-27 13:11:12,474 p=4064 u=durgesh n=ansible | Tuesday 27 January 2026  13:11:12 +0530 (0:00:00.455)       0:00:00.581 ******* 
+2026-01-27 13:11:12,509 p=4064 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_shell.ps1
+2026-01-27 13:11:12,510 p=4064 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 13:11:12,510 p=4064 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 13:11:14,094 p=4064 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 13:11:16,175 p=4064 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {
+    "changed": true,
+    "cmd": "cmd /C \"cd /D D:\\apps\\DeploymentCenter\\repository\\deploy_scripts\\perflab\\install\\20260123173523IST\\\\deploy_INPUNLCSQA016 && deploy.bat -dcusername=dcadmin -dcpassword=dcadmin  -softwareLocation=D:\\apps\\DeploymentCenter\\repository\\software\"",
+    "delta": "0:00:00.365213",
+    "end": "2026-01-27 07:41:15.564637",
+    "msg": "non-zero return code",
+    "rc": 1,
+    "start": "2026-01-27 07:41:15.199424",
+    "stderr": "The system cannot find the path specified.",
+    "stderr_lines": [
+        "The system cannot find the path specified."
+    ],
+    "stdout": "",
+    "stdout_lines": []
+}
+2026-01-27 13:11:16,176 p=4064 u=durgesh n=ansible | ...ignoring
+2026-01-27 13:11:16,200 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:16,201 p=4064 u=durgesh n=ansible | TASK [deploy_script_execution : Display Deploy with Parameters Output] ********************************************************************************************
+2026-01-27 13:11:16,202 p=4064 u=durgesh n=ansible | Tuesday 27 January 2026  13:11:16 +0530 (0:00:03.727)       0:00:04.308 ******* 
+2026-01-27 13:11:16,225 p=4064 u=durgesh n=ansible | ok: [teamcenter] => {
+    "deploy_with_parameters.stdout_lines": []
+}
+2026-01-27 13:11:16,251 p=4064 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 13:11:16,254 p=4064 u=durgesh n=ansible | TASK [deploy_script_execution : Extract Deployer Log Path] ********************************************************************************************************
+2026-01-27 13:11:16,255 p=4064 u=durgesh n=ansible | Tuesday 27 January 2026  13:11:16 +0530 (0:00:00.053)       0:00:04.362 ******* 
+2026-01-27 13:11:16,302 p=4064 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {
+    "msg": "The task includes an option with an undefined variable.. No first item, sequence was empty.\n\nThe error appears to be in '/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml': line 60, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Extract Deployer Log Path\n  ^ here\n"
+}
+2026-01-27 13:11:16,307 p=4064 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 13:11:16,307 p=4064 u=durgesh n=ansible | teamcenter                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2026-01-27 13:11:16,308 p=4064 u=durgesh n=ansible | Tuesday 27 January 2026  13:11:16 +0530 (0:00:00.052)       0:00:04.414 ******* 
+2026-01-27 13:11:16,308 p=4064 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 13:11:16,308 p=4064 u=durgesh n=ansible | deploy_script_execution : Run deploy.bat with parameters --------------------------------------------------------------------------------------------------- 3.73s
+/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml:47 ---------------------------------------------------------------------------------
+2026-01-27 13:11:16,309 p=4064 u=durgesh n=ansible | Import Deploy Script Execution Role ------------------------------------------------------------------------------------------------------------------------ 0.46s
+/mnt/d/TC Apps Automation/deploy/03_deploy_script_execution.yml:8 ------------------------------------------------------------------------------------------------
+2026-01-27 13:11:16,309 p=4064 u=durgesh n=ansible | deploy_script_execution : Display Deploy with Parameters Output -------------------------------------------------------------------------------------------- 0.05s
+/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml:56 ---------------------------------------------------------------------------------
+2026-01-27 13:11:16,310 p=4064 u=durgesh n=ansible | deploy_script_execution : Extract Deployer Log Path -------------------------------------------------------------------------------------------------------- 0.05s
+/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml:60 ---------------------------------------------------------------------------------

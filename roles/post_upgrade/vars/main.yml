@@ -1,0 +1,7 @@
+---
+# vars file for roles/post-upgrade
+solr_backup_src: \\pndscl03-data\TcApps_Performance_Testing\Environment_Backup\Solr_data\Tc2606
+solr_target_dest: D:\Siemens\Teamcenter2512\TC_ROOT\solr-9.6.0\server\solr
+tc_kit_path: D:\tc_kits\tc2606\tc2606_wntx64
+tc_root: D:\Siemens\Teamcenter2512\TC_ROOT
+profilevars_path: D:\Siemens\Teamcenter2512\TC_DATA\tc_profilevars.bat

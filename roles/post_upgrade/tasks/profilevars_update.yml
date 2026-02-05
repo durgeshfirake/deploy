@@ -1,0 +1,18 @@
+---
+- name: Enable System Log
+  community.windows.win_lineinfile:
+    path: '{{ profilevars_path }}'
+    regexp: '^\s*rem\s+set\s+TC_KEEP_SYSTEM_LOG\s*=\s*true\s*$'
+    line: 'set TC_KEEP_SYSTEM_LOG=true'
+
+- name: Add PJL settings block below hello wordl
+  community.windows.win_lineinfile:
+    path: '{{ profilevars_path }}'
+    insertafter: '^set TC_INDEXING_ENGINE_USER=solr_admin'
+    line: |
+      @ rem setting for PJL
+      REM set TC_KEEP_SYSTEM_LOG=true
+      REM set TC_SQL_DEBUG=bJPT
+      REM set TC_JOURNAL=FULL
+      REM set TC_JOURNAL_PERFORMANCE_ONLY=2
+

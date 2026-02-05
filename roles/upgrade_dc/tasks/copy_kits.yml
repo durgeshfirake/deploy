@@ -1,0 +1,12 @@
+---
+- name: Copy TC Kits and Custom Templates to Deployment Center Repository
+  ansible.windows.win_copy:
+    src: "{{ item.src }}"
+    dest: "D:\\apps\\DeploymentCenter\\repository\\software"
+    remote_src: true
+  loop:
+    - { src: "{{ tc_kit_path }}" }
+    - { src: "{{ custom_template_path }}\\{{ custom_template_name }}" }
+  become: true
+  become_method: runas
+  become_user: SYSTEM

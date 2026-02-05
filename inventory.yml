@@ -1,0 +1,20 @@
+all:
+ hosts:
+    database:
+      ansible_host: pnv6s1741
+      ansible_connection: winrm
+      ansible_user: yytcawpt
+      ansible_password: Performance2606@2026
+      ansible_winrm_server_cert_validation: ignore
+      ansible_winrm_transport: kerberos
+      ansible_port: 5985
+    teamcenter:
+      ansible_host: pnv6s1742
+      ansible_connection: winrm
+      ansible_user: yytcawpt
+      ansible_password: Performance2606@2026
+      ansible_winrm_server_cert_validation: ignore
+      ansible_winrm_transport: kerberos
+      ansible_port: 5985
+
+      

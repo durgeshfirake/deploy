@@ -1,0 +1,23 @@
+---
+- name: Extract DC Kit
+  ansible.builtin.import_tasks: extract_dc_kit.yml
+- name: Upgrade Deployment Center
+  ansible.builtin.import_tasks: upgrade.yml
+- name: Copy Kits into Deployment Center Repository
+
+  ansible.builtin.import_tasks: copy_kits.yml
+- name: Restart Deployment Center Services
+  ansible.windows.win_service:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - "Deployment Center Repository Publisher Service"
+    - "Deployment Center Repository Service"
+    - "Deployment Center Service"
+    - "Deployment Center Vault Service"
+  become: true
+  become_method: runas
+  become_user: SYSTEM
+
+
+# check db passwords post upgrade and pre deploy script generation

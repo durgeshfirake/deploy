@@ -1,0 +1,8 @@
+---
+- name: Upgrade DC and restart services
+  hosts: teamcenter
+  gather_facts: false
+  tasks:
+    - name: Import upgrade_dc Role
+      ansible.builtin.include_role:
+        name: upgrade_dc

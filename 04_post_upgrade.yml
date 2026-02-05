@@ -1,0 +1,8 @@
+---
+- name: Post Upgrade Tasks after Successfull execution of Deploy Script
+  hosts: teamcenter
+  gather_facts: false
+  tasks:
+    - name: Import Post Upgrade Role
+      ansible.builtin.include_role:
+        name: post_upgrade

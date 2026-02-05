@@ -1,0 +1,5 @@
+---
+tc_kit_path: D:\TC_kits\tc2606\tc2606_wntx64
+custom_template_path: \\pndscl03-data\TcApps_Performance_Testing\TC_install\Custom_Templates
+custom_template_name: custom_2606
+server_dir: D:\\apps\\DeploymentCenter\\webserver

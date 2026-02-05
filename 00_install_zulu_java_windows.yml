@@ -1,0 +1,8 @@
+---
+- name: Install Zulu Java on Windows
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Import java Role
+      ansible.builtin.include_role:
+        name: zulu_java

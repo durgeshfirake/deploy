@@ -1,0 +1,552 @@
+2026-01-27 14:20:14,309 p=4322 u=durgesh n=ansible | PLAY [Deploy Script Execution] ************************************************************************************************************************************
+2026-01-27 14:20:14,367 p=4322 u=durgesh n=ansible | TASK [Import Deploy Script Execution Role] ************************************************************************************************************************
+2026-01-27 14:20:14,368 p=4322 u=durgesh n=ansible | Tuesday 27 January 2026  14:20:14 +0530 (0:00:00.099)       0:00:00.099 ******* 
+2026-01-27 14:20:14,632 p=4322 u=durgesh n=ansible | included: deploy_script_execution for teamcenter
+2026-01-27 14:20:14,651 p=4322 u=durgesh n=ansible | TASK [deploy_script_execution : Execute dc_quick_deploy.bat] ******************************************************************************************************
+2026-01-27 14:20:14,662 p=4322 u=durgesh n=ansible | Tuesday 27 January 2026  14:20:14 +0530 (0:00:00.293)       0:00:00.393 ******* 
+2026-01-27 14:21:12,686 p=4322 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {"changed": true, "cmd": "cmd /C \"cd /D D:\\apps\\DeploymentCenter\\webserver\\additional_tools\\internal\\dc_quick_deploy && dc_quick_deploy.bat -dcurl=http://pnv6s2191.net.plm.eds.com:8080/deploymentcenter -dcusername=dcadmin -dcpassword=dcadmin -environment=perflab -inputFile=C:\\apps\\DC\\qd_2026.xml\"", "delta": "0:00:54.151438", "end": "2026-01-27 08:51:11.873704", "msg": "non-zero return code", "rc": 1, "start": "2026-01-27 08:50:17.722266", "stderr": "", "stderr_lines": [], "stdout": "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.\r\n\r\nTarget Environment = perflab\r\nInput file = C:\\apps\\DC\\qd_2026.xml\r\nProcessing the tasks listed in the input file. Please wait...\r\n\r\nThe quick deploy run could not process concurrent requests for scripts generation or one or more of the software \nadded to the QD file are not yet scanned in the repository. \r\nRe-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 1\r\n\r\n\r\nWarning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.\r\n\r\nTarget Environment = perflab\r\nInput file = C:\\apps\\DC\\qd_2026.xml\r\nProcessing the tasks listed in the input file. Please wait...\r\n\r\nThe quick deploy run could not process concurrent requests for scripts generation or one or more of the software \nadded to the QD file are not yet scanned in the repository. \r\nRe-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 2\r\n\r\n\r\nWarning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.\r\n\r\nTarget Environment = perflab\r\nInput file = C:\\apps\\DC\\qd_2026.xml\r\nProcessing the tasks listed in the input file. Please wait...\r\n\r\nQuick Deploy has found \"5\" error(s) while executing this utility\r\n\r\nThe quick deploy run could not process concurrent requests for scripts generation or one or more of the software \nadded to the QD file are not yet scanned in the repository. Exhausted maximum number of retry attempts: 3\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 1\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD006 : The software \"dmp9docmgtperformance 7.0\" cannot be added into an Environment \"perflab\". \"dmp9docmgtperformance 7.0\" is either not supported or invalid for the existing configuration.\nPlease check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.\nIf provided software in configuration file do not exist in the Deployment center repository.\nCorrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 2\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD006 : The software \"docmgtsample 7.0\" cannot be added into an Environment \"perflab\". \"docmgtsample 7.0\" is either not supported or invalid for the existing configuration.\nPlease check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.\nIf provided software in configuration file do not exist in the Deployment center repository.\nCorrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 3\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD006 : The software \"pse 7.0\" cannot be added into an Environment \"perflab\". \"pse 7.0\" is either not supported or invalid for the existing configuration.\nPlease check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.\nIf provided software in configuration file do not exist in the Deployment center repository.\nCorrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 4\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD006 : The software \"wf4cucumbertemplate 7.0\" cannot be added into an Environment \"perflab\". \"wf4cucumbertemplate 7.0\" is either not supported or invalid for the existing configuration.\nPlease check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.\nIf provided software in configuration file do not exist in the Deployment center repository.\nCorrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 5\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD006 : The software \"Foundation 2606:20260122.00\" cannot be added into an Environment \"perflab\". \"Foundation 2606:20260122.00\" is either not supported or invalid for the existing configuration.\nPlease check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.\nIf provided software in configuration file do not exist in the Deployment center repository.\nCorrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n\r\n", "stdout_lines": ["Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.", "", "Target Environment = perflab", "Input file = C:\\apps\\DC\\qd_2026.xml", "Processing the tasks listed in the input file. Please wait...", "", "The quick deploy run could not process concurrent requests for scripts generation or one or more of the software ", "added to the QD file are not yet scanned in the repository. ", "Re-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 1", "", "", "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.", "", "Target Environment = perflab", "Input file = C:\\apps\\DC\\qd_2026.xml", "Processing the tasks listed in the input file. Please wait...", "", "The quick deploy run could not process concurrent requests for scripts generation or one or more of the software ", "added to the QD file are not yet scanned in the repository. ", "Re-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 2", "", "", "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.", "", "Target Environment = perflab", "Input file = C:\\apps\\DC\\qd_2026.xml", "Processing the tasks listed in the input file. Please wait...", "", "Quick Deploy has found \"5\" error(s) while executing this utility", "", "The quick deploy run could not process concurrent requests for scripts generation or one or more of the software ", "added to the QD file are not yet scanned in the repository. Exhausted maximum number of retry attempts: 3", "", "----------------------------------------------------------------------------------------------------------", "Error: 1", "----------------------------------------------------------------------------------------------------------", "DCQD006 : The software \"dmp9docmgtperformance 7.0\" cannot be added into an Environment \"perflab\". \"dmp9docmgtperformance 7.0\" is either not supported or invalid for the existing configuration.", "Please check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.", "If provided software in configuration file do not exist in the Deployment center repository.", "Corrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 2", "----------------------------------------------------------------------------------------------------------", "DCQD006 : The software \"docmgtsample 7.0\" cannot be added into an Environment \"perflab\". \"docmgtsample 7.0\" is either not supported or invalid for the existing configuration.", "Please check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.", "If provided software in configuration file do not exist in the Deployment center repository.", "Corrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 3", "----------------------------------------------------------------------------------------------------------", "DCQD006 : The software \"pse 7.0\" cannot be added into an Environment \"perflab\". \"pse 7.0\" is either not supported or invalid for the existing configuration.", "Please check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.", "If provided software in configuration file do not exist in the Deployment center repository.", "Corrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 4", "----------------------------------------------------------------------------------------------------------", "DCQD006 : The software \"wf4cucumbertemplate 7.0\" cannot be added into an Environment \"perflab\". \"wf4cucumbertemplate 7.0\" is either not supported or invalid for the existing configuration.", "Please check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.", "If provided software in configuration file do not exist in the Deployment center repository.", "Corrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 5", "----------------------------------------------------------------------------------------------------------", "DCQD006 : The software \"Foundation 2606:20260122.00\" cannot be added into an Environment \"perflab\". \"Foundation 2606:20260122.00\" is either not supported or invalid for the existing configuration.", "Please check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.", "If provided software in configuration file do not exist in the Deployment center repository.", "Corrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: PNV6S2191-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", ""]}
+2026-01-27 14:21:12,692 p=4322 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 14:21:12,693 p=4322 u=durgesh n=ansible | teamcenter                 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-01-27 14:21:12,693 p=4322 u=durgesh n=ansible | Tuesday 27 January 2026  14:21:12 +0530 (0:00:58.031)       0:00:58.425 ******* 
+2026-01-27 14:21:12,694 p=4322 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 14:21:12,694 p=4322 u=durgesh n=ansible | deploy_script_execution : Execute dc_quick_deploy.bat ----------------------------------------------------------------------------------------------------- 58.03s
+2026-01-27 14:21:12,695 p=4322 u=durgesh n=ansible | Import Deploy Script Execution Role ------------------------------------------------------------------------------------------------------------------------ 0.29s
+2026-01-27 14:22:04,919 p=4345 u=durgesh n=ansible | PLAY [Deploy Script Execution] ************************************************************************************************************************************
+2026-01-27 14:22:04,979 p=4345 u=durgesh n=ansible | TASK [Import Deploy Script Execution Role] ************************************************************************************************************************
+2026-01-27 14:22:04,980 p=4345 u=durgesh n=ansible | Tuesday 27 January 2026  14:22:04 +0530 (0:00:00.101)       0:00:00.101 ******* 
+2026-01-27 14:22:05,258 p=4345 u=durgesh n=ansible | included: deploy_script_execution for teamcenter
+2026-01-27 14:22:05,278 p=4345 u=durgesh n=ansible | TASK [deploy_script_execution : Execute dc_quick_deploy.bat] ******************************************************************************************************
+2026-01-27 14:22:05,278 p=4345 u=durgesh n=ansible | Tuesday 27 January 2026  14:22:05 +0530 (0:00:00.298)       0:00:00.400 ******* 
+2026-01-27 14:23:07,328 p=4345 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {"changed": true, "cmd": "cmd /C \"cd /D D:\\apps\\DeploymentCenter\\webserver\\additional_tools\\internal\\dc_quick_deploy && dc_quick_deploy.bat -dcurl=http://INPUNLCSQA016.net.plm.eds.com:8080/deploymentcenter -dcusername=dcadmin -dcpassword=dcadmin -environment=perflab -inputFile=C:\\apps\\DC\\qd_2026.xml\"", "delta": "0:01:00.966180", "end": "2026-01-27 08:53:06.862333", "msg": "non-zero return code", "rc": 1, "start": "2026-01-27 08:52:05.896153", "stderr": "", "stderr_lines": [], "stdout": "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.\r\n\r\nTarget Environment = perflab\r\nInput file = C:\\apps\\DC\\qd_2026.xml\r\nProcessing the tasks listed in the input file. Please wait...\r\n\r\nThe quick deploy run could not process concurrent requests for scripts generation or one or more of the software \nadded to the QD file are not yet scanned in the repository. \r\nRe-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 1\r\n\r\n\r\nWarning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.\r\n\r\nTarget Environment = perflab\r\nInput file = C:\\apps\\DC\\qd_2026.xml\r\nProcessing the tasks listed in the input file. Please wait...\r\n\r\nThe quick deploy run could not process concurrent requests for scripts generation or one or more of the software \nadded to the QD file are not yet scanned in the repository. \r\nRe-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 2\r\n\r\n\r\nWarning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.\r\n\r\nTarget Environment = perflab\r\nInput file = C:\\apps\\DC\\qd_2026.xml\r\nProcessing the tasks listed in the input file. Please wait...\r\n\r\nQuick Deploy has found \"5\" error(s) while executing this utility\r\n\r\nThe quick deploy run could not process concurrent requests for scripts generation or one or more of the software \nadded to the QD file are not yet scanned in the repository. Exhausted maximum number of retry attempts: 3\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 1\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD006 : The software \"Foundation 2606:20260122.00\" cannot be added into an Environment \"perflab\". \"Foundation 2606:20260122.00\" is either not supported or invalid for the existing configuration.\nPlease check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.\nIf provided software in configuration file do not exist in the Deployment center repository.\nCorrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 2\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD085 : The software \"dmp9docmgtperformance 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 3\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD085 : The software \"docmgtsample 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 4\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD085 : The software \"pse 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n----------------------------------------------------------------------------------------------------------\r\nError: 5\r\n----------------------------------------------------------------------------------------------------------\r\nDCQD085 : The software \"wf4cucumbertemplate 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log\r\n\r\n\r\n\r\n", "stdout_lines": ["Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.", "", "Target Environment = perflab", "Input file = C:\\apps\\DC\\qd_2026.xml", "Processing the tasks listed in the input file. Please wait...", "", "The quick deploy run could not process concurrent requests for scripts generation or one or more of the software ", "added to the QD file are not yet scanned in the repository. ", "Re-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 1", "", "", "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.", "", "Target Environment = perflab", "Input file = C:\\apps\\DC\\qd_2026.xml", "Processing the tasks listed in the input file. Please wait...", "", "The quick deploy run could not process concurrent requests for scripts generation or one or more of the software ", "added to the QD file are not yet scanned in the repository. ", "Re-attempting Quick Deploy run for deploy scripts generation, number of attempts already made: 2", "", "", "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.", "", "Target Environment = perflab", "Input file = C:\\apps\\DC\\qd_2026.xml", "Processing the tasks listed in the input file. Please wait...", "", "Quick Deploy has found \"5\" error(s) while executing this utility", "", "The quick deploy run could not process concurrent requests for scripts generation or one or more of the software ", "added to the QD file are not yet scanned in the repository. Exhausted maximum number of retry attempts: 3", "", "----------------------------------------------------------------------------------------------------------", "Error: 1", "----------------------------------------------------------------------------------------------------------", "DCQD006 : The software \"Foundation 2606:20260122.00\" cannot be added into an Environment \"perflab\". \"Foundation 2606:20260122.00\" is either not supported or invalid for the existing configuration.", "Please check that the software is compatible with the current configuration or the provided software in configuration file exist on the repository.", "If provided software in configuration file do not exist in the Deployment center repository.", "Corrective Action : Download these software from GTAC and copy it into the software repository or validate that the software version specified in the configuration file is correct, if not, specify the correct software version.  Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 2", "----------------------------------------------------------------------------------------------------------", "DCQD085 : The software \"dmp9docmgtperformance 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 3", "----------------------------------------------------------------------------------------------------------", "DCQD085 : The software \"docmgtsample 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 4", "----------------------------------------------------------------------------------------------------------", "DCQD085 : The software \"pse 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", "----------------------------------------------------------------------------------------------------------", "Error: 5", "----------------------------------------------------------------------------------------------------------", "DCQD085 : The software \"wf4cucumbertemplate 7.0\" cannot be added into the \"perflab\" environment due to incompatibility with Teamcenter Foundation version \"2512\". Please verify the dependency version requirements for Foundation for this software and either update the software or select the compatible version of Teamcenter Foundation. Log location: INPUNLCSQA016-D:\\apps\\DeploymentCenter\\webserver\\logs\\dc_server_error.log", "", "", ""]}
+2026-01-27 14:23:07,334 p=4345 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 14:23:07,334 p=4345 u=durgesh n=ansible | teamcenter                 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-01-27 14:23:07,335 p=4345 u=durgesh n=ansible | Tuesday 27 January 2026  14:23:07 +0530 (0:01:02.056)       0:01:02.456 ******* 
+2026-01-27 14:23:07,335 p=4345 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 14:23:07,336 p=4345 u=durgesh n=ansible | deploy_script_execution : Execute dc_quick_deploy.bat ----------------------------------------------------------------------------------------------------- 62.06s
+2026-01-27 14:23:07,336 p=4345 u=durgesh n=ansible | Import Deploy Script Execution Role ------------------------------------------------------------------------------------------------------------------------ 0.30s
+2026-01-27 14:24:15,999 p=4352 u=durgesh n=ansible | PLAY [Deploy Script Execution] ************************************************************************************************************************************
+2026-01-27 14:24:16,059 p=4352 u=durgesh n=ansible | TASK [Import Deploy Script Execution Role] ************************************************************************************************************************
+2026-01-27 14:24:16,060 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:24:16 +0530 (0:00:00.100)       0:00:00.100 ******* 
+2026-01-27 14:24:16,328 p=4352 u=durgesh n=ansible | included: deploy_script_execution for teamcenter
+2026-01-27 14:24:16,350 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Execute dc_quick_deploy.bat] ******************************************************************************************************
+2026-01-27 14:24:16,350 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:24:16 +0530 (0:00:00.290)       0:00:00.391 ******* 
+2026-01-27 14:28:14,884 p=4352 u=durgesh n=ansible | changed: [teamcenter]
+2026-01-27 14:28:14,928 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Display Deploy Script Generation Output=] *****************************************************************************************
+2026-01-27 14:28:14,929 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:28:14 +0530 (0:03:58.578)       0:03:58.969 ******* 
+2026-01-27 14:28:14,957 p=4352 u=durgesh n=ansible | ok: [teamcenter] => {
+    "deploy_script_generation.stdout_lines": [
+        "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.",
+        "",
+        "Target Environment = perflab",
+        "Input file = C:\\apps\\DC\\qd_2026.xml",
+        "Processing the tasks listed in the input file. Please wait...",
+        "",
+        "The deploy script for the  \"perflab\" environment has been successfully generated!!",
+        "",
+        "The generated deploy script(s) are located on the \"INPUNLCSQA016.NET.PLM.EDS.COM\" machine at the following location:",
+        "D:\\apps\\DeploymentCenter\\repository\\deploy_scripts\\perflab\\install\\20260127142750IST",
+        "",
+        "",
+        "WARNING:",
+        "",
+        "The following component(s) specified in the quick deploy file are deprecated and have not been consumed while configuring the environment \"perflab\":",
+        "\t\"aws2_vispoolassigner.displayName\" (Internal ID=\"aws2_vispoolassigner\", Machine=\"INPUNLCSQA016\")",
+        "\t\"aws2_visservermanager.displayName\" (Internal ID=\"aws2_visservermanager\", Machine=\"INPUNLCSQA016\")",
+        "",
+        "To correct the file, remove the deprecated component and move the property values to the new component.",
+        "",
+        "",
+        "The following package IDs specified in the quick deploy file are deprecated and have not been consumed while configuring the environment \"perflab\".",
+        "\t\"s2clsocial\"",
+        "\t\"sc0suppliercollaboration\"",
+        "\t\"sci1imdsintegrationaw\"",
+        "\t\"specmgr\"",
+        "\t\"sc1suppliercollaborationaw\"",
+        "\t\"sci0imdsintegration\"",
+        "\t\"sysmlv2_service\"",
+        "\t\"matlabint\"",
+        "",
+        "",
+        "The following package IDs were found in the Quick Deploy configuration file, which are hidden applications:",
+        " - ssm1systemsynthesismodelingaw ( LMS System Synthesis Modeling )",
+        " - ipt1tc4ipmgmtaw ( Teamcenter Integration for IP Management Active Workspace )",
+        " - aa1activearchitectcore ( Active Architect Core )",
+        " - pma0automation ( Design BOM Alignment Automation Foundation )",
+        " - nxp0pid ( NX Piping and Instrumentation Diagram (P&amp;ID) Design )",
+        " - pdm1plantdatamgmtaw ( Capital Asset Lifecycle Management for Active Workspace )",
+        " - arcommonclient ( Verification and Validation Programming Interface )",
+        " - ctm1contmgmtaw ( Content Management Active Workspace )",
+        " - ganttinterface_client ( ganttinterface_client.displayName )",
+        " - iav0verificationmanagement ( Physical Verification Management )",
+        " - vieweradmin ( Viewer Administration )",
+        " - att0attrtargetmgmt ( Parameter Management )",
+        " - ase0activeworkspacesyseng ( Architecture Modeler )",
+        " - viewersnapshot ( Viewer Snapshot Tool )",
+        " - awn0nx ( NX for Active Workspace )",
+        " - lbr1librarymgmtaw ( Teamcenter Classification Collector Active Workspace (earlier called Library Management Active Workspace) )",
+        " - evm1viewmgmtaw ( Engineering Views Active Workspace )",
+        " - uml0umlsysml ( UML SysML Modeling )",
+        " - pch0pchinterface ( Program Change )",
+        " - csi1cmsmawinterface ( Change Management Schedule Manager )",
+        " - mtw0materialmgmtaw ( Material Management for Active Workspace )",
+        " - appmodel ( Advanced PLM Services for Applications )",
+        " - bhm1behaviormodelingaw ( Modeling Gateway Active Workspace Interface )",
+        " - pmg1cpmgmtaw ( Consumer Product Management Active Workspace )",
+        " - cif0integrationframework ( Common Integration Framework )",
+        " - im1industrymachineryaw ( Machine Builder for Active Workspace )",
+        " - vm1vendormanagementaw ( Vendor Management for Active Workspace )",
+        " - abr0advancedbomrollup ( Advanced BOM Rollup )",
+        " - crt0validationcontract ( Teamcenter Test Management )",
+        " - structureviewer ( Structure Viewer )",
+        " - systemsengineering ( Systems Engineering )",
+        " - aps1apscore ( Advanced PLM Services Core )",
+        " - cpdcm ( 4th Generation Design Change Management Integration )",
+        " - usp0supportal ( Supplier Connect )",
+        " - capturetool ( Capture Tool )",
+        " - relations ( Relations Component )",
+        " - cmc0cfgcm ( Change Management Configurator Interface )",
+        " - viewertool ( Viewer Tool Client Utilities )",
+        " - usg0awusageocc ( Usage Foundation for Active Workspace )",
+        " - dds0datadiscovery ( Data Discovery Services )",
+        " - bcs0buildconditions ( Build Conditions )",
+        " - ram0ramsmodeling ( RAMS Modeling )",
+        " - tie0aw ( TC XML Import and Export )",
+        " - isi1ipmanagementaw ( IP Management Active Workspace )",
+        " - ssm0systemsynthesismodeling ( LMS System Synthesis Modeling )",
+        " - cae1caeaws ( Simulation Process Management for Active Workspace )",
+        " - nxp1pidaws ( NX P &amp; ID )",
+        " - searchaw ( Search )",
+        " - smc1activeworkspacebom ( Product Configurator Support for Active Content Structure )",
+        " - ps ( PS Component )",
+        " - bdo0branchdataorganization ( Branch Data Organization )",
+        " - geometrictool ( Geometric Tool )",
+        " - aps0apscore ( Advanced PLM Services core Template )",
+        " - abr1advancedbomrollup ( Advanced BOM Rollup Client )",
+        " - mbseservices ( MBSE services )",
+        " - pm1partmanufacturingaw ( Part Manufacturing for Active Workspace )",
+        " - pgp0awprgplanning ( Program Planning )",
+        " - rzc0rlzcm ( Change Management Realization Interface )",
+        " - brm1brndmgmtaw ( Brand Management for Active Workspace )",
+        " - behaviormodeling ( Gateway for modeling )",
+        " - realization ( Advanced PLM Services for Realization )",
+        " - pmitool ( PMI Tool )",
+        " - richtexteditor ( Rich Text Editor )",
+        " - partition ( Advanced PLM Services for Partitioning )",
+        " - fgb0aw4gbom ( 4th Generation Product Master )",
+        " - pca0awconfigurator ( Product Configurator for Active Workspace )",
+        " - att1attrtargetmgmtaw ( Measurable Attributes and Targets )",
+        " - classificationaitrainingapp ( Classification AI Training )",
+        " - psi0ppsminterface ( Program Schedule Manager )",
+        " - cls1classificationaw ( Presentation Layer - Next Generation Classification Server )",
+        " - apb0attrparmbase ( Attribute and Parameter Base Definitions )",
+        " - sab1asbuiltaw ( MRO As-Built )",
+        " - fgc0cm4g ( fgc0cm4g.displayName )",
+        " - aw_dispatcher_internal ( Active Workspace Dispatcher Internal )",
+        " - bhv0branchfoundation ( Branching and Versioning Foundation )",
+        " - inm1initiativemgmtaw ( Initiative Planning Active Workspace )",
+        " - wnb1weightandbalanceaw ( Active Workspace Weight And Balance Management )",
+        " - svm0siemensvisualmaterial ( Siemens Visual Material )",
+        " - mrs0modelrepositorysystem ( Support for Concurrent Modeling )",
+        " - imd1medicaldeviceaw ( Medical Device Submissions for Active Workspace )",
+        " - ipm1progplanningadvaw ( Initiative Lifecycle Management (ILM) Active Workspace )",
+        " - csi ( Change and Schedule Management Interface )",
+        " - bhv1branchingandversioning ( Concurrent Modeling )",
+        " - microproxy ( Microservice Web Tier Support )",
+        " - ipc1ppcpginterfaceaw ( Initiative Lifecycle Management - CPG Reference Implementation Active Workspace )",
+        " - mrocore ( MRO Core )",
+        " - sam1asmaintainedaw ( As-Maintained )",
+        " - evm0viewmgmt ( Engineering Views )",
+        " - nxl1logical ( NX Logical for Active Workspace )",
+        " - classification ( Presentation Layer - Next Generation Classification Foundation )",
+        " - cpdim ( 4th Generation Design Issue Management )",
+        " - dispatcherconsole ( Dispatcher Console )",
+        " - srh0apsconfiguredsearch ( Configured Search Framework )",
+        " - eml0entarchmodeling ( Enterprise Architecture Modeling )",
+        " - Cm1cmaws ( Change Management for Active Workspace )",
+        " - usp1supportalaw ( Supplier Connect for Active Workspace )",
+        " - cla0classification ( Classification Interface )",
+        " - translationservice ( Translation Service Database Module )",
+        " - smc1OccmgmtConfigurator ( Client side Product Configurator Support for Active Content Structure )",
+        " - openintool_client ( Open in tool )",
+        " - ram1ramsmodelingaw ( RAMS Modeling Active Workspace Interface )",
+        " - calendarmanagement_client ( Calendar Management )",
+        " - chx0characteristics ( Characteristics Management )",
+        " - kanbaninterface_client ( kanbaninterface_client.displayName )",
+        " - sfd1semiconductorfoundationaw ( Semiconductor Foundation Active Workspace )",
+        " - aut0authorizationaws ( Authorization Active Workspace )",
+        " - xrteditor ( XRT Editor )",
+        " - dbdamreadexprmgrservice ( Teamcenter Read Expression Manager Service )",
+        " - cdm1awcontractmanagement ( Contract Data Management for Active Workspace )",
+        " - pka1pkgartaw ( Packaging and Artwork for Active Workspace )",
+        " - fgd0aw4gdesign ( 4th Generation Design )",
+        " - xc1sharecollaborationaw ( Teamcenter Share Collaboration Active Workspace )",
+        " - sys1systemmodelingintaw ( Systems Modeling Integration Active Workspace )",
+        " - pec0ppeventchange ( Program Planning Event Change )",
+        " - dispatcher_client ( Dispatcher Client )",
+        " - cmb0cm4gbom ( Change Management 4th Generation Product Master Interface )",
+        " - arm1awreqmgmtse ( Requirements and Systems Engineering )",
+        " - security_client ( Security )",
+        " - dispatcher_internal ( Dispatcher Internal )",
+        " - col1colorappearanceaw ( Color Appearance Active Workspace )",
+        " - hostedvis ( hostedvis.displayName )",
+        " - projmgmt ( Project Assignment )",
+        " - smr1mrocoreaw ( MRO Core and BOM Interface )",
+        " - vieweradministration ( Viewer Administration )",
+        " - sharedsamauth ( sharedsamauth )",
+        " - crt1validationcontractaw ( Teamcenter Test Management Active Workspace )",
+        " - fgf0aw4gfoundation ( 4th Generation Foundation )",
+        " - ips1scipmoverlayaw ( Initiative Lifecycle Management Overlay for Semiconductor Solution for Active Workspace )",
+        " - pdg0ptndesigngdlines ( Partitioned Design Guidelines )",
+        " - iae1verificationmanagement ( Physical Verification Management Active Workspace Extension )",
+        " - adm1admconsolecore ( Active Admin Core )",
+        " - icc0awincontextchange ( In-Context Change )",
+        " - eda1edaserveraw ( EDA Server Support for Active Workspace )",
+        " - uml1umlsysmlaw ( UML SysML Modeling Active Workspace Interface )",
+        "As the hidden application is being added as a dependency by some applications, it cannot be added to Quick Deploy configurations.",
+        "",
+        "",
+        "The following deprecated package IDs are replaced by new package IDs in the environment \"perflab\".",
+        "\t\"imodelviewersvc\" is replaced by \"plantdataviewer\"",
+        "",
+        "",
+        "INFORMATION:",
+        "The property with ID 'aws2_tcAdminPassword' in component 'aws2_ftsIndexer' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_dispatcherclient_machinePassword' in component 'fnd0_dispatcherclient' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_dssKeystorePassword' in component 'fnd0_fsc' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_dssSecretAccessKey' in component 'fnd0_fsc' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_multiSiteFscKey' in component 'fnd0_fsc_keys' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_MSSQLDBUserPassword' in component 'fnd0_tcdbserver' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_enterpriseVaultToken' in component 'fnd0_vault' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "The property with ID 'fnd0_vault_adminUserPassword' in component 'fnd0_vault' is set to the default 'REPLACEME' value. Please update it with the actual password value",
+        "COMPONENT",
+        "",
+        "Quick Deploy Log File Location: D:\\apps\\DeploymentCenter\\webserver\\additional_tools\\internal\\dc_quick_deploy\\logs\\20260127142419",
+        ""
+    ]
+}
+2026-01-27 14:28:14,982 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Extract deploy script location] ***************************************************************************************************
+2026-01-27 14:28:14,982 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:28:14 +0530 (0:00:00.053)       0:03:59.023 ******* 
+2026-01-27 14:28:15,027 p=4352 u=durgesh n=ansible | ok: [teamcenter]
+2026-01-27 14:28:15,051 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Display Deploy Script Path] *******************************************************************************************************
+2026-01-27 14:28:15,051 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:28:15 +0530 (0:00:00.069)       0:03:59.092 ******* 
+2026-01-27 14:28:15,075 p=4352 u=durgesh n=ansible | ok: [teamcenter] => {
+    "deploy_script_path": "D:\\apps\\DeploymentCenter\\repository\\deploy_scripts\\perflab\\install\\20260127142750IST"
+}
+2026-01-27 14:28:15,100 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Extract deploy script zip file] ***************************************************************************************************
+2026-01-27 14:28:15,101 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:28:15 +0530 (0:00:00.049)       0:03:59.141 ******* 
+2026-01-27 14:28:19,096 p=4352 u=durgesh n=ansible | changed: [teamcenter]
+2026-01-27 14:28:19,121 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Run deploy.bat with diagnosticCheck] **********************************************************************************************
+2026-01-27 14:28:19,121 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:28:19 +0530 (0:00:04.020)       0:04:03.162 ******* 
+2026-01-27 14:29:17,589 p=4352 u=durgesh n=ansible | changed: [teamcenter]
+2026-01-27 14:29:17,615 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Display Deploy Diagnostic Check Output] *******************************************************************************************
+2026-01-27 14:29:17,615 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:29:17 +0530 (0:00:58.494)       0:05:01.656 ******* 
+2026-01-27 14:29:17,641 p=4352 u=durgesh n=ansible | ok: [teamcenter] => {
+    "deploy_diagnostic_check.stdout_lines": [
+        "Warning: The -dcpassword/-password argument is deprecated and will be removed in a future release. Use -dcpasswordFile instead.",
+        "Note : Offline Deployment using '-skipUpdateDC' argument has undergone a change in its implementation starting Deployment Center 2312 release.",
+        " Deployment Center is required to be up and running for all non-mass client deployments to fetch secrets from Deployment Center Secrets management tool.",
+        " As such, the argument will still prevent the deployment status to be updated on DC server, but the DC server will be needed to be up and running so that the secrets can be fetched during the deployment.",
+        "",
+        "Performing deployment operations for envrionment:\"perflab\"",
+        "",
+        "Validating connection to the Deployment Center server \"http://INPUNLCSQA016.net.plm.eds.com:8080/deploymentcenter\"",
+        "Deployment Center Authentication Successful...",
+        "Validating that the scripts are running on machine \"INPUNLCSQA016\"...Success",
+        "Validating that the INPUNLCSQA016 OS is \"wntx64\"...Success",
+        "Validating Java version for Teamcenter 2606:20260126.00...Success",
+        "Scanning software for the deployment actions...",
+        "  ** Note: The duration of the scanning process may vary depending on the number of software, applications, and components being deployed.",
+        "Executing Deployment Steps",
+        "Deployment Center Deploy Task [diagnosticChecks]: 1 of 32 Deploy Task for [Rich client four-tier] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 2 of 32 Deploy Task for [fnd0_dispatcherModule.displayName] Component --> fnd0_dispatcherModuleArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 3 of 32 Deploy Task for [fnd0_dispatcherModule.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 4 of 32 Deploy Task for [Dispatcher Internal] Application/Package --> fnd0_dispatcherModuleArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 5 of 32 Deploy Task for [aws2_indexingengine.displayName] Component --> aws2_indexingEngineArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 6 of 32 Deploy Task for [fnd0_tccs.displayName] Component --> fnd0_tccsArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 7 of 32 Deploy Task for [fnd0_tccs.displayName] Component --> fnd0_tccsConfigArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 8 of 32 Deploy Task for [fnd0_microservice.displayName] Component --> fnd0_msfArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 9 of 32 Deploy Task for [fnd0_microservice.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 10 of 32 Deploy Task for [fnd0_corporateserver.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 11 of 32 Deploy Task for [fnd0_corporateserver.displayName] Component --> fnd0_dataModelArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 12 of 32 Deploy Task for [fnd0_corporateserver.displayName] Component --> fnd0_dbArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 13 of 32 Deploy Task for [fnd0_fsc.displayName] Component --> fnd0_fscArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 14 of 32 Deploy Task for [fnd0_fsc.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 15 of 32 Deploy Task for [fnd0_dispatcherclient.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 16 of 32 Deploy Task for [aws2_client_builder.displayName] Component --> aws2_clientArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 17 of 32 Deploy Task for [aws2_client_gateway_webtier.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 18 of 32 Deploy Task for [fnd0_dispatcherScheduler.displayName] Component --> fnd0_dispatcherSchedulerArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 19 of 32 Deploy Task for [fnd0_dispatcherScheduler.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 20 of 32 Deploy Task for [fnd0_TcIF.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 21 of 32 Deploy Task for [fnd0_j2ee_tcwebtier.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 22 of 32 Deploy Task for [fnd0_serverManager.displayName] Component --> fnd0_serverManagerArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 23 of 32 Deploy Task for [fnd0_serverManager.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 24 of 32 Deploy Task for [aws2_ftsIndexer.displayName] Component --> aws2_ftsIndexerArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 25 of 32 Deploy Task for [aws2_ftsIndexer.displayName] Component --> fnd0_tpcArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 26 of 32 Deploy Task for [Dispatcher Client] Application/Package --> fnd0_dispatcherClientArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 27 of 32 Deploy Task for [File Repository Service] Application/Package --> fnd0_filerepoCustomArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 28 of 32 Deploy Task for [Teamcenter Foundation] Application/Package --> fnd0_dataModelArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 29 of 32 Deploy Task for [Plant Data Viewer] Application/Package --> fnd0_plantdataviewerCustomArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 30 of 32 Deploy Task for [Plant Data Viewer] Application/Package --> fnd0_plantdataviewerCustomArtifact...Success",
+        "Deployment Center Deploy Task [diagnosticChecks]: 31 of 32 Deploy Task for [Product Configurator Service] Application/Package --> fnd0_microserviceArtifact...Success",
+        "Deployment Center Deploy Task [analyseDiagnosticChecks]: 32 of 32 Deploy Task for [Rich client four-tier] Component --> fnd0_tpcArtifact...Success",
+        "",
+        "Diagnostic Check successfully completed."
+    ]
+}
+2026-01-27 14:29:17,667 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Run deploy.bat with parameters] ***************************************************************************************************
+2026-01-27 14:29:17,667 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  14:29:17 +0530 (0:00:00.051)       0:05:01.708 ******* 
+2026-01-27 15:43:13,821 p=4352 u=durgesh n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: requests.exceptions.ConnectionError: HTTPConnectionPool(host='inpunlcsqa016', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ddc3a38e8c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+2026-01-27 15:43:13,826 p=4352 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {"msg": "Unexpected failure during module execution: HTTPConnectionPool(host='inpunlcsqa016', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ddc3a38e8c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))", "stdout": ""}
+2026-01-27 15:43:13,827 p=4352 u=durgesh n=ansible | ...ignoring
+2026-01-27 15:43:13,910 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Display Deploy with Parameters Output] ********************************************************************************************
+2026-01-27 15:43:13,911 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  15:43:13 +0530 (1:13:56.243)       1:18:57.952 ******* 
+2026-01-27 15:43:13,987 p=4352 u=durgesh n=ansible | ok: [teamcenter] => {
+    "deploy_with_parameters.stdout_lines": "VARIABLE IS NOT DEFINED!"
+}
+2026-01-27 15:43:14,023 p=4352 u=durgesh n=ansible | TASK [deploy_script_execution : Extract Deployer Log Path] ********************************************************************************************************
+2026-01-27 15:43:14,024 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  15:43:14 +0530 (0:00:00.113)       1:18:58.065 ******* 
+2026-01-27 15:43:14,072 p=4352 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {"msg": "The conditional check 'deploy_with_parameters.rc != 0' failed. The error was: error while evaluating conditional (deploy_with_parameters.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml': line 60, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Extract Deployer Log Path\n  ^ here\n"}
+2026-01-27 15:43:14,081 p=4352 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 15:43:14,082 p=4352 u=durgesh n=ansible | teamcenter                 : ok=10   changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2026-01-27 15:43:14,082 p=4352 u=durgesh n=ansible | Tuesday 27 January 2026  15:43:14 +0530 (0:00:00.058)       1:18:58.123 ******* 
+2026-01-27 15:43:14,083 p=4352 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 15:43:14,084 p=4352 u=durgesh n=ansible | deploy_script_execution : Run deploy.bat with parameters ------------------------------------------------------------------------------------------------ 4436.24s
+2026-01-27 15:43:14,084 p=4352 u=durgesh n=ansible | deploy_script_execution : Execute dc_quick_deploy.bat ---------------------------------------------------------------------------------------------------- 238.58s
+2026-01-27 15:43:14,085 p=4352 u=durgesh n=ansible | deploy_script_execution : Run deploy.bat with diagnosticCheck --------------------------------------------------------------------------------------------- 58.49s
+2026-01-27 15:43:14,085 p=4352 u=durgesh n=ansible | deploy_script_execution : Extract deploy script zip file --------------------------------------------------------------------------------------------------- 4.02s
+2026-01-27 15:43:14,086 p=4352 u=durgesh n=ansible | Import Deploy Script Execution Role ------------------------------------------------------------------------------------------------------------------------ 0.29s
+2026-01-27 15:43:14,086 p=4352 u=durgesh n=ansible | deploy_script_execution : Display Deploy with Parameters Output -------------------------------------------------------------------------------------------- 0.11s
+2026-01-27 15:43:14,087 p=4352 u=durgesh n=ansible | deploy_script_execution : Extract deploy script location --------------------------------------------------------------------------------------------------- 0.07s
+2026-01-27 15:43:14,087 p=4352 u=durgesh n=ansible | deploy_script_execution : Extract Deployer Log Path -------------------------------------------------------------------------------------------------------- 0.06s
+2026-01-27 15:43:14,088 p=4352 u=durgesh n=ansible | deploy_script_execution : Display Deploy Script Generation Output= ----------------------------------------------------------------------------------------- 0.05s
+2026-01-27 15:43:14,088 p=4352 u=durgesh n=ansible | deploy_script_execution : Display Deploy Diagnostic Check Output ------------------------------------------------------------------------------------------- 0.05s
+2026-01-27 15:43:14,088 p=4352 u=durgesh n=ansible | deploy_script_execution : Display Deploy Script Path ------------------------------------------------------------------------------------------------------- 0.05s
+2026-01-27 16:02:22,399 p=4487 u=durgesh n=ansible | ansible-playbook [core 2.17.14]
+  config file = /mnt/d/TC Apps Automation/deploy/ansible.cfg
+  configured module search path = ['/home/durgesh/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/durgesh/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+2026-01-27 16:02:22,400 p=4487 u=durgesh n=ansible | Using /mnt/d/TC Apps Automation/deploy/ansible.cfg as config file
+2026-01-27 16:02:22,596 p=4487 u=durgesh n=ansible | host_list declined parsing /mnt/d/TC Apps Automation/deploy/inventory.yml as it did not pass its verify_file() method
+2026-01-27 16:02:22,644 p=4487 u=durgesh n=ansible | Parsed /mnt/d/TC Apps Automation/deploy/inventory.yml inventory source with yaml plugin
+2026-01-27 16:02:22,847 p=4487 u=durgesh n=ansible | redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+2026-01-27 16:02:22,850 p=4487 u=durgesh n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2026-01-27 16:02:22,851 p=4487 u=durgesh n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2026-01-27 16:02:22,852 p=4487 u=durgesh n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2026-01-27 16:02:22,852 p=4487 u=durgesh n=ansible | PLAYBOOK: 03_deploy_script_execution.yml **************************************************************************************************************************
+2026-01-27 16:02:22,853 p=4487 u=durgesh n=ansible | 1 plays in 03_deploy_script_execution.yml
+2026-01-27 16:02:22,870 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:22,889 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:22,905 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:22,906 p=4487 u=durgesh n=ansible | PLAY [Deploy Script Execution] ************************************************************************************************************************************
+2026-01-27 16:02:22,998 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,001 p=4487 u=durgesh n=ansible | TASK [Import Deploy Script Execution Role] ************************************************************************************************************************
+2026-01-27 16:02:23,002 p=4487 u=durgesh n=ansible | Tuesday 27 January 2026  16:02:22 +0530 (0:00:00.152)       0:00:00.152 ******* 
+2026-01-27 16:02:23,048 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,066 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,092 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,304 p=4487 u=durgesh n=ansible | redirecting (type: modules) ansible.builtin.win_shell to ansible.windows.win_shell
+2026-01-27 16:02:23,329 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,370 p=4487 u=durgesh n=ansible | statically imported: /mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/delta_modification.yml
+2026-01-27 16:02:23,450 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,473 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,474 p=4487 u=durgesh n=ansible | included: deploy_script_execution for teamcenter
+2026-01-27 16:02:23,496 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 16:02:23,497 p=4487 u=durgesh n=ansible | TASK [deploy_script_execution : Run deploy.bat with parameters] ***************************************************************************************************
+2026-01-27 16:02:23,498 p=4487 u=durgesh n=ansible | Tuesday 27 January 2026  16:02:23 +0530 (0:00:00.496)       0:00:00.648 ******* 
+2026-01-27 16:02:23,538 p=4487 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_shell.ps1
+2026-01-27 16:02:23,539 p=4487 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 16:02:23,540 p=4487 u=durgesh n=ansible | <INPUNLCSQA016> ESTABLISH WINRM CONNECTION FOR USER: yytcawpt on PORT 5985 TO INPUNLCSQA016
+2026-01-27 16:04:39,811 p=4487 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 16:47:55,329 p=4487 u=durgesh n=ansible | Using module file /usr/lib/python3/dist-packages/ansible_collections/ansible/windows/plugins/modules/win_shell.ps1
+2026-01-27 16:47:55,332 p=4487 u=durgesh n=ansible | Pipelining is enabled.
+2026-01-27 16:47:55,333 p=4487 u=durgesh n=ansible | EXEC (via pipeline wrapper)
+2026-01-27 17:42:04,720 p=4487 u=durgesh n=ansible | The full traceback is:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 700, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 446, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 441, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 756, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 534, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 700, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 446, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 441, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 323, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 292, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/plugins/connection/winrm.py", line 650, in _winrm_exec
+    b_stdout, b_stderr, rc = self._winrm_get_command_output(
+  File "/usr/lib/python3/dist-packages/ansible/plugins/connection/winrm.py", line 604, in _winrm_get_command_output
+    self._winrm_get_raw_command_output(protocol, shell_id, command_id)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/connection/winrm.py", line 564, in _winrm_get_raw_command_output
+    res = protocol.send_message(xmltodict.unparse(rq))
+  File "/usr/lib/python3/dist-packages/winrm/protocol.py", line 234, in send_message
+    resp = self.transport.send_message(message)
+  File "/usr/lib/python3/dist-packages/winrm/transport.py", line 265, in send_message
+    response = self._send_message_request(prepared_request, message)
+  File "/usr/lib/python3/dist-packages/winrm/transport.py", line 270, in _send_message_request
+    response = self.session.send(prepared_request, timeout=self.read_timeout_sec)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 657, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 498, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 700, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 395, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.10/http/client.py", line 1303, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1349, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1298, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1058, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 996, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7092e9d78940>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 756, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 576, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='inpunlcsqa016', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7092e9d78940>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/ansible/executor/task_executor.py", line 165, in run
+    res = self._execute()
+  File "/usr/lib/python3/dist-packages/ansible/executor/task_executor.py", line 644, in _execute
+    result = self._handler.run(task_vars=vars_copy)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/action/normal.py", line 38, in run
+    result = merge_hash(result, self._execute_module(task_vars=task_vars, wrap_async=wrap_async))
+  File "/usr/lib/python3/dist-packages/ansible/plugins/action/__init__.py", line 1156, in _execute_module
+    res = self._low_level_execute_command(cmd, sudoable=sudoable, in_data=in_data)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/action/__init__.py", line 1321, in _low_level_execute_command
+    rc, stdout, stderr = self._connection.exec_command(cmd, in_data=in_data, sudoable=sudoable)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/connection/winrm.py", line 739, in exec_command
+    return self._winrm_exec(cmd_parts[0], cmd_parts[1:], from_exec=True, stdin_iterator=stdin_iterator)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/connection/winrm.py", line 693, in _winrm_exec
+    self.protocol.cleanup_command(self.shell_id, command_id)
+  File "/usr/lib/python3/dist-packages/winrm/protocol.py", line 372, in cleanup_command
+    res = self.send_message(xmltodict.unparse(req))
+  File "/usr/lib/python3/dist-packages/winrm/protocol.py", line 234, in send_message
+    resp = self.transport.send_message(message)
+  File "/usr/lib/python3/dist-packages/winrm/transport.py", line 265, in send_message
+    response = self._send_message_request(prepared_request, message)
+  File "/usr/lib/python3/dist-packages/winrm/transport.py", line 270, in _send_message_request
+    response = self.session.send(prepared_request, timeout=self.read_timeout_sec)
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 657, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='inpunlcsqa016', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7092e9d78940>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+2026-01-27 17:42:04,736 p=4487 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {
+    "msg": "Unexpected failure during module execution: HTTPConnectionPool(host='inpunlcsqa016', port=5985): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7092e9d78940>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))",
+    "stdout": ""
+}
+2026-01-27 17:42:04,749 p=4487 u=durgesh n=ansible | ...ignoring
+2026-01-27 17:42:04,821 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 17:42:04,825 p=4487 u=durgesh n=ansible | TASK [deploy_script_execution : Display Deploy with Parameters Output] ********************************************************************************************
+2026-01-27 17:42:04,826 p=4487 u=durgesh n=ansible | Tuesday 27 January 2026  17:42:04 +0530 (1:39:41.328)       1:39:41.976 ******* 
+2026-01-27 17:42:04,873 p=4487 u=durgesh n=ansible | ok: [teamcenter] => {
+    "deploy_with_parameters.stdout_lines": "VARIABLE IS NOT DEFINED!: 'dict object' has no attribute 'stdout_lines'"
+}
+2026-01-27 17:42:04,909 p=4487 u=durgesh n=ansible | Read vars_file 'roles/deploy_script_execution/vars/qd_vars.yml'
+2026-01-27 17:42:04,912 p=4487 u=durgesh n=ansible | TASK [deploy_script_execution : Extract Deployer Log Path] ********************************************************************************************************
+2026-01-27 17:42:04,913 p=4487 u=durgesh n=ansible | Tuesday 27 January 2026  17:42:04 +0530 (0:00:00.086)       1:39:42.063 ******* 
+2026-01-27 17:42:04,971 p=4487 u=durgesh n=ansible | fatal: [teamcenter]: FAILED! => {
+    "msg": "The conditional check 'deploy_with_parameters.rc != 0' failed. The error was: error while evaluating conditional (deploy_with_parameters.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml': line 60, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Extract Deployer Log Path\n  ^ here\n"
+}
+2026-01-27 17:42:04,978 p=4487 u=durgesh n=ansible | PLAY RECAP ********************************************************************************************************************************************************
+2026-01-27 17:42:04,979 p=4487 u=durgesh n=ansible | teamcenter                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2026-01-27 17:42:04,980 p=4487 u=durgesh n=ansible | Tuesday 27 January 2026  17:42:04 +0530 (0:00:00.067)       1:39:42.130 ******* 
+2026-01-27 17:42:04,980 p=4487 u=durgesh n=ansible | =============================================================================== 
+2026-01-27 17:42:04,981 p=4487 u=durgesh n=ansible | deploy_script_execution : Run deploy.bat with parameters ------------------------------------------------------------------------------------------------ 5981.33s
+/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml:47 ---------------------------------------------------------------------------------
+2026-01-27 17:42:04,982 p=4487 u=durgesh n=ansible | Import Deploy Script Execution Role ------------------------------------------------------------------------------------------------------------------------ 0.50s
+/mnt/d/TC Apps Automation/deploy/03_deploy_script_execution.yml:8 ------------------------------------------------------------------------------------------------
+2026-01-27 17:42:04,982 p=4487 u=durgesh n=ansible | deploy_script_execution : Display Deploy with Parameters Output -------------------------------------------------------------------------------------------- 0.09s
+/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml:56 ---------------------------------------------------------------------------------
+2026-01-27 17:42:04,983 p=4487 u=durgesh n=ansible | deploy_script_execution : Extract Deployer Log Path -------------------------------------------------------------------------------------------------------- 0.07s
+/mnt/d/TC Apps Automation/deploy/roles/deploy_script_execution/tasks/main.yml:60 ---------------------------------------------------------------------------------

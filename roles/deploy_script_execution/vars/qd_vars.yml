@@ -1,0 +1,26 @@
+# Software versions
+foundation_version: 2606:20260129.00
+dmp_version: 7.0
+docmgt_version: 7.0
+pse_version: 7.0
+wf_version: 7.0
+
+# Machine names
+tc_machine: INPUNC-NQA037
+db_machine: INPUNC-NQA038
+
+# Paths
+paths:
+  tc_root: D:\Siemens\Teamcenter2512\TC_ROOT
+  tc_data: D:\Siemens\Teamcenter2512\TC_DATA
+  dispatcher_service: D:\Siemens\Teamcenter2512\Dispatcher
+
+# Passwords
+passwords:
+  server_mgr_db_password: TcClusterDB
+  oracle_db_password: tc115rtm
+  oracle_system_password: manager
+  machine_password: Performance2606@2026
+  if_admin_password: IFAdmin
+  infodba_password: pw_infodba
+  dispatcherclient_proxy_password: dcproxy

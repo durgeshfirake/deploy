@@ -1,0 +1,7 @@
+---
+jdk_source: \\pndscl03-data\TcApps_Performance_Testing\TC_install\Zulu\Zulu_21\zulu-21
+jre_source: \\pndscl03-data\TcApps_Performance_Testing\TC_install\Zulu\Zulu_21\Zulu-21-jre
+jdk_bin_path: C:\Program Files\Zulu\Zulu_21\zulu-21\bin
+java_root: C:\Program Files\Zulu\Zulu_21
+java_home: C:\PROGRA~1\Zulu\zulu_21\zulu-21
+jre_home: C:\PROGRA~1\Zulu\Zulu_21\zulu-21-jre

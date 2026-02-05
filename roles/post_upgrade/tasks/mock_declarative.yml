@@ -1,0 +1,23 @@
+- name: Unzip Mock Declarative Files
+  community.windows.win_unzip:
+    src: "{{ tc_kit_path }}\\tc\\mockdeclarativeartifacts_aws2stage.zip"
+    dest: "{{ tc_kit_path }}\\tc\\mockdeclarativeartifacts_aws2stage"
+    remote_src: true
+
+- name: Copy Stage folder to TC_ROOT
+  community.windows.win_robocopy:
+    src: "{{ tc_kit_path }}\\tc\\mockdeclarativeartifacts_aws2stage\\stage\\"
+    dest: "{{ tc_root }}\\aws2\\stage\\"
+    recurse: true
+    remote_src: true
+
+- name: Restart Teamcenter Process Manager Service
+  ansible.windows.win_service:
+    name: "Teamcenter Process Manager"
+    state: restarted
+
+- name: Run awbuild.cmd using perflab environment
+  ansible.windows.win_shell: |
+   cmd /C "D:\\Siemens\\Teamcenter2512\\TC_ROOT\\tc_menu\\tc_perflab.bat && cd /d {{ tc_root }}\\aws2\\stage && awbuild.cmd"
+
+# error handling

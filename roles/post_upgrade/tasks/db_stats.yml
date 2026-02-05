@@ -1,0 +1,4 @@
+---
+- name: Run DB stats and index verifier using perflab environment
+  win_shell: |
+    cmd /C "D:\\Siemens\\Teamcenter2512\\TC_ROOT\\tc_menu\\tc_perflab.bat && cd /d {{ tc_root }}\bin && echo db stats started ***** && install -regen_db_stats -u=infodba -p=pw_infodba -g=dba -all && echo db stats done ********** && index_verifier -u=infodba -p=pw_infodba -g=dba -o=DO_IT && echo index verifier done **********"
