@@ -1,7 +1,7 @@
 all:
  hosts:
     database:
-      ansible_host: {{ db_machine }}
+      ansible_host: "{{ db_machine }}"
       ansible_connection: winrm
       ansible_user: yytcawpt@NET.PLM.EDS.COM
       ansible_password: Performance2606@2026
@@ -9,7 +9,7 @@ all:
       ansible_winrm_transport: kerberos
       ansible_port: 5985
     teamcenter:
-      ansible_host: {{ tc_machine }}
+      ansible_host: "{{ tc_machine }}"
       ansible_connection: winrm
       ansible_user: yytcawpt@NET.PLM.EDS.COM
       ansible_password: Performance2606@2026
