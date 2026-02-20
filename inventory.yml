@@ -3,7 +3,7 @@ all:
     database:
       ansible_host: pnv6s1741
       ansible_connection: winrm
-      ansible_user: yytcawpt
+      ansible_user: yytcawpt@NET.PLM.EDS.COM
       ansible_password: Performance2606@2026
       ansible_winrm_server_cert_validation: ignore
       ansible_winrm_transport: kerberos
@@ -11,7 +11,7 @@ all:
     teamcenter:
       ansible_host: pnv6s1742
       ansible_connection: winrm
-      ansible_user: yytcawpt
+      ansible_user: yytcawpt@NET.PLM.EDS.COM
       ansible_password: Performance2606@2026
       ansible_winrm_server_cert_validation: ignore
       ansible_winrm_transport: kerberos
