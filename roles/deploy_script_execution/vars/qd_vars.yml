@@ -6,8 +6,8 @@ pse_version: 7.0
 wf_version: 7.0
 
 # Machine names
-tc_machine: INPUNC-NQA037
-db_machine: INPUNC-NQA038
+tc_machine: REPLACE
+db_machine: REPLACE
 
 # Paths
 paths:
