@@ -1,7 +1,7 @@
 ---
 dc_qd_path: D:\apps\DeploymentCenter\webserver\additional_tools\internal\dc_quick_deploy
 qd_destination: C:\apps\DC\qd_2026.xml
-dc_url: http://"{{ tc_machine }}".net.plm.eds.com:8080/deploymentcenter
+dc_url: http://INPUNLCSQA016.net.plm.eds.com:8080/deploymentcenter
 dc_username: dcadmin
 dc_password: dcadmin
 dc_environment: perflab
