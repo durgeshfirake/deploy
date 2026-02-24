@@ -7,7 +7,7 @@
 
 - name: Execute dc_quick_deploy.bat
   ansible.windows.win_shell: |
-    cmd /C "cd /D {{ dc_qd_path }} && dc_quick_deploy.bat -dcurl={{ dc_url }} -dcusername={{ dc_username }} -dcpassword={{ dc_password }} -environment={{ dc_environment }} -inputFile={{ input_file }}"
+    cmd /C "cd /D {{ dc_qd_path }} && dc_quick_deploy.bat -dcurl=http://{{ tc_machine }}.net.plm.eds.com:8080/deploymentcenter -dcusername={{ dc_username }} -dcpassword={{ dc_password }} -environment={{ dc_environment }} -inputFile={{ input_file }}"
   register: deploy_script_generation
 
 - name: Display Deploy Script Generation Output=
