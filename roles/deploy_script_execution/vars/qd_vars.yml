@@ -1,13 +1,13 @@
 # Software versions
-foundation_version: 2606:20260129.00
+foundation_version: "{{ foundation_version }}"
 dmp_version: 7.0
 docmgt_version: 7.0
 pse_version: 7.0
 wf_version: 7.0
 
 # Machine names
-tc_machine: REPLACE
-db_machine: REPLACE
+tc_machine: "{{ tc_machine }}"
+db_machine: "{{ db_machine }}"
 
 # Paths
 paths:
