@@ -414,7 +414,7 @@
             <property id="aws2_cmdpred_OracleDBService" value="tc"/>
             <property id="aws2_cmdpred_OracleDBTablespace" value="PredictiveDB_predictive"/>
             <property id="aws2_cmdpred_OracleDBUser" value="PredictiveDB"/>
-            <property id="aws2_cmdpred_OracleDBUserPassword" value="{{ passwords.cmdpred_db_password }}" encrypted="true"/>
+            <property id="aws2_cmdpred_OracleDBUserPassword" value="{{ passwords.cmdpred_db_password }}" encrypted="false"/>
             <property id="aws2_cmdpred_oracleEnableTCPS" value="false"/>
         </component>
         <component id="aws2_ftsIndexer" machineName="{{ tc_machine }}" platform="wntx64">
@@ -662,7 +662,7 @@
             <property id="fnd0_httpsconfig_keyStorePath" value="{{ paths.tc_root }}\https_config\{{ tc_machine }}_keystore.p12"/>
             <property id="fnd0_httpsconfig_privateKeyPathInput" value=""/>
             <property id="fnd0_httpsconfig_subjectAltNames" value=""/>
-            <property id="fnd0_httpsconfig_trustStorePassword" value="{{ passwords.infodba_password}}" encrypted="true"/>
+            <property id="fnd0_httpsconfig_trustStorePassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
             <property id="fnd0_httpsconfig_trustStorePath" value="{{ paths.tc_root }}\https_config\{{ tc_machine }}_truststore.p12"/>
         </component>
         <component id="fnd0_j2ee_tcwebtier" machineName="{{ tc_machine }}" platform="wntx64">
