@@ -1,9 +1,27 @@
+- name: Stop Active Workspace Indexing Service
+  ansible.windows.win_service:
+    name: "Active Workspace Indexing Service"
+    state: stopped
+
+- name: Delete Existing Solr data directories in target
+  ansible.windows.win_file:
+    path: "{{ solr_target_dest }}\\{{ item }}\\data"
+    state: absent
+  loop:
+    - "collection1"
+    - "collection2"
+    - "ProductScopeCollection"
+
 - name: Copy Solr data directories from backup to target
   community.windows.win_robocopy:
-    src: "{{ solr_backup_src }}\\"
-    dest: "{{ solr_target_dest }}\\"
+    src: "{{ solr_backup_src }}\\{{ item }}\\data"
+    dest: "{{ solr_target_dest }}\\{{ item }}\\data"
     recurse: true
     remote_src: true
+  loop:
+    - "collection1"
+    - "collection2"
+    - "ProductScopeCollection"
   become: true
   become_method: runas
   become_user: SYSTEM

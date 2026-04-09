@@ -2,6 +2,7 @@
 <quickDeployConfig configName="perflab" configId="Performance_Lab" siteId="-1934426589" version="1.0">
     <archType types="J2EE"/>
     <envType types="singleEnvironment"/>
+    <fipsEnabled value="false"/>
     <quickDeploySoftware>
         <software id="Foundation" version="{{ foundation_version }}" defaultSelection="true"/>
         <software id="dmp9docmgtperformance" version="{{ dmp_version }}" defaultSelection="true"/>
@@ -36,6 +37,7 @@
         <package id="aud0auditaw"/>
         <package id="aut0authorizationaws"/>
         <package id="aw_dispatcher_internal"/>
+        <package id="awa0awassistant"/>
         <package id="awn0nx"/>
         <package id="aws2_client"/>
         <package id="awv0activeworkspacevis"/>
@@ -71,6 +73,7 @@
         <package id="cmb0cm4gbom"/>
         <package id="cmc0cfgcm"/>
         <package id="col1colorappearanceaw"/>
+        <package id="commandprediction"/>
         <package id="contmgmtbase"/>
         <package id="contmgmtdita"/>
         <package id="contmgmts1000d"/>
@@ -267,8 +270,11 @@
         <package id="sys1systemmodelingintaw"/>
         <package id="sysmlv2_service"/>
         <package id="systemsengineering"/>
+        <package id="taskmanagement_client"/>
+        <package id="tccbackend"/>
         <package id="tcgql"/>
         <package id="tcvismicroservice"/>
+        <package id="tdr1tcdrive"/>
         <package id="tie0aw"/>
         <package id="translationservice"/>
         <package id="um0usermanagement"/>
@@ -282,6 +288,7 @@
         <package id="vendormanagement"/>
         <package id="vieweradmin"/>
         <package id="vieweradministration"/>
+        <package id="viewerrefsetandleafstructure"/>
         <package id="viewersnapshot"/>
         <package id="viewertool"/>
         <package id="visualization3d"/>
@@ -299,6 +306,7 @@
     <quickDeployClients>
         <client id="fnd0_4tierrichclient" machineName="{{ tc_machine }}" massDeploy="false" platform="wntx64" createTemplateClient="false" useTemplateClient="false">
             <property id="fnd0_4tierrichclient.appSupportedList" value="selectedApps"/>
+            <property id="fnd0_4tierrichclient.generate_sso_hash_number" value="false"/>
             <property id="fnd0_4tierrichclient.imported" value="false"/>
             <property id="fnd0_4tierrichclient.infrastructureType" value="Local"/>
             <property id="fnd0_4tierrichclient.installNewTCCS" value="true"/>
@@ -337,10 +345,11 @@
             <property id="fnd0_tccsAuthenticationOption" value="false"/>
             <property id="fnd0_tccsConfigSelectionOptions" value="private"/>
             <property id="fnd0_tccsConfigureSSLTrustStore" value="useTrustStore"/>
+            <property id="fnd0_tccsConnectiontimeout" value="90000"/>
             <property id="fnd0_tccsEnableClientCommunicationConfig" value="false"/>
             <property id="fnd0_tccsFccOptions" value="installFCC"/>
             <property id="fnd0_tccsForwardProxyOptions" value="noForwardProxy"/>
-            <property id="fnd0_tccsForwardProxyWindowsOptions" value="noForwardProxy"/>
+            <property id="fnd0_tccsForwardProxyWindowsOptions" value="computer"/>
             <property id="fnd0_tccsFscAssignmentMode" value="clientmap"/>
             <property id="fnd0_tccsInstallationPath" value="{{ paths.tc_root}}"/>
             <property id="fnd0_tccsKerberosAuthenticationOptions" value="useDefaultSettings"/>
@@ -351,6 +360,7 @@
             <property id="fnd0_tccsProxyURL" value=""/>
             <property id="fnd0_tccsReverseProxyOptions" value=""/>
             <property id="fnd0_tccsSSLOptions" value="useIECertificateStore"/>
+            <property id="fnd0_tccsSockettimeout" value="90000"/>
             <property id="fnd0_tccsSupportKerberosAuthentication" value=""/>
             <property id="fnd0_tccsTrustStoreFilePath" value=""/>
             <property id="fnd0_tccsimported" value="false"/>
@@ -376,7 +386,7 @@
             <property id="aws2_client_gateway_samAuthClientSecretID" value="12345" encrypted="false"/>
             <property id="aws2_client_gateway_samAuthEndpoint" value="https://samauth.us-east-1.sws.siemens.com"/>
             <property id="aws2_client_gateway_url_prefix" value="/"/>
-            <property id="aws2_client_gateway_webtier_bootstrapClientIP" value="146.122.82.105"/>
+            <property id="aws2_client_gateway_webtier_bootstrapClientIP" value="{{ bootstrap_machine }}"/>
             <property id="aws2_client_gateway_webtier_gatewayPort" value="3000"/>
             <property id="aws2_client_gateway_webtier_installationPath" value="{{ paths.tc_root}}"/>
             <property id="aws2_client_gateway_webtier_maxAge" value="6"/>
@@ -389,6 +399,23 @@
             <property id="aws2_forceSecureAttributeOnCookies" value="false"/>
             <property id="aws2_lb_4tier_deployableFileName" value="tc"/>
             <property id="xc1sharecollaborationaw_install" value="1"/>
+        </component>
+        <component id="aws2_cmdpred_DBConfig" machineName="{{ tc_machine }}" platform="wntx64">
+            <property id="aws2_cmdPredDBInstallationPath" value="{{ tc_machine }}"/>
+            <property id="aws2_cmdpred_DBHost" value="{{ db_machine }}"/>
+            <property id="aws2_cmdpred_DBPath" value="D:\apps\oracle19c\oradata\TC"/>
+            <property id="aws2_cmdpred_DBStateOptions" value="aws2_commandpredictionCreateDBInstance"/>
+            <property id="aws2_cmdpred_DBSystemUser" value="system"/>
+            <property id="aws2_cmdpred_DBSystemUserPassword" value="{{ passwords.oracle_system_password }}" encrypted="false"/>
+            <property id="aws2_cmdpred_DatabaseServerOptions" value="Oracle"/>
+            <property id="aws2_cmdpred_MSSQLDBUser" value="PredictiveDB"/>
+            <property id="aws2_cmdpred_MSSQLDBUserPassword" value="REPLACEME" encrypted="false"/>
+            <property id="aws2_cmdpred_OracleDBPort" value="1521"/>
+            <property id="aws2_cmdpred_OracleDBService" value="tc"/>
+            <property id="aws2_cmdpred_OracleDBTablespace" value="PredictiveDB_predictive"/>
+            <property id="aws2_cmdpred_OracleDBUser" value="PredictiveDB"/>
+            <property id="aws2_cmdpred_OracleDBUserPassword" value="{{ passwords.cmdpred_db_password }}" encrypted="false"/>
+            <property id="aws2_cmdpred_oracleEnableTCPS" value="false"/>
         </component>
         <component id="aws2_ftsIndexer" machineName="{{ tc_machine }}" platform="wntx64">
             <property id="autostart_discovery_autoindex_service" value=""/>
@@ -447,31 +474,6 @@
             <property id="aws2_solr_serverProtocol" value="http"/>
             <property id="aws2_tcIndexingEngineInstallationPath" value="{{ paths.tc_root}}"/>
         </component>
-        <component id="aws2_vispoolassigner" machineName="{{ tc_machine }}" platform="wntx64">
-            <property id="aws2_addServerPeerAssigner" value="addServerPeerAssigner"/>
-            <property id="aws2_tcVisPoolAssignerInstallationPath" value="{{ paths.tc_root}}"/>
-            <property id="aws2_visPoolAssignerHostAlias" value="{{ tc_machine }}"/>
-            <property id="aws2_visServerPeerAssignerHost" value=""/>
-            <property id="aws2_visServerPeerAssignerPort" value="30066"/>
-            <property id="aws2_visServerPoolAssignerClientFacingPort" value="8089"/>
-            <property id="aws2_visServerPoolAssignerPort" value="30066"/>
-            <property id="aws2_visServerPoolAssignerURL" value="https://{{ tc_machine }}:8089/VisProxyServlet"/>
-            <property id="aws2_vispoolassigner.UseSSL" value="https"/>
-            <property id="aws2_vispoolassigner_Tc4TierConOptions" value="directConnectionToWebtier"/>
-        </component>
-        <component id="aws2_visservermanager" machineName="{{ tc_machine }}" platform="wntx64">
-            <property id="aws2_enableCacheMode" value="true"/>
-            <property id="aws2_maxServerPoolCount" value="30"/>
-            <property id="aws2_minWarmServerCount" value="8"/>
-            <property id="aws2_serverPoolMgrId" value="VisServerManager871"/>
-            <property id="aws2_serverPoolOverrideLocalHost" value="{{ tc_machine }}"/>
-            <property id="aws2_serverPoolOverrideLocalHostPort" value="30077"/>
-            <property id="aws2_serverPoolOverrideLocalHostSettings" value="overrideLocalNodeSettings"/>
-            <property id="aws2_serverPoolPort" value="8090"/>
-            <property id="aws2_tcVisServerManagerInstallationPath" value="{{ paths.tc_root}}"/>
-            <property id="aws2_visServerManagerHostAlias" value="{{ tc_machine }}"/>
-            <property id="aws2_visservermanager.UseSSL" value="https"/>
-        </component>
         <component id="fnd0_Plantcad2Tc" machineName="{{ tc_machine }}" platform="wntx64">
             <property id="COMOS_BASE_URL" value=""/>
             <property id="fnd0_Plantcad2Tc.COMOS_OPTION" value="false"/>
@@ -497,6 +499,7 @@
             <property id="fnd0_ReadExprMgrStartTime" value=""/>
             <property id="fnd0_corporateserver_osUserName" value="PLM\yytcawpt"/>
             <property id="fnd0_corporateserver_osUserPassword" value="{{ passwords.machine_password }}" encrypted="false"/>
+            <property id="fnd0_corporateserver_symmetricIdentifier" value="false"/>
             <property id="fnd0_corporateserver_tcAdminPasswordChangeOptions" value="Deployment Center"/>
             <property id="fnd0_enableReadExpMgrService" value="true"/>
             <property id="fnd0_enableRevCfgAccService" value="true"/>
@@ -623,7 +626,6 @@
             <property id="fnd0_osUserOptions" value="thisAccount"/>
             <property id="fnd0_primaryEncryptionKey" value=""/>
             <property id="fnd0_singleAuthFSCPort" value="4545"/>
-            <property id="fnd0_useDSSLite" value="false"/>
             <connectedTo component="fnd0_fsc_group" machineName="fsc">
                 <property id="fnd0_fsc_group_instance" value="FSC Group Instance1"/>
             </connectedTo>
@@ -656,8 +658,12 @@
             <property id="fnd0_httpsconfig_domainName" value="net.plm.eds.com"/>
             <property id="fnd0_httpsconfig_isGenerateCertificate" value="true"/>
             <property id="fnd0_httpsconfig_javaCacertPassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_httpsconfig_keyStorePassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_httpsconfig_keyStorePath" value="{{ paths.tc_root }}\https_config\{{ tc_machine }}_keystore.p12"/>
             <property id="fnd0_httpsconfig_privateKeyPathInput" value=""/>
             <property id="fnd0_httpsconfig_subjectAltNames" value=""/>
+            <property id="fnd0_httpsconfig_trustStorePassword" value="{{ passwords.infodba_password}}" encrypted="false"/>
+            <property id="fnd0_httpsconfig_trustStorePath" value="{{ paths.tc_root }}\https_config\{{ tc_machine }}_truststore.p12"/>
         </component>
         <component id="fnd0_j2ee_tcwebtier" machineName="{{ tc_machine }}" platform="wntx64">
             <property id="fnd0_j2ee_4tierURI" value="http://{{ tc_machine }}:7001/tc"/>
@@ -682,7 +688,7 @@
             <property id="fnd0_tcLincensingPort" value="29000"/>
         </component>
         <component id="fnd0_microservice" machineName="{{ tc_machine }}" platform="wntx64">
-            <property id="aws2_rm_microservicesBootstrapClientIP" value=""/>
+            <property id="aws2_rm_microservicesBootstrapClientIP" value="{{ bootstrap_machine }}"/>
             <property id="fnd0_TcProcessManager_service" value="Teamcenter Process Manager"/>
             <property id="fnd0_configsvc_port" value="5353"/>
             <property id="fnd0_display_microservice_url" value="http://{{ tc_machine }}:9090/"/>
@@ -692,9 +698,10 @@
             <property id="fnd0_microservice_protocol" value="http"/>
             <property id="fnd0_microservice_url" value="http://{{ tc_machine }}:9090/,"/>
             <property id="fnd0_msType" value="master"/>
-            <property id="fnd0_ms_cfg0configuratorServicesInstance" value="0"/>
+            <property id="fnd0_ms_cfg0configuratorServicesInstance" value="1"/>
             <property id="fnd0_ms_cfg0configuratorServices_storage_path" value="{{ paths.tc_root}}\cfgservices"/>
             <property id="fnd0_ms_classificationaiservingInstance" value="1"/>
+            <property id="fnd0_ms_commandpredictionInstance" value="1"/>
             <property id="fnd0_ms_darsiInstance" value="1"/>
             <property id="fnd0_ms_eureka_serverInstance" value="1"/>
             <property id="fnd0_ms_file_repoInstance" value="1"/>
@@ -708,6 +715,7 @@
             <property id="fnd0_ms_req_import_serviceInstance" value="1"/>
             <property id="fnd0_ms_service_dispatcherInstance" value="1"/>
             <property id="fnd0_ms_sysmlv2_serviceInstance" value="1"/>
+            <property id="fnd0_ms_tccbackendInstance" value="1"/>
             <property id="fnd0_ms_tcgqlInstance" value="1"/>
             <property id="fnd0_ms_tcvismicroserviceInstance" value="1"/>
             <property id="fnd0_ms_xccshareserviceInstance" value="1"/>

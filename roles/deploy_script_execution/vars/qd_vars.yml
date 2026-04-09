@@ -1,13 +1,14 @@
 # Software versions
-foundation_version: 2606:20260129.00
+foundation_version: "{{ foundation_version }}"
 dmp_version: 7.0
 docmgt_version: 7.0
 pse_version: 7.0
 wf_version: 7.0
 
 # Machine names
-tc_machine: REPLACE
-db_machine: REPLACE
+tc_machine: "{{ tc_machine }}"
+db_machine: "{{ db_machine }}"
+bootstrap_machine: "{{ bootstrap_machine }}"
 
 # Paths
 paths:
@@ -24,3 +25,4 @@ passwords:
   if_admin_password: IFAdmin
   infodba_password: pw_infodba
   dispatcherclient_proxy_password: dcproxy
+  cmdpred_db_password: PredictiveDB
